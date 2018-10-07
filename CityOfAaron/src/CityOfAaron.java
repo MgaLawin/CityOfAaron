@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package harvestwheat;
 
 /**
  *
  * @author Jeremy
  */
-public class HarvestWheat {
+public class CityOfAaron {
 
     /**
      * @param args the command line arguments
