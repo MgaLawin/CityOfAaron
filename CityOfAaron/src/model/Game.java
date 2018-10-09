@@ -19,6 +19,10 @@ public class Game implements Serializable {
     private int currentPopulation;
     private int acresOwned;
     private int wheatInStorage;
+    
+    public Game(){
+       // empty constructor for Javabeans
+    }
 
     public Player getThePlayer() {
         return thePlayer;
@@ -27,7 +31,31 @@ public class Game implements Serializable {
     public void setThePlayer(Player thePlayer) {
         this.thePlayer = thePlayer;
     }
+    
+    public Map getTheMap(){
+       return theMap;
+    }
 
+    public void setTheMap(Map theMap){
+       this.theMap = theMap;
+    }
+    
+    public Storehouse getTheStorehouse(){
+       return theStorehouse;
+    }
+    
+    public void setTheStorehouse(Storehouse theStorehouse){
+       this.theStorehouse = theStorehouse;
+    }
+    
+    public int getCurrentPopulation(){
+       return currentPopulation;
+    }
+    
+    public void setCurrentPopulation(int currentPopulation){
+       this.currentPopulation = currentPopulation;
+    }
+    
     @Override
     public String toString() {
         return "Game{"
