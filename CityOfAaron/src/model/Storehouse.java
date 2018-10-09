@@ -34,19 +34,33 @@ public class Storehouse implements Serializable {
         return animals;
     }
 
-    public void setAnimals(
-
-        (Animal[] animals) {
+    public void setAnimals(Animal[] animals) {
         this.animals = animals;
+    }
+
+    public InventoryItem[] getTools() {
+        return tools;
+    }
+
+    public void setTools(InventoryItem[] tools) {
+        this.tools = tools;
+    }
+
+    public Provision[] getProvisions() {
+        return provisions;
+    }
+
+    public void getProvisions(Provision[] provisions) {
+        this.provisions = provisions;
     }
 
     @Override
     public String toString() {
         return "Storehouse{"
-                + "authors" + author
-                + "animals" + animal
-                + "mapSymbols" + mapSymbol
-                + "gameTips" + gameTips
+                + "authors" + authors
+                + "animals" + animals
+                + "tools" + tools
+                + "provisions" + provisions
                 + "}";
     }
 
