@@ -7,15 +7,9 @@ package model;
 
 /**
  *
-<<<<<<< HEAD
  * @author DIDIM
  */
 public enum Condition {
     Good, Fair, Poor;
-=======
- * @author Jeremy
- */
-public enum Condition {
 
->>>>>>> 97c6a5c9e9b695d108fce405263b2ef99c5e5bf1
 }
