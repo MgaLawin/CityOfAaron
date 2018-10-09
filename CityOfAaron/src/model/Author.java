@@ -11,11 +11,12 @@ import java.io.Serializable;
  *
  * @author Jeremy
  */
-public class Player implements Serializable {
+public class Author implements Serializable {
 
     private String name;
+    private String title;
 
-    public Player() {
+    public Author() {
         // empty constructor for Javabeans
     }
 
@@ -27,10 +28,19 @@ public class Player implements Serializable {
         this.name = name;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     @Override
     public String toString() {
-        return "Player{"
+        return "Author{"
                 + "name" + name
+                + "title" + title
                 + "}";
     }
 
