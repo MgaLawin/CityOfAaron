@@ -11,6 +11,10 @@ package model;
  */
 public class Player {
    
+   public Player(){
+      // empty constructor for Javabeans
+   }
+   
    @Override
    public String toString(){
       return "Player class coming soon";

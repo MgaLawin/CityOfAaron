@@ -11,6 +11,10 @@ package model;
  */
 public class Map {
    
+   public Map(){
+      // empty constructor for Javabeans
+   }
+   
    @Override
    public String toString(){
       return "Map class coming soon";

@@ -11,6 +11,10 @@ package model;
  */
 public class Storehouse {
    
+   public Storehouse(){
+      // empty constructor for Javabeans
+   }
+   
    @Override
    public String toString(){
       return "Storehouse class coming soon";
