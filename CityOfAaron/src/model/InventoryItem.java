@@ -27,7 +27,7 @@ public class InventoryItem  implements Serializable{
     public void setquantity(int quantity){
         this.quantity= quantity;
     }
-     
+    
     public Condition getcondition(){
         return condition;
     }
