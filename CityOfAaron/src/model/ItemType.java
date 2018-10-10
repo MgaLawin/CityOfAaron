@@ -10,6 +10,8 @@ package model;
  * @author DIDIM
  */
 public enum ItemType {
-    Animal, Author, Provision, Tool;
-
+    Animal , 
+    Author , 
+    Provision ,
+    Tool;
 }
