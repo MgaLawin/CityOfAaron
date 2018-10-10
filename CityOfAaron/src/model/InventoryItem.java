@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,43 +12,28 @@ import java.io.Serializable;
  * @author DIDIM
  */
 public class InventoryItem  implements Serializable{
-    private String name;
-    private ItemType(enum) ItemType;
-    private int quanity;
-    private Condition(enum) condition;
+    private  ItemType ItemType;
+    private int quantity;
+    private Condition condition;
 
-    public String getName() {
-        return name;
+    public ItemType getItemType(){
+        return ItemType;
     }
-
-    public void setName(String name) {
-        this.name = name;
+                
+    public int getquantity(){
+        return quantity;
     }
     
-    public enum getItemType(){
-        return: ItemType;
-    }       
-    
-    public void setItemType(enum Item Type type){
-        this.Itemtype= ItemType;
-    }
-
-    public int getQuantity();{
-        return: quantity;
-    }
-    
-    public void setQuantity(int quantity){
+    public void setquantity(int quantity){
         this.quantity= quantity;
     }
-
-    public enum getCondition(){
-        return: condition;
+     
+    public Condition getcondition(){
+        return condition;
     }
     
-    public void setCondition(enum Condition condition){
-        this.Condition= Condition;
-    }
-
+    
+    
 }
 
 
