@@ -35,7 +35,7 @@ public class Map implements Serializable{
    public String toString(){
       return "Map{" 
               + "locations" + locations
-              + "currentLocation" + currentLocation
+              + ", currentLocation" + currentLocation
               + "}";
    }
    
