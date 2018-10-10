@@ -8,6 +8,7 @@ import model.Game;
 import model.Player;
 import model.Storehouse;
 import model.Map;
+
 /**
  *
  * @author Jeremy
@@ -26,7 +27,7 @@ public class CityOfAaron {
         theGame.setCurrentPopulation(105);
         theGame.setAcresOwned(2000);
         theGame.setWheatInStorage(15000);
-        
+
         System.out.println(theGame.toString());
     }
 
