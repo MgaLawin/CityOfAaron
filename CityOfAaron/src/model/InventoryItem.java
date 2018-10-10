@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class InventoryItem  implements Serializable{
     private String name;
     private ItemType(enum) ItemType;
-    private int quanity
+    private int quanity;
     private Condition(enum) condition;
 
     public String getName() {
@@ -25,6 +25,30 @@ public class InventoryItem  implements Serializable{
         this.name = name;
     }
     
-   public ItemType getName() 
+    public enum getItemType(){
+        return: ItemType;
+    }       
+    
+    public void setItemType(enum Item Type type){
+        this.Itemtype= ItemType;
+    }
+
+    public int getQuantity();{
+        return: quantity;
+    }
+    
+    public void setQuantity(int quantity){
+        this.quantity= quantity;
+    }
+
+    public enum getCondition(){
+        return: condition;
+    }
+    
+    public void setCondition(enum Condition condition){
+        this.Condition= Condition;
+    }
+
 }
+
 

@@ -55,6 +55,22 @@ public class Game implements Serializable {
     public void setCurrentPopulation(int currentPopulation){
        this.currentPopulation = currentPopulation;
     }
+
+    public void setacresOwned(){
+        return: acresOwned;
+    }
+    
+    public int getacresOwned(int acresOwned){
+        this.acresOwned= acresOwned;
+    }    
+    
+    public int getwheatInStorage(){
+        return: wheatInStorage;
+    } 
+    
+    public void setwheatInStorage(int wheatInStorage){
+        this.wheatInStorage= wheatInStorage;
+       }
     
     @Override
     public String toString() {
