@@ -32,8 +32,5 @@ public class InventoryItem  implements Serializable{
         return condition;
     }
     
-    
-    
+      
 }
-
-

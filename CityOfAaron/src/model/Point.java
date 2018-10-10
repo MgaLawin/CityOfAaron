@@ -38,7 +38,7 @@ public class Point implements Serializable{
    public String toString(){
       return "Point{"
               + "row" + row 
-              + "column" + column
+              + ", column" + column
               + "}";
    }
    
