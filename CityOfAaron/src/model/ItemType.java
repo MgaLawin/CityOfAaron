@@ -5,13 +5,15 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author DIDIM
  */
 public enum ItemType {
-    Animal , 
-    Author , 
-    Provision ,
+    Animal,
+    Author,
+    Provision,
     Tool;
 }

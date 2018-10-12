@@ -5,28 +5,31 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Deon
  */
 public class Provision {
-private String name;
-private boolean perishable;
 
-public String getname(){
-    return name;
-}
+    private String name;
+    private boolean perishable;
 
-public void setname(String name){
-    this.name= name;   
-}
+    public String getname() {
+        return name;
+    }
 
-public boolean getperishable(){
-    return perishable;
-}
+    public void setname(String name) {
+        this.name = name;
+    }
 
-public void setperishable(boolean perishable){
-    this.perishable= perishable;
-}
+    public boolean getperishable() {
+        return perishable;
+    }
+
+    public void setperishable(boolean perishable) {
+        this.perishable = perishable;
+    }
 
 }

@@ -5,11 +5,14 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Deon
  */
 public class Animal {
+
     private String name;
     private int age;
 
@@ -28,5 +31,5 @@ public class Animal {
     public void setAge(int age) {
         this.age = age;
     }
-    
+
 }

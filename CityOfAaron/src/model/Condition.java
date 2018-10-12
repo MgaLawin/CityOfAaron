@@ -5,13 +5,15 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author DIDIM
  */
 public enum Condition {
     Good,
-    Fair, 
+    Fair,
     Poor;
 
 }
