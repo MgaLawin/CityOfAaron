@@ -13,7 +13,6 @@ import java.io.Serializable;
  */
 public enum ItemType {
     Animal,
-    Author,
     Provision,
     Tool;
 }
