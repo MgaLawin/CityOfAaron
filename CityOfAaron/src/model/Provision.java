@@ -11,18 +11,9 @@ import java.io.Serializable;
  *
  * @author Deon
  */
-public class Provision {
+public class Provision extends InventoryItem {
 
-    private String name;
     private boolean perishable;
-
-    public String getname() {
-        return name;
-    }
-
-    public void setname(String name) {
-        this.name = name;
-    }
 
     public boolean getperishable() {
         return perishable;
