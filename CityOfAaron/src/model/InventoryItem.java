@@ -51,6 +51,8 @@ public class InventoryItem implements Serializable {
                 + " condition=" + condition + ", "
                 + "name="  + name
                 + '}';
+
+ 
     }
 
     
