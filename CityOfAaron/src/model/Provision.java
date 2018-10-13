@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author Deon
  */
-public class Provision extends InventoryItem {
+public class Provision extends InventoryItem implements Serializable {
 
     private boolean perishable;
 
@@ -23,4 +23,10 @@ public class Provision extends InventoryItem {
         this.perishable = perishable;
     }
 
+    @Override
+    public String toString() {
+        return "Provision{" + "perishable=" + perishable + '}';
+    }
+
+    
 }

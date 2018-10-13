@@ -43,4 +43,16 @@ public class InventoryItem implements Serializable {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "InventoryItem{" 
+                + "ItemType=" +  ItemType + ","
+                + " quantity="  + quantity + ","
+                + " condition=" + condition + ", "
+                + "name="  + name
+                + '}';
+    }
+
+    
+    
 }

@@ -23,4 +23,9 @@ public class Animal extends InventoryItem {
         this.age = age;
     }
 
-}
+    @Override
+    public String toString() {
+        return "Animal{" + "age=" + age + '}';
+    }
+
+  }
