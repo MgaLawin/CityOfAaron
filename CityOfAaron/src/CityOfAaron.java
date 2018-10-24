@@ -29,6 +29,7 @@ public class CityOfAaron {
         theGame.setWheatInStorage(15000);
 
         System.out.println(theGame.toString());
+        
     }
 
 }
