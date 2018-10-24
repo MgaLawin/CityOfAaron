@@ -5,31 +5,45 @@
  */
 package control;
 
+import java.util.Random;
+import java.text.*;
+
 /**
  *
  * @author chelseawaite
  */
 public class GameControl {
    
+private static Random randomGenerator  = new Random();
 
-public static int getRandomNumber(int lowNumber, int HighNumber){
+// create a a protected random number object for testing
+protected static void setRandomGenerator(Random random){
+    randomGenerator = random;
+}
+
+
+public static int getRandomNumber(int lowNumber, int highNumber){
 
     //if low < 0 or high< 0 then return -1
-    
+    if (lowNumber < 0 || highNumber <0){
+        return -1;
+    }
     
     //if high <= low return -2
-    
+     if (highNumber <= lowNumber){
+         return -2;
+     }
     
     //if high is the max value for the integers return -3
-    
-    
-    //return low and random(range size)
-    
-    
-    // return something to make the function work- will change later
-    
-    return -1;
+    if (highNumber == Integer.MAX_VALUE){
+        return -3;
+    }
+    // calculate the size of the range and add one so Random() includes highNumber
+    int range = (highNumber - lowNumber) + 1;
 
+//return low and random(range size)
+   return lowNumber + randomGenerator.nextInt(range);
+  
 }
 
 
@@ -38,14 +52,6 @@ public static String createNewGame(String playerName){
         
     return "Game"; 
 }
-
-//private static String saveGameToFile(Game game, String filename){
-//    
-//    
-//    
-//         return void;
-//}
-
 
 
 }
