@@ -31,7 +31,8 @@ public class WheatControl {
         // percentLost = getRandomNumber(low, high) * .01--turn this into a fraction
         
         //return wheatInStorage * percentLost --will need to be turned back into an int
-    
+        
+    //return -100; //DEON you can change this, I just added this return so that it won't give an error when I tried to run my code -Chelsea
     }
     
     public static int calculateHarvest(int tithingPercent, int acresPlanted){
