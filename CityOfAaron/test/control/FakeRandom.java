@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author DIDIM
 * Trying out the fake random for testing.
 */
-public class FakeRandom {
+public class FakeRandom extends Random{
     
     //Random in serializable 
     private static final long serialVersionUID = 1L;
