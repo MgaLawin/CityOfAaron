@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  *
  * @author DIDIM
  */
-public class WheatControlTest {
+public class WheatControlTest extends GameControl {
     
     public WheatControlTest() {
     }

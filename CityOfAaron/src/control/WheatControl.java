@@ -12,6 +12,9 @@ package control;
 public class WheatControl {
 
     public static int calculateLossToRats(double tithingPercent, int wheatInStorage){
+        int high;
+        int low;
+        double percentLost;
         //calculate the amount of wheat in storage lost to rats, based on the percentage of tithing paid. 
         
         //if wheatinStorage <=0 then return -1
@@ -34,30 +37,30 @@ public class WheatControl {
         
         //if tithingPercent < 8 then low =6, high = 10
         if (tithingPercent < 8) {
-         int low = 6;
-         int hight = 8;
+         low = 6;
+         high = 8;
+         
         }
         
         //if tithingPercent >=9 and tithingPercent <=12 then low=3 high =7,
-         if (tithingPercent >= 9 && tithingPercent <= 12) {
-           int low= 3;
-           int high = 7;
+        else if (tithingPercent >= 9 && tithingPercent <= 12) {
+         low= 3;
+          high = 7;
         }
-        
-        //if tithingPercent > 12 then low=3 and high =5
-         if (tithingPercent < 12) {
-          int low=3;
-          int high= 5;
-          
-        }
+         //if tithingPercent > 12 then low=3 and high =5
+        else {
+          low=3;
+          high= 5;
+           }
         
         // percentLost = getRandomNumber(low, high) * .01--turn this into a fraction
-        int percentLost = (getRandomNumber( low,  high) * .01);
+           percentLost = (GameControl.getRandomNumber( low,  high) * .01);
         
         //return wheatInStorage * percentLost --will need to be turned back into an int
-        return (wheatInStorage * percentLost);
+        return (int) (wheatInStorage * percentLost);
     
     }
+    
     
     public static int calculateHarvest(int tithingPercent, int acresPlanted){
         //    Calculate the amount of wheat harvested, based on the percentage of tithing paid. Assume that the gameControl.getRandomNumber(low,high) is avaliable to be called 
