@@ -13,7 +13,8 @@ public class WheatControlTest {
     }
 
     /**
-     * Test of calculateLossToRats method, of class WheatControl1. Deon's
+     * Test of calculateLossToRats method, of class WheatControl1. 
+     * Deon's Testing
      */
     @Test
     //boundary testing wheat in storage is 0  return 0
@@ -36,7 +37,7 @@ public class WheatControlTest {
     }
 
     @Test
-    // invalid percentage of negative tithing
+    // invalid percentage of negative tithing 
     public void testCalculateLossToRats1() {
         int result = WheatControl.calculateLossToRats(-.0001, 1);
         assertEquals(-2, result);
@@ -136,7 +137,8 @@ public class WheatControlTest {
     }
 
     /**
-     * Test of calculateHarvest method, of class WheatControl1. Jeremy's
+     * Test of calculateHarvest method, of class WheatControl1. 
+     * Jeremy's Testing
      */
     //valid test for tithingPercent > 12 Random num=5
     @Test
