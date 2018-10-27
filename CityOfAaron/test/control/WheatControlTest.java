@@ -18,6 +18,7 @@ public class WheatControlTest {
      */
     @Test
     //boundary testing wheat in storage is 0  return 0
+    //invalid testing wheat in storag is 0  return -1
     public void testCalculateLossToRats() {
         System.out.println("calculateLossToRats");
         int tithingPercent = 8;
@@ -50,6 +51,7 @@ public class WheatControlTest {
         assertEquals(-2, result);
 
     }
+
     @Test
     // invalid percentage of tithing over 100%
     public void testCalculateLossToRats3() {

@@ -109,8 +109,9 @@ public class WheatControl {
 //        }           // this should be taken care of in the tithingPercentage function not here, the last else statement should take care of the parameters
 
 //yield= GameControl.getRandomNumber(low, high)
+        int yield = GameControl.getRandomNumber(low, high);
 
-        int yield = GameControl.getRandomNumber(low,  high);
+        yield = GameControl.getRandomNumber(low,  high);
 
 // return yield * acresPlanted
         return (yield * acresPlanted);
