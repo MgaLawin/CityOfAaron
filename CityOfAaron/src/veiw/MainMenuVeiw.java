@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * @author kanderson
  */
-public class MainMenu {
+public class MainMenuVeiw {
     
     
     /**
@@ -18,18 +18,20 @@ public class MainMenu {
     /**
      * Constructor
      */
-    public ViewTemplate(){
+    public MainMenuVeiw(){
         
-        message = "This is the message that is printed to the user by this view.\n"
-                + "You have three tasks:\n"
-                + "1 - Replace this message text with the text that is specific to your view.\n"
-                + "2 - Replace this list with menu options that are specific to your view.\n"
-                + "\n"
-                + "3 - Prompt the user for what they are expected to enter.\n";
+        message = "Main Menu\n"
+                + "-------------\n"
+                + "N - Start a New Game\n"
+                + "L - Load a Saved Game\n"
+                + "H - Help Menu\n"
+                + "Q - Quit\n";
                 
     }
     
     
+    
+    /////This is not going to change for the rest of the semester
     /**
      * Get the user's input. Keep prompting them until they enter a value.
      * @param prompt
@@ -73,6 +75,9 @@ public class MainMenu {
     protected String getUserInput(String prompt){
         return getUserInput(prompt, false);
     }
+    /////This is not going to change for the rest of the semester end
+    
+    
     
     /**
      * Get the set of inputs from the user.
@@ -99,15 +104,18 @@ public class MainMenu {
      * should exit and return to the previous view.
      */
     public boolean doAction(String[] inputs){
-        // Act on the user's input.
-        // This is a "dispatch" function that decides what
-        // other functions to call. You can use an if-, if-else,
-        // or switch statement.
-        
-        // return false if you want this view to exit and return
-        // to the view that called it.
-        someActionHandler();
-        
+       
+       switch (inputs[0].trim().toUpperCase()) {
+          case "N";
+            startNewGame();
+            break;
+          case "L";
+            loadSavedGame();
+            break;
+          case "Q";
+            System.out.println("Thank you for playing. Bye.");
+            return false;
+       }
         return true;
     }
     
@@ -128,6 +136,19 @@ public class MainMenu {
         }
     }
     
+    
+    private void startNewGame(){
+       NewGameVeiw view = new NewGameView();
+       veiw.displayVeiw();
+    }
+    
+    private void helpMenu(){
+       System.out.println("helpMenu() called. Jeremy is doing that this week.");
+    }
+    
+    private void loadSavedGame(){
+       System.out.println("loadSavedGame() called. coming soon");
+    }
     
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of 
