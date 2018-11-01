@@ -2,13 +2,12 @@
 package view;
 
 import java.util.Scanner;
-import veiw.NewGameView;
 
 /**
  *
  * @author kanderson
  */
-public class MainMenuVeiw {
+public class MainMenuView {
     
     
     /**
@@ -19,7 +18,7 @@ public class MainMenuVeiw {
     /**
      * Constructor
      */
-    public MainMenuVeiw(){
+    public MainMenuView(){
         
         message = "Main Menu\n"
                 + "-------------\n"
@@ -106,13 +105,16 @@ public class MainMenuVeiw {
      */
     public boolean doAction(String[] inputs){
        
-       switch (inputs[0].trim().toUpperCase()) {
+        switch (inputs[0].trim().toUpperCase()) {
           case "N":
             startNewGame();
             break;
           case "L":
             loadSavedGame();
             break;
+          case "H":
+              helpMenu();
+              break;
           case "Q":
             System.out.println("Thank you for playing. Bye.");
             return false;
@@ -139,8 +141,8 @@ public class MainMenuVeiw {
     
     
     private void startNewGame(){
-       NewGameVeiw view = new NewGameView();
-       veiw.displayVeiw();
+       NewGameView view = new NewGameView();
+       view.displayView();
     }
     
     private void helpMenu(){

@@ -1,8 +1,8 @@
 
-package veiw;
+package view;
 
 import java.util.Scanner;
-import veiw.NewGameView;
+import view.MainMenuView;
 
 /**
  *
@@ -141,17 +141,16 @@ public class StartProgramVeiw {
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
     
-     private void startNewGame(){
-       NewGameView view = new NewGameView();
-       view.displayView();
-    }
+     private void startMainMenuView(){
+         try{
+             Thread.sleep(1500);
+         }catch(InterruptedException exception){
+                     //ignore this exception for now
+                     }
+             MainMenuView mainMenu = new MainMenuView();
+             mainMenu.displayView();
+         }
+     }
+   
     
-    private void helpMenu(){
-       System.out.println("helpMenu() called. Jeremy is doing that this week.");
-    }
-    
-    private void loadSavedGame(){
-       System.out.println("loadSavedGame() called. coming soon");
-    }
-    
-}
+

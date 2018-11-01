@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package veiw;
+package view;
 
-import CityOfAaron.cityofaaron;
-import model.player;
+import cityofaaron.CityOfAaron;
+import model.Player;
 import model.Game;
-import.java.util.Scanner;
+import java.util.Scanner;
 
 /**
  *
@@ -25,7 +25,7 @@ public class NewGameView {
     /**
      * Constructor
      */
-    public ViewTemplate(){
+    public NewGameView(){
         
         message = "Let's start a new game!\n"
                 
@@ -90,7 +90,7 @@ public class NewGameView {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("Please enter your name, or hit the 'enter' key to return to the Main menu:");
+        inputs[0] = getUserInput("Please enter your name, or hit the 'enter' key to return to the Main menu:", true);
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -104,12 +104,12 @@ public class NewGameView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
-    public boolean doAction(String[] inputs){
-        // Act on the user's input.
-        // This is a "dispatch" function that decides what
-        // other functions to call. You can use an if-, if-else,
-        // or switch statement.
-        if (inputs[0] == null || inputs[0].equals("")){
+    public boolean doAction(String[] inputs) {
+        // only one action- initialize the game
+        // and then set it in the main cityofaaron class
+        
+        // If the user hits enter go back to main menu by returning false
+        if (inputs[0] == null || inputs[0].equals("")) {
             System.out.println("You did not enter a valid name. Returning to the Main menu. . . ");
             return false;
         }
@@ -117,6 +117,7 @@ public class NewGameView {
         // to the view that called it.
         String PlayerName= inputs[0];
         createAndStartGame(playerName);
+        
         //return false so we do not keep looping
         return false;
         
@@ -124,7 +125,7 @@ public class NewGameView {
     
     
     /**
-     * Control this view's display/prompt/action loop until the user
+     * Control this views display/prompt/action loop until the user
      * chooses and action that causes this view to close.
      */
     public void displayView(){
@@ -141,18 +142,21 @@ public class NewGameView {
     
     
     private void createAndStartGame(String playerName){
-        // This will be done at a later date
+        // not done yet
+        //Game game = GameControl.createNewGame((playerName);
+        
+        //so we will just do this for this week
         
         Player player = new Player();
         player.setName(playerName);
         
-        Game game = new Game;
+        Game game = new Game();
         game.setThePlayer(player);
         
-        cityofaaron.SetCurrentGame(game);
+        CityOfAaron.SetCurrentGame(game);
         
         System.out.println();
-        System.out.println("Welcome to the game, " + cityofaaron.getCurrentGame().getThePlayer().getName() + "!\n"
+        System.out.println("Welcome to the game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n"
                                     +"Next week we will have a GameMenuView that you can see, but for now,\n"
                                     + "we are just going to send you back to the main menu. Sorry.\n");
         
