@@ -2,6 +2,7 @@
 package view;
 
 import java.util.Scanner;
+import veiw.NewGameView;
 
 /**
  *
@@ -18,18 +19,17 @@ public class StartProgramVeiw {
     /**
      * Constructor
      */
-    public ViewTemplate(){
+    public StartProgramVeiw() {
         
-        message = "This is the message that is printed to the user by this view.\n"
-                + "You have three tasks:\n"
-                + "1 - Replace this message text with the text that is specific to your view.\n"
-                + "2 - Replace this list with menu options that are specific to your view.\n"
-                + "\n"
-                + "3 - Prompt the user for what they are expected to enter.\n";
-                
+        message = "Welcome to the city of Aaron. You have been summonded here by the Priest to assume\n"
+                + " your role as ruler of the city. Your responsibility is to buy and sell land, determine how much\n "
+                + "wheat to plant each year and how much to set aside to feed the people. In addition, it will be \n"
+                + "your job to pay an annual tithe on the wheat that is harvested. If you fail to provide enough \n"
+                + "wheat for the people, people will starve, some people will die, and your workforce will be diminished. \n"
+                + "Plan carefully. And Oh, there is always a danger of rats eating your wheat..\n";
+                      
     }
-    
-    
+       
     /**
      * Get the user's input. Keep prompting them until they enter a value.
      * @param prompt
@@ -84,7 +84,7 @@ public class StartProgramVeiw {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("Change this text to prompt the user for the input.");
+        inputs[0] = getUserInput("What would you like to do? Enter 'N' for a New Game. Enter 'L' to Load a saved game. Enter 'H' to access the Help Menu. Enter 'Q' to Quit.", true);
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -103,15 +103,24 @@ public class StartProgramVeiw {
         // This is a "dispatch" function that decides what
         // other functions to call. You can use an if-, if-else,
         // or switch statement.
-        
-        // return false if you want this view to exit and return
-        // to the view that called it.
-        someActionHandler();
-        
+        switch (inputs[0].trim().toUpperCase()) {
+          case "N":
+            startNewGame();
+            break;
+          case "L":
+            loadSavedGame();
+            break;
+          case "H":
+              helpMenu();
+              break;
+          case "Q":
+            System.out.println("Thank you for playing. Bye.");
+            return false;
+       }
         return true;
     }
-    
-    
+     
+        
     /**
      * Control this view's display/prompt/action loop until the user
      * chooses and action that causes this view to close.
@@ -134,14 +143,17 @@ public class StartProgramVeiw {
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
     
-    private boolean someActionHandler(){
-        // Define whatever code you need here to accomplish the action.
-        // You can make this a void method if you want. Whatever you need 
-        // here, you are free to do.
-        //
-        // Generally, though, this is where you will call into your Control
-        // classes to do the work of the application.
-        
-        return true;
+     private void startNewGame(){
+       NewGameVeiw view = new NewGameView();
+       veiw.displayVeiw();
     }
+    
+    private void helpMenu(){
+       System.out.println("helpMenu() called. Jeremy is doing that this week.");
+    }
+    
+    private void loadSavedGame(){
+       System.out.println("loadSavedGame() called. coming soon");
+    }
+    
 }

@@ -2,6 +2,7 @@
 package view;
 
 import java.util.Scanner;
+import veiw.NewGameView;
 
 /**
  *
@@ -106,13 +107,13 @@ public class MainMenuVeiw {
     public boolean doAction(String[] inputs){
        
        switch (inputs[0].trim().toUpperCase()) {
-          case "N";
+          case "N":
             startNewGame();
             break;
-          case "L";
+          case "L":
             loadSavedGame();
             break;
-          case "Q";
+          case "Q":
             System.out.println("Thank you for playing. Bye.");
             return false;
        }
