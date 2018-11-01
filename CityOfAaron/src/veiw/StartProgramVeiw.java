@@ -1,5 +1,5 @@
 
-package view;
+package veiw;
 
 import java.util.Scanner;
 import veiw.NewGameView;
@@ -21,12 +21,12 @@ public class StartProgramVeiw {
      */
     public StartProgramVeiw() {
         
-        message = "Welcome to the city of Aaron. You have been summonded here by the Priest to assume\n"
-                + " your role as ruler of the city. Your responsibility is to buy and sell land, determine how much\n "
-                + "wheat to plant each year and how much to set aside to feed the people. In addition, it will be \n"
-                + "your job to pay an annual tithe on the wheat that is harvested. If you fail to provide enough \n"
-                + "wheat for the people, people will starve, some people will die, and your workforce will be diminished. \n"
-                + "Plan carefully. And Oh, there is always a danger of rats eating your wheat..\n";
+        message = "Welcome to the city of Aaron. You have been chosen be the chief ruler in the city\n"
+                + " Your responsibilities are to buy and sell land, determine how much wheat to plant each year\n "
+                + "and how much to set aside to feed the people. You are also responsible to pay the annual thithing on the \n"
+                + "wheat that is harvested. If you fail to provide enough wheat for the people, people will starve, some people will die, \n"
+                + "and your workforce will be diminished. If too many people die you will be kicked out of office and  the game will end.\n"
+                + "Plan carefully. Also beware, there is always a danger of rats eating your wheat..\n";
                       
     }
        
@@ -63,8 +63,7 @@ public class StartProgramVeiw {
         return input;
     }
     
-    
-    /**
+       /**
      * An overloaded version of getUserInput that sets allowEmpty to false so we don't have 
      * to type it ourselves.
      * @param prompt
@@ -84,7 +83,7 @@ public class StartProgramVeiw {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("What would you like to do? Enter 'N' for a New Game. Enter 'L' to Load a saved game. Enter 'H' to access the Help Menu. Enter 'Q' to Quit.", true);
+        inputs[0] = getUserInput("What would you like to do?\n Enter 'N' for a New Game.\n Enter 'L' to Load a saved game. \n Enter 'H' to access the Help Menu.\n Enter 'Q' to Quit.", true);
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -99,25 +98,24 @@ public class StartProgramVeiw {
      * should exit and return to the previous view.
      */
     public boolean doAction(String[] inputs){
-        // Act on the user's input.
-        // This is a "dispatch" function that decides what
-        // other functions to call. You can use an if-, if-else,
-        // or switch statement.
-        switch (inputs[0].trim().toUpperCase()) {
-          case "N":
-            startNewGame();
-            break;
-          case "L":
-            loadSavedGame();
-            break;
-          case "H":
-              helpMenu();
-              break;
-          case "Q":
-            System.out.println("Thank you for playing. Bye.");
-            return false;
-       }
-        return true;
+        // There are no inputs for this view we are just going to pause for a few seconds and then load the main menu 
+        // Which should display this
+//        switch (inputs[0].trim().toUpperCase()) {
+//          case "N":
+//            startNewGame();
+//            break;
+//          case "L":
+//            loadSavedGame();
+//            break;
+//          case "H":
+//              helpMenu();
+//              break;
+//          case "Q":
+//            System.out.println("Thank you for playing. Bye.");
+//            return false;
+//       }
+        startMainMenuView();
+        return false;
     }
      
         
@@ -144,8 +142,8 @@ public class StartProgramVeiw {
     
     
      private void startNewGame(){
-       NewGameVeiw view = new NewGameView();
-       veiw.displayVeiw();
+       NewGameView view = new NewGameView();
+       view.displayView();
     }
     
     private void helpMenu(){
