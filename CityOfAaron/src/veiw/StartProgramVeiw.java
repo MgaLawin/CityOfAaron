@@ -1,19 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 
 import java.util.Scanner;
 
 /**
  *
- * @author chelseawaite
+ * @author kanderson
  */
-public class GettingHelp {
-   
-}
+public class StartProgramVeiw {
+    
     
     /**
      * The message that will be displayed by this view.
