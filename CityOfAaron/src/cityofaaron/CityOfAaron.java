@@ -43,7 +43,7 @@ public class CityOfAaron {
         System.out.println(theGame.toString());
         
         StartProgramView startProgramView = new StartProgramView();
-        new StartProgramView.displayView();
+        startProgramView.displayView();
         
     }
 

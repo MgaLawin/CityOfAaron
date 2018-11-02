@@ -2,7 +2,7 @@
 package view;
 
 import java.util.Scanner;
-import view.MainMenuView;
+
 
 /**
  *
@@ -120,7 +120,7 @@ public class StartProgramView {
      
         
     /**
-     * Control this view's display/prompt/action loop until the user
+     * Control this views display/prompt/action loop until the user
      * chooses and action that causes this view to close.
      */
     public void displayView(){
