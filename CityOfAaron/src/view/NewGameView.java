@@ -27,12 +27,8 @@ public class NewGameView {
      */
     public NewGameView(){
         
-        message = "Let's start a new game!\n"
-                
-                + "2 - Replace this list with menu options that are specific to your view.\n"
-                + "\n"
-                + "3 - Prompt the user for what they are expected to enter.\n";
-                
+        message = "Let's start a new game!\n";
+                                       
     }
     
     
@@ -115,7 +111,7 @@ public class NewGameView {
         }
         // return false if you want this view to exit and return
         // to the view that called it.
-        String PlayerName= inputs[0];
+        String playerName= inputs[0];
         createAndStartGame(playerName);
         
         //return false so we do not keep looping
@@ -153,7 +149,7 @@ public class NewGameView {
         Game game = new Game();
         game.setThePlayer(player);
         
-        CityOfAaron.SetCurrentGame(game);
+        CityOfAaron.setCurrentGame(game);
         
         System.out.println();
         System.out.println("Welcome to the game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n"

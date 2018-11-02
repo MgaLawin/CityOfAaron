@@ -8,7 +8,7 @@ import view.MainMenuView;
  *
  * @author kanderson
  */
-public class StartProgramVeiw {
+public class StartProgramView {
     
     
     /**
@@ -19,7 +19,7 @@ public class StartProgramVeiw {
     /**
      * Constructor
      */
-    public StartProgramVeiw() {
+    public StartProgramView() {
         
         message = "Welcome to the city of Aaron. You have been chosen be the chief ruler in the city\n"
                 + " Your responsibilities are to buy and sell land, determine how much wheat to plant each year\n "

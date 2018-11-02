@@ -10,6 +10,7 @@ import model.Game;
 import model.Player;
 import model.Storehouse;
 import model.Map;
+import view.StartProgramView;
 
 /**
  *
@@ -39,8 +40,10 @@ public class CityOfAaron {
         theGame.setCurrentPopulation(105);
         theGame.setAcresOwned(2000);
         theGame.setWheatInStorage(15000);
-
         System.out.println(theGame.toString());
+        
+        StartProgramView startProgramView = new StartProgramView();
+        new StartProgramView.displayView();
         
     }
 

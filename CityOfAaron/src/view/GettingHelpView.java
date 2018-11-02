@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author chelseawaite
  */
-public class GettingHelpVeiw {
+public class GettingHelpView {
    
 }
     
