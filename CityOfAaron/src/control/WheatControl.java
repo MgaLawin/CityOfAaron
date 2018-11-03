@@ -87,21 +87,16 @@ public class WheatControl {
         } else if (tithingPercent > 12) {
             low = 2;
             high = 5;
-        } else if (tithingPercent > 8) {
+        } else if (tithingPercent >= 8) {
             low = 2;
             high = 4;
-        } else if (tithingPercent <= 8) {
+        } else {
             low = 1;
             high = 3;
         }
-//        } else {
-//            System.out.println("Invalid Tithing Percentage!");
-//        }           // this should be taken care of in the tithingPercentage function not here, the last else statement should take care of the parameters
 
 //yield= GameControl.getRandomNumber(low, high)
         int yield = GameControl.getRandomNumber(low, high);
-
-        yield = GameControl.getRandomNumber(low, high);
 
 // return yield * acresPlanted
         return (yield * acresPlanted);
