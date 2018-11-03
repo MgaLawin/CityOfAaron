@@ -26,7 +26,7 @@ public class GettingHelpView {
                 + "D - How do I move to another location?\n"
                 + "E - How do I display a list of animals, provisions and tools in the city storehouse?\n"
                 + "-------------\n"
-                + "M - Go back to the Main Menu.\n";
+                + "Q - Quit back to the Main Menu.\n";
 
     }
 
@@ -87,7 +87,7 @@ public class GettingHelpView {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("Please select a Help topic or press Enter to return to the main menu.");
+        inputs[0] = getUserInput("Please select a Help topic or press Enter to return to the main menu.\n Enter 'A' for Goals.\n Enter 'B' for the location of the city. \n Enter 'C' for viewing the map.\n Enter 'D' for moving to a new location.\n Enter 'E' for inventory reports.\n Enter 'Q' to Quit.", true);
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
@@ -142,7 +142,7 @@ public class GettingHelpView {
                         + "Reports Menu\n"
                         + "Select the option for the report you would like to view\n");
                 break;
-            case "M":
+            case "Q":
                 System.out.println("Returning to Main Menu...");
                 return false;
         }
@@ -168,14 +168,13 @@ public class GettingHelpView {
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of
     // complex game stuff in our doAction() method. It will get messy very quickly.
-    private boolean someActionHandler() {
-        // Define whatever code you need here to accomplish the action.
-        // You can make this a void method if you want. Whatever you need
-        // here, you are free to do.
-        //
-        // Generally, though, this is where you will call into your Control
-        // classes to do the work of the application.
-
-        return true;
+    private void startGettingHelpView() {
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException exception) {
+            //ignore this exception for now
+        }
+        GettingHelpView helpMenu = new GettingHelpView();
+        helpMenu.displayView();
     }
 }
