@@ -144,8 +144,8 @@ public class WheatControlTest {
     public void testCalculateHarvest1() {
         //create fake number
         FakeRandom fakeRandom = new FakeRandom();
-        fakeRandom.add(5);
         GameControl.setRandomGenerator(fakeRandom);
+        fakeRandom.add(5);
 
         System.out.println("calculateHarvest");
         int tithingPercent = 13;
@@ -160,8 +160,8 @@ public class WheatControlTest {
     public void testCalculateHarvest2() {
         //create fake number
         FakeRandom fakeRandom = new FakeRandom();
-        fakeRandom.add(4);
         GameControl.setRandomGenerator(fakeRandom);
+        fakeRandom.add(4);
 
         int result = WheatControl.calculateHarvest(10, 10);
         assertEquals(60, result);
@@ -172,8 +172,9 @@ public class WheatControlTest {
     public void testCalculateHarvest3() {
         //create fake number
         FakeRandom fakeRandom = new FakeRandom();
-        fakeRandom.add(3);
         GameControl.setRandomGenerator(fakeRandom);
+        fakeRandom.add(3);
+
         int result = WheatControl.calculateHarvest(7, 10);
         assertEquals(40, result);
     }
@@ -206,6 +207,7 @@ public class WheatControlTest {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandomGenerator(fakeRandom);
         fakeRandom.add(1);
+
         int result = WheatControl.calculateHarvest(0, 10);
         assertEquals(20, result);
     }
@@ -217,6 +219,7 @@ public class WheatControlTest {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandomGenerator(fakeRandom);
         fakeRandom.add(4);
+
         int result = WheatControl.calculateHarvest(10, 0);
         assertEquals(0, result);
     }
