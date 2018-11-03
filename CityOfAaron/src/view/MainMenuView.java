@@ -2,6 +2,7 @@
 package view;
 
 import java.util.Scanner;
+import view.GettingHelpView;
 
 /**
  *
@@ -89,7 +90,7 @@ public class MainMenuView {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("Change this text to prompt the user for the input.");
+        inputs[0] = getUserInput("What would you like to do?.");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -146,7 +147,8 @@ public class MainMenuView {
     }
     
     private void helpMenu(){
-       System.out.println("helpMenu() called. Jeremy is doing that this week.");
+       GettingHelpView view = new GettingHelpView();
+       view.displayView();
     }
     
     private void loadSavedGame(){
