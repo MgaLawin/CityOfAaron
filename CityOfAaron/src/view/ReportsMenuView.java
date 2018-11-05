@@ -2,16 +2,14 @@
 package view;
 
 import java.util.Scanner;
-import view.GettingHelpView;
 
 /**
  *
- * @author kanderson
+ * @author chelseawaite
  */
-public class MainMenuView {
-    
-    
-    /**
+public class ReportsMenuView {
+   
+/**
      * The message that will be displayed by this view.
      */
     protected String message;
@@ -19,17 +17,16 @@ public class MainMenuView {
     /**
      * Constructor
      */
-    public MainMenuView(){
+    public ReportsMenuView(){
         
-        message = "Main Menu\n"
+        message = "Reports Menu\n"
                 + "-------------\n"
-                + "N - Start a New Game\n"
-                + "L - Load a Saved Game\n"
-                + "H - Help Menu\n"
-                + "Q - Quit\n";
+                + "A - View the animals in the storehouse.\n"
+                + "T - View the tools in the storehouse.\n"
+                + "P - View the provisions in the storehouse. \n"
+                + "G - View the authors of this game.\n";
                 
     }
-    
     
     
     /////This is not going to change for the rest of the semester
@@ -76,7 +73,8 @@ public class MainMenuView {
     protected String getUserInput(String prompt){
         return getUserInput(prompt, false);
     }
-    /////This is not going to change for the rest of the semester end
+    
+         /////This is not going to change for the rest of the semester end
     
     
     
@@ -107,18 +105,18 @@ public class MainMenuView {
     public boolean doAction(String[] inputs){
        
         switch (inputs[0].trim().toUpperCase()) {
-          case "N":
-            startNewGame();
+          case "A":
+            animalsInStorehouse();
             break;
-          case "L":
-            loadSavedGame();
+          case "T":
+            toolsInStorehouse();
             break;
-          case "H":
-              helpMenu();
+          case "P":
+              provisionsInStorehouse();
               break;
-          case "Q":
-            System.out.println("Thank you for playing. Bye.");
-            return false;
+          case "G":
+            authorsView();
+              break;
        }
         return true;
     }
@@ -140,22 +138,21 @@ public class MainMenuView {
         }
     }
     
-    
-    private void startNewGame(){
-       NewGameView view = new NewGameView();
-       view.displayView();
+    private void animalsInStorehouse(){
+       System.out.println("animalsInStorehouse will be coming soon.");
     }
     
-    private void helpMenu(){
-       GettingHelpView view = new GettingHelpView();
-       view.displayView();
+    private void toolsInStorehouse(){
+       System.out.println("toolsInStorehouse will be coming soon.");
     }
     
-    private void loadSavedGame(){
-       loadSavedGame view = new loadSavedGame();
-       view.displayView();
+    private void provisionsInStorehouse(){
+       System.out.println("provisionsInStorehouse will be coming soon.");
     }
     
+    private void authorsView(){
+       System.out.println("authorsView will be coming soon.");
+    }
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of 
     // complex game stuff in our doAction() method. It will get messy very quickly.
@@ -172,3 +169,4 @@ public class MainMenuView {
         return true;
     }
 }
+

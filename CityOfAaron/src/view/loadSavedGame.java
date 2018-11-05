@@ -2,16 +2,14 @@
 package view;
 
 import java.util.Scanner;
-import view.GettingHelpView;
 
 /**
  *
- * @author kanderson
+ * @author chelseawaite
  */
-public class MainMenuView {
-    
-    
-    /**
+public class loadSavedGame {
+   
+/**
      * The message that will be displayed by this view.
      */
     protected String message;
@@ -19,14 +17,11 @@ public class MainMenuView {
     /**
      * Constructor
      */
-    public MainMenuView(){
+    public loadSavedGame(){
         
-        message = "Main Menu\n"
-                + "-------------\n"
-                + "N - Start a New Game\n"
-                + "L - Load a Saved Game\n"
-                + "H - Help Menu\n"
-                + "Q - Quit\n";
+        message = "Lets find your saved game!\n"
+                ;
+                
                 
     }
     
@@ -76,9 +71,9 @@ public class MainMenuView {
     protected String getUserInput(String prompt){
         return getUserInput(prompt, false);
     }
-    /////This is not going to change for the rest of the semester end
     
     
+     /////This is not going to change for the rest of the semester end
     
     /**
      * Get the set of inputs from the user.
@@ -90,7 +85,7 @@ public class MainMenuView {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("What would you like to do?.");
+        inputs[0] = getUserInput("What is the file name for the saved game? or hit the 'enter' key to return to the Main menu");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -104,23 +99,20 @@ public class MainMenuView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
-    public boolean doAction(String[] inputs){
-       
-        switch (inputs[0].trim().toUpperCase()) {
-          case "N":
-            startNewGame();
-            break;
-          case "L":
-            loadSavedGame();
-            break;
-          case "H":
-              helpMenu();
-              break;
-          case "Q":
-            System.out.println("Thank you for playing. Bye.");
+    public boolean doAction(String[] inputs) {
+        // only one action- initialize the game
+        // and then set it in the main cityofaaron class
+        
+        // If the user hits enter go back to main menu by returning false
+        if (inputs[0] == null || inputs[0].equals("")) {
+            System.out.println("You did not enter a valid name. Returning to the Main menu. . . ");
             return false;
-       }
-        return true;
+        }
+       
+      
+        //return false so we do not keep looping
+        return false;
+        
     }
     
     
@@ -141,27 +133,12 @@ public class MainMenuView {
     }
     
     
-    private void startNewGame(){
-       NewGameView view = new NewGameView();
-       view.displayView();
-    }
-    
-    private void helpMenu(){
-       GettingHelpView view = new GettingHelpView();
-       view.displayView();
-    }
-    
-    private void loadSavedGame(){
-       loadSavedGame view = new loadSavedGame();
-       view.displayView();
-    }
-    
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of 
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
     
-    private boolean someActionHandler(){
+    private boolean findSavedGame(){
         // Define whatever code you need here to accomplish the action.
         // You can make this a void method if you want. Whatever you need 
         // here, you are free to do.
