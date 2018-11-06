@@ -19,7 +19,7 @@ public class LiveTheYearView {
     public LiveTheYearView() {
 
         message = "Live the Year\n"
-                + "-------------------\n"
+                + "--------------------\n"
                 + "E - End Year and Calculate Results\n"
                 + "Q - Return to Game Menu - Do not end the year yet.";
 
