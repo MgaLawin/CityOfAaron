@@ -85,7 +85,9 @@ public class loadSavedGame {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("What is the file name for the saved game? or hit the 'enter' key to return to the Main menu");
+        inputs[0] = getUserInput("(Sorry this will be working in week 12)\n"
+                + " What is the file name for the saved game? \n "
+                + "or hit the 'R' key to return to the Main menu");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -102,14 +104,12 @@ public class loadSavedGame {
     public boolean doAction(String[] inputs) {
         // only one action- initialize the game
         // and then set it in the main cityofaaron class
-        
         // If the user hits enter go back to main menu by returning false
         if (inputs[0] == null || inputs[0].equals("")) {
             System.out.println("You did not enter a valid name. Returning to the Main menu. . . ");
             return false;
         }
-       
-      
+        
         //return false so we do not keep looping
         return false;
         
