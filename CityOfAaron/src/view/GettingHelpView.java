@@ -87,7 +87,7 @@ public class GettingHelpView {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("Please select a Help topic or press Enter to return to the main menu.\n Enter 'A' for Goals.\n Enter 'B' for the location of the city. \n Enter 'C' for viewing the map.\n Enter 'D' for moving to a new location.\n Enter 'E' for inventory reports.\n Enter 'Q' to Quit.", true);
+        inputs[0] = getUserInput("Please select a Help topic or press Enter to return to the main menu.", true);
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
