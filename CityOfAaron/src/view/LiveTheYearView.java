@@ -20,7 +20,7 @@ public class LiveTheYearView {
 
         message = "Live the Year\n"
                 + "--------------------\n"
-                + "E - End Year and Calculate Results\n"
+                + "E - End the Year and Calculate the Results\n"
                 + "Q - Return to Game Menu - Do not end the year yet.";
 
     }
@@ -84,7 +84,7 @@ public class LiveTheYearView {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("What would you like to do?.");
+        inputs[0] = getUserInput("What would you like to do?");
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
