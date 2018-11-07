@@ -154,7 +154,7 @@ public class ManageTheCropsView {
     }
 
     private void plantCrops() {
-        System.out.println("plantCrops ccoming soon.");
+        System.out.println("plantCrops coming soon.");
     }
 
     private void payTithesAndOfferings() {
