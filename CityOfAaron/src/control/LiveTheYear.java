@@ -1,5 +1,8 @@
 package control;
 
+import model.AnnualReport;
+import model.Game;
+
 /**
  *
  * @author Jeremy
@@ -26,26 +29,27 @@ public class LiveTheYear {
         }
 
         AnnualReport report = new AnnualReport();
-        report.setLandPrice(LandControl.getCurrentLandPrice());
 
+        //uncomment code once methods and variables are created in appropriate locations
+        //report.setLandPrice(LandControl.getCurrentLandPrice());
         int totalWheat = game.getWheatInStorage();
 
         int harvested = WheatControl.calculateHarvest(tithingPercent, acresPlanted);
-        int tithingPercent = (int) (double) ((tithingPercentagePaid / 100.0) * harvested);
+        //int tithingPercent = (int) (double) ((tithingPercentagePaid / 100.0) * harvested);
         int lostToRats = WheatControl.calculateLossToRats(tithingPercent, totalWheat);
 
         int peopleStarved = PeopleControl.calculateMortality(bushelsForFood, game.getCurrentPopulation());
-        int peopleMovedIn = PeopleControl.calculateNewMoveIns(game.getCurrentPopulation());
 
-        totalWheat = totalWheat + harvested - tithingAmount - lostToRats;
+        //int peopleMovedIn = PeopleControl.calculateNewMoveIns(game.getCurrentPopulation());
+        //totalWheat = totalWheat + harvested - tithingAmount - lostToRats;
         game.setWheatInStorage(totalWheat);
-        report.setCurrentPopulation(game.getCurrentPopulation() - peopleStarved + peopleMovedIn);
+        //report.setCurrentPopulation(game.getCurrentPopulation() - peopleStarved + peopleMovedIn);
 
         report.setBushelsHarvested(harvested);
-        report.setTithingAmount(tithingAmount);
+        //report.setTithingAmount(tithingAmount);
         report.setLostToRats(lostToRats);
         report.setPeopleStarved(peopleStarved);
-        report.setPeopleMovedIn(peopleMovedIn);
+        //report.setPeopleMovedIn(peopleMovedIn);
 
         report.setEndingWheatInStorage(game.getWheatInStorage());
         report.setEndingPopulation(game.getCurrentPopulation());

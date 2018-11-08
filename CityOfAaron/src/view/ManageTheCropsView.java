@@ -165,12 +165,7 @@ public class ManageTheCropsView {
     // method will call based on the user's input. We don't want to do a lot of
     // complex game stuff in our doAction() method. It will get messy very quickly.
     private boolean someActionHandler() {
-        // Define whatever code you need here to accomplish the action.
-        // You can make this a void method if you want. Whatever you need
-        // here, you are free to do.
-        //
-        // Generally, though, this is where you will call into your Control
-        // classes to do the work of the application.
+        // Eventually this will run processes to manage the crops
 
         return true;
     }
