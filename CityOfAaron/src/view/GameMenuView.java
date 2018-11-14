@@ -4,31 +4,30 @@ import java.util.Scanner;
 
 /**
  *
- * @author Jeremy
+ * @author DIDIM
  */
-public class ManageTheCropsView {
+//The Game Menu View controls the play of the game.
+public class GameMenuView {
 
-    /**
-     * The message that will be displayed by this view.
-     */
     protected String message;
 
     /**
      * Constructor
      */
-    public ManageTheCropsView() {
+    public GameMenuView() {
 
-        message = "Manage the Crops\n"
-                + "--------------------------\n"
-                + "B - Buy Land\n"
-                + "S - Sell Land\n"
-                + "F - Feed the People\n"
-                + "P - Plant Crops\n"
-                + "T - Pay Tithes and Offerings\n"
-                + "Q - Return to the Game Menu\n";
+        message = "GameMenu\n"
+                + "-------------\n"
+                + "V - View the Map\n"
+                + "N - Move to a New Location\n"
+                + "C - Manage the Crops\n"
+                + "L - Live the year\n"
+                + "R - Reports Menu\n"
+                + "S - Save the Game\n"
+                + "M - Return to the Main Menu\n"
+                + "Q - Quit the Game";
     }
 
-    /////This is not going to change for the rest of the semester
     /**
      * Get the user's input. Keep prompting them until they enter a value.
      *
@@ -75,7 +74,6 @@ public class ManageTheCropsView {
         return getUserInput(prompt, false);
     }
 
-    /////This is not going to change for the rest of the semester end
     /**
      * Get the set of inputs from the user.
      *
@@ -87,7 +85,7 @@ public class ManageTheCropsView {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("What would you like to do?.");
+        inputs[0] = getUserInput("What would you like to do? Enter a Letter.");
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
@@ -103,23 +101,29 @@ public class ManageTheCropsView {
     public boolean doAction(String[] inputs) {
 
         switch (inputs[0].trim().toUpperCase()) {
-            case "B":
-                buyLand();
+            case "V":
+                ViewTheMapView();
+                break;
+            case "N":
+                MoveToNewLocation();
+                break;
+            case "C":
+                ManageTheCropsView();
+                break;
+//          case "L":
+//              LiveTheYear();
+//              break;
+            case "R":
+                ReportsMenuView();
                 break;
             case "S":
-                sellLand();
+                SaveTheMenu();
                 break;
-            case "F":
-                feedThePeople();
-                break;
-            case "P":
-                plantCrops();
-                break;
-            case "T":
-                payTithesAndOfferings();
+            case "M":
+                MainMenuView();
                 break;
             case "Q":
-                System.out.println("Returning to Game Menu...");
+                System.out.println("Thank you for playing. Bye.");
                 return false;
         }
         return true;
@@ -141,32 +145,50 @@ public class ManageTheCropsView {
         }
     }
 
-    private void buyLand() {
-        System.out.println("buyLand coming soon.");
+    private void MainMenuView() {
+        MainMenuView view = new MainMenuView();
+        view.displayView();
     }
 
-    private void sellLand() {
-        System.out.println("sellLand coming soon.");
+    private void SaveTheMenu() {
+        System.out.println("Save the Menu coming soon.");
     }
 
-    private void feedThePeople() {
-        System.out.println("feedThePeople coming soon.");
+    private void ReportsMenuView() {
+        ReportsMenuView view = new ReportsMenuView();
+        view.displayView();
     }
 
-    private void plantCrops() {
-        System.out.println("plantCrops coming soon.");
+    private void ManageTheCropsView() {
+        ManageTheCropsView view = new ManageTheCropsView();
+        view.displayView();
     }
 
-    private void payTithesAndOfferings() {
-        System.out.println("payTithesAndOfferings coming soon.");
+//    private void LiveTheYear() {
+//        LiveTheYear view = new LiveTheYear();
+//        view.displayView();
+//    }
+    private void MoveToNewLocation() {
+        System.out.println("Move to New Location coming soon.");
+    }
+
+    private void ViewTheMapView() {
+        ViewTheMapView view = new ViewTheMapView();
+        view.displayView();
     }
 
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of
     // complex game stuff in our doAction() method. It will get messy very quickly.
     private boolean someActionHandler() {
-        // Eventually this will run processes to manage the crops
+        // Define whatever code you need here to accomplish the action.
+        // You can make this a void method if you want. Whatever you need
+        // here, you are free to do.
+        //
+        // Generally, though, this is where you will call into your Control
+        // classes to do the work of the application.
 
         return true;
     }
+
 }

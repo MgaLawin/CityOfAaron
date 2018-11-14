@@ -138,10 +138,7 @@ public class NewGameView {
     
     
     private void createAndStartGame(String playerName){
-        // not done yet
-        //Game game = GameControl.createNewGame((playerName);
-        
-        //so we will just do this for this week
+         //Game game = GameControl.createNewGame((playerName);
         
         Player player = new Player();
         player.setName(playerName);
@@ -152,13 +149,10 @@ public class NewGameView {
         CityOfAaron.setCurrentGame(game);
         
         System.out.println();
-        System.out.println("Welcome to the game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n"
-                                    +"Next week we will have a GameMenuView that you can see, but for now,\n"
-                                    + "we are just going to send you back to the main menu. Sorry.\n");
-        
-        
+        System.out.println("Welcome to the game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n");
+                
         //when GameMenuView is created we will call it here.
-        //GameMenuView gameMenu= new GameMenuView();
-        //gameMenu.displayView();
+        GameMenuView gameMenu= new GameMenuView();
+        gameMenu.displayView();
     }
 }

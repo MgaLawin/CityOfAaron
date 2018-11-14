@@ -24,9 +24,7 @@ public class loadSavedGame {
                 
                 
     }
-    
-    
-    
+       
     /////This is not going to change for the rest of the semester
     /**
      * Get the user's input. Keep prompting them until they enter a value.
