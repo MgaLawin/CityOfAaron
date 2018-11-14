@@ -91,14 +91,13 @@ public abstract class ViewBase implements View {
     protected String getUserInput(String prompt) {
         return getUserInput(prompt, false);
     }
-
-    private void startMainMenuView() {
+    // pause the program for 1.5 seconds
+    protected static void pause(int miliseconds) {
         try {
             Thread.sleep(1500);
         } catch (InterruptedException exception) {
             //ignore this exception for now
         }
-        MainMenuView mainMenu = new MainMenuView();
-        mainMenu.displayView();
+        
     }
 }

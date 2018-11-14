@@ -102,21 +102,7 @@ public class StartProgramView {
      */
     public boolean doAction(String[] inputs) {
         // There are no inputs for this view we are just going to pause for a few seconds and then load the main menu
-        // Which should display this
-//        switch (inputs[0].trim().toUpperCase()) {
-//          case "N":
-//            startNewGame();
-//            break;
-//          case "L":
-//            loadSavedGame();
-//            break;
-//          case "H":
-//              helpMenu();
-//              break;
-//          case "Q":
-//            System.out.println("Thank you for playing. Bye.");
-//            return false;
-//       }
+
         startMainMenuView();
         return false;
     }
