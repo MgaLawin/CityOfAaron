@@ -9,6 +9,8 @@ package view;
  *
  * @author chelseawaite
  */
-public class View {
+public interface View {
    
+    
+    public void displayView();
 }
