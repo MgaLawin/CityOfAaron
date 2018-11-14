@@ -34,13 +34,11 @@ public class WheatControl {
         if (tithingPercent <= 8) {
             low = 6;
             high = 8;
-        } 
-        //if tithingPercent >8 and tithingPercent <=12 then low=3 high =7,
+        } //if tithingPercent >8 and tithingPercent <=12 then low=3 high =7,
         else if (tithingPercent > 8 && tithingPercent <= 12) {
             low = 3;
             high = 7;
-        } 
-        //if tithingPercent > 12 then low=3 and high =5
+        } //if tithingPercent > 12 then low=3 and high =5
         else {
             low = 3;
             high = 5;

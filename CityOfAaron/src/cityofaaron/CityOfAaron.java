@@ -5,7 +5,6 @@ package cityofaaron;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import model.Game;
 import model.Player;
 import model.Storehouse;
@@ -17,16 +16,16 @@ import view.StartProgramView;
  * @author Jeremy
  */
 public class CityOfAaron {
-   
-   public static Game currentGame = null;
-   
-   public static Game getCurrentGame(){
-      return currentGame;
-   }
-   
-   public static void setCurrentGame(Game game){
-      currentGame = game;
-   }
+
+    public static Game currentGame = null;
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game game) {
+        currentGame = game;
+    }
 
     /**
      * @param args the command line arguments
@@ -41,10 +40,10 @@ public class CityOfAaron {
         theGame.setAcresOwned(2000);
         theGame.setWheatInStorage(15000);
         System.out.println(theGame.toString());
-        
+
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayView();
-        
+
     }
 
 }

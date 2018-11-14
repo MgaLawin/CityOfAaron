@@ -28,5 +28,4 @@ public class Provision extends InventoryItem implements Serializable {
         return "Provision{" + "perishable=" + perishable + '}';
     }
 
-    
 }

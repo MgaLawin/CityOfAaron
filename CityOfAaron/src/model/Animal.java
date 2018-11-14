@@ -28,4 +28,4 @@ public class Animal extends InventoryItem {
         return "Animal{" + "age=" + age + '}';
     }
 
-  }
+}
