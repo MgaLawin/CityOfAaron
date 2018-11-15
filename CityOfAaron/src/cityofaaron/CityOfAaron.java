@@ -9,6 +9,7 @@ import model.Game;
 import model.Player;
 import model.Storehouse;
 import model.Map;
+import view.View;
 import view.StartProgramView;
 
 /**
@@ -41,7 +42,7 @@ public class CityOfAaron {
         theGame.setWheatInStorage(15000);
         System.out.println(theGame.toString());
 
-        StartProgramView startProgramView = new StartProgramView();
+        View startProgramView = new StartProgramView();
         startProgramView.displayView();
 
     }
