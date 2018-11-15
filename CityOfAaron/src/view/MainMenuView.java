@@ -9,19 +9,15 @@ import view.GettingHelpView;
  */
 public class MainMenuView extends ViewBase {
 
-
     /**
      * Constructor
      */
     public MainMenuView() {
 
-      
-
     }
-    
-    
+
     @Override
-    protected String getMessage(){
+    protected String getMessage() {
         return "Main Menu\n"
                 + "-------------\n"
                 + "N - Start a New Game\n"
@@ -29,8 +25,6 @@ public class MainMenuView extends ViewBase {
                 + "H - Help Menu\n"
                 + "Q - Quit\n";
     }
-
-    
 
     /**
      * Get the set of inputs from the user.
@@ -77,8 +71,6 @@ public class MainMenuView extends ViewBase {
         return true;
     }
 
-    
-
     private void startNewGame() {
         NewGameView view = new NewGameView();
         view.displayView();
@@ -93,19 +85,5 @@ public class MainMenuView extends ViewBase {
         LoadGameView view = new LoadGameView();
         view.displayView();
     }
-    
 
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input. We don't want to do a lot of
-    // complex game stuff in our doAction() method. It will get messy very quickly.
-    private boolean someActionHandler() {
-        // Define whatever code you need here to accomplish the action.
-        // You can make this a void method if you want. Whatever you need
-        // here, you are free to do.
-        //
-        // Generally, though, this is where you will call into your Control
-        // classes to do the work of the application.
-
-        return true;
-    }
 }

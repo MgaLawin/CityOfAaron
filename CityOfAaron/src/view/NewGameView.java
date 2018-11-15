@@ -22,8 +22,8 @@ public class NewGameView extends ViewBase {
     protected String getMessage() {
         return "Let's start a new game!\n";
     }
-//get the set of user inputs
 
+    //get the set of user inputs
     @Override
     public String[] getInputs() {
 
