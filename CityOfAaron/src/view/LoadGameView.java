@@ -6,7 +6,7 @@ import java.util.Scanner;
  *
  * @author chelseawaite
  */
-public class loadSavedGame {
+public class LoadGameView {
 
     /**
      * The message that will be displayed by this view.
@@ -16,7 +16,7 @@ public class loadSavedGame {
     /**
      * Constructor
      */
-    public loadSavedGame() {
+    public LoadGameView() {
 
         message = "Lets find your saved game!\n";
 
@@ -82,8 +82,7 @@ public class loadSavedGame {
         String[] inputs = new String[1];
 
         inputs[0] = getUserInput("(Sorry this will be working in week 12)\n"
-                + " What is the file name for the saved game? \n "
-                + "or hit the 'R' key to return to the Main menu");
+                + " What is the file name for the saved game? \n ");
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;

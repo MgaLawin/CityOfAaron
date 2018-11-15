@@ -146,9 +146,10 @@ public class MainMenuView {
     }
 
     private void loadSavedGame() {
-        loadSavedGame view = new loadSavedGame();
+        LoadGameView view = new LoadGameView();
         view.displayView();
     }
+    
 
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of
