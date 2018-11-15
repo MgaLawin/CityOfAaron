@@ -6,80 +6,33 @@ import java.util.Scanner;
  *
  * @author chelseawaite
  */
-public class ReportsMenuView {
+public class ReportsMenuView extends ViewBase {
 
-    /**
-     * The message that will be displayed by this view.
-     */
-    protected String message;
 
     /**
      * Constructor
      */
     public ReportsMenuView() {
 
-        message = "Reports Menu\n"
+
+    }
+    @Override
+    protected String getMessage(){
+        return "Reports Menu\n"
                 + "-------------\n"
                 + "A - View the animals in the storehouse.\n"
                 + "T - View the tools in the storehouse.\n"
                 + "P - View the provisions in the storehouse. \n"
                 + "G - View the authors of this game.\n";
-
     }
 
-    /////This is not going to change for the rest of the semester
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     *
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a
-     * return key)
-     * @return
-     */
-    protected String getUserInput(String prompt, boolean allowEmpty) {
-
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-
-        while (inputReceived == false) {
-
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-
-            // Make sure we avoid a null-pointer error.
-            if (input == null) {
-                input = "";
-            }
-
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-
-            if (input.equals("") == false || allowEmpty == true) {
-                inputReceived = true;
-            }
-        }
-
-        return input;
-    }
-
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we
-     * don't have to type it ourselves.
-     *
-     * @param prompt
-     * @return
-     */
-    protected String getUserInput(String prompt) {
-        return getUserInput(prompt, false);
-    }
-
-    /////This is not going to change for the rest of the semester end
+    
     /**
      * Get the set of inputs from the user.
      *
      * @return
      */
+    @Override
     public String[] getInputs() {
 
         // Declare the array to have the number of elements you intend to get
@@ -99,6 +52,7 @@ public class ReportsMenuView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs) {
 
         switch (inputs[0].trim().toUpperCase()) {
@@ -118,21 +72,7 @@ public class ReportsMenuView {
         return true;
     }
 
-    /**
-     * Control this view's display/prompt/action loop until the user chooses and
-     * action that causes this view to close.
-     */
-    public void displayView() {
-
-        boolean keepGoing = true;
-
-        while (keepGoing == true) {
-
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
-    }
+    
 
     private void animalsInStorehouse() {
         System.out.println("animalsInStorehouse will be coming soon.");

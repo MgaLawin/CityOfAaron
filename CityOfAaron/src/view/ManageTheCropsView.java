@@ -150,15 +150,18 @@ public class ManageTheCropsView {
     }
 
     private void feedThePeople() {
-        System.out.println("feedThePeople coming soon.");
+        FeedPeopleView view = new FeedPeopleView();
+        view.displayView();
     }
 
     private void plantCrops() {
-        System.out.println("plantCrops coming soon.");
+        PlantCropsView view = new PlantCropsView();
+        view.displayView();
     }
 
     private void payTithesAndOfferings() {
-        System.out.println("payTithesAndOfferings coming soon.");
+        PayTithingView view = new PayTithingView();
+        view.displayView();
     }
 
     // Define your action handlers here. These are the methods that your doAction()
