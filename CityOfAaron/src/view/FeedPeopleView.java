@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
-
 
 import java.util.Scanner;
 import view.GettingHelpView;
@@ -14,26 +8,18 @@ import view.GettingHelpView;
  * @author chelseawaite
  */
 public class FeedPeopleView extends ViewBase {
-    
-
-
 
     /**
      * Constructor
      */
     public FeedPeopleView() {
 
-      
-
     }
-    
-    
+
     @Override
-    protected String getMessage(){
+    protected String getMessage() {
         return "Time to feed your people!";
     }
-
-    
 
     /**
      * Get the set of inputs from the user.
@@ -68,9 +54,6 @@ public class FeedPeopleView extends ViewBase {
         //coming soon. This will be changed back to true
         return false;
     }
-
-   
-    
 
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of

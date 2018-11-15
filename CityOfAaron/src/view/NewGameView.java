@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import cityofaaron.CityOfAaron;
@@ -17,18 +12,19 @@ import view.ViewBase;
  */
 public class NewGameView extends ViewBase {
 
- /**
-  * Constructor
-  */
+    /**
+     * Constructor
+     */
     public NewGameView() {
     }
-@Override
-protected String getMessage(){
+
+    @Override
+    protected String getMessage() {
         return "Let's start a new game!\n";
-}
+    }
 //get the set of user inputs
 
-     @Override
+    @Override
     public String[] getInputs() {
 
         // Declare the array to have the number of elements you intend to get
@@ -43,6 +39,7 @@ protected String getMessage(){
 
     /**
      * Perform the action indicated by the user's input.
+     *
      * @param inputs
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.

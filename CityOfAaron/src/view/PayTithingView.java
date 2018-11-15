@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.util.Scanner;
@@ -11,26 +6,19 @@ import java.util.Scanner;
  *
  * @author chelseawaite
  */
-public class PayTithingView extends ViewBase{
-    
+public class PayTithingView extends ViewBase {
 
-
- /**
+    /**
      * Constructor
      */
     public PayTithingView() {
 
-      
-
     }
-    
-    
+
     @Override
-    protected String getMessage(){
+    protected String getMessage() {
         return "Time to give back to Heavenly Father.";
     }
-
-    
 
     /**
      * Get the set of inputs from the user.
@@ -66,9 +54,6 @@ public class PayTithingView extends ViewBase{
         return false;
     }
 
-   
-    
-
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of
     // complex game stuff in our doAction() method. It will get messy very quickly.
@@ -83,4 +68,3 @@ public class PayTithingView extends ViewBase{
         return true;
     }
 }
-

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.util.Scanner;
@@ -91,6 +86,7 @@ public abstract class ViewBase implements View {
     protected String getUserInput(String prompt) {
         return getUserInput(prompt, false);
     }
+
     // pause the program for 1.5 seconds
     protected static void pause(int miliseconds) {
         try {
@@ -98,6 +94,6 @@ public abstract class ViewBase implements View {
         } catch (InterruptedException exception) {
             //ignore this exception for now
         }
-        
+
     }
 }
