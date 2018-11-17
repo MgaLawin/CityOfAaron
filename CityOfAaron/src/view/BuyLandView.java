@@ -21,7 +21,7 @@ public class BuyLandView extends ViewBase {
     @Override
     protected String getMessage() {
 
-        return "How many acres of new land do you want to buy?\n";
+        return "Buy Land\n";
     }
 
     /**
@@ -57,8 +57,9 @@ public class BuyLandView extends ViewBase {
         //Make sure the player has enough wheat to make the purchase. If not, show a message and ask the user to enter the value again.
         //Add the number of acres purchased to the acres owned
         //Subtract the wheat used to purchase the land from the wheat in storage
+
         System.out.println("Code coming soon, for now we are returning you to the Manage the Crops Menu...");
-        return true;
+        return false;
     }
 
     // Define your action handlers here. These are the methods that your doAction()

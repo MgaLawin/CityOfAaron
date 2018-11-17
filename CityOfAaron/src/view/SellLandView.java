@@ -21,7 +21,7 @@ public class SellLandView extends ViewBase {
     @Override
     protected String getMessage() {
 
-        return "How many acres of land do you want to sell?\n";
+        return "Sell Land\n";
     }
 
     /**
@@ -59,7 +59,7 @@ public class SellLandView extends ViewBase {
         //Subtract the number of acres purchased from the acres owned
         //Add the wheat from the sale to the wheat in storage
         System.out.println("Code coming soon, for now we are returning you to the Manage the Crops Menu...");
-        return true;
+        return false;
     }
 
     // Define your action handlers here. These are the methods that your doAction()
