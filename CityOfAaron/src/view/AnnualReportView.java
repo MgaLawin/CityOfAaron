@@ -42,13 +42,8 @@ public class AnnualReportView extends ViewBase {
     @Override
     public String[] getInputs() {
 
-        // Declare the array to have the number of elements you intend to get
-        // from the user.
-        String[] inputs = new String[1];
-
-        inputs[0] = getUserInput("Are you ready to see the Annual Report?", true);
-
-        return inputs;
+        // This view is not interactive. It just shows the game description.
+        return null;
     }
 
     /**
