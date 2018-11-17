@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package view;
-import view.GameMenuView;
+
 /**
  *
  * @author DIDIM
@@ -27,7 +27,7 @@ public class EndGameView extends ViewBase {
     protected String getMessage() {
 
         return "\n\n****************************************************************************************\n"
-                + " Thank you for playing the game today. Your game has ended. "
+                + " Thank you for playing the game today. Your game has ended. \n"
                 + "Would you like to play again? Enter Y- to play again or N- to quit\n"            
                 + "******************************************************************************************\n";
 
@@ -44,7 +44,7 @@ public class EndGameView extends ViewBase {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("What would you like to do? Enter Y/N.");
+        inputs[0] = getUserInput("What would you like to do? Enter Y/N.\n");
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
@@ -60,15 +60,16 @@ public class EndGameView extends ViewBase {
      */
     @Override
     public boolean doAction(String[] inputs) {
-        // If the user hits y- display the game menu, if no display a goodbye message
+        // If the user hits y- display the main menu, if no display a goodbye message
         switch (inputs[0].trim().toUpperCase()) {
             case "Y":
-                GameMenuView();
+                MainMenuView();
                 break;
           
             case "N":
-                System.out.println("Thank you for playing. Good-Bye.");
-                return false;
+                System.out.println("Thank you for playing. Good-Bye.\n");
+                MainMenuView();
+                break;
         }
         return true;
     }
@@ -77,10 +78,10 @@ public class EndGameView extends ViewBase {
     // method will call based on the user's input. We don't want to do a lot of
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
-    private void GameMenuView() {
+    private void MainMenuView() {
         //Call the gamemenuview
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayView();
+        MainMenuView view = new MainMenuView();
+        view.displayView();
     }
     
        

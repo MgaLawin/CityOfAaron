@@ -1,8 +1,5 @@
 package view;
 
-import java.util.Scanner;
-import view.GettingHelpView;
-
 /**
  *
  * @author kanderson

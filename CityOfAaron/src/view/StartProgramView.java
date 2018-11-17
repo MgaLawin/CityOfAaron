@@ -55,7 +55,6 @@ public class StartProgramView extends ViewBase {
     @Override
     public boolean doAction(String[] inputs) {
         // There are no inputs for this view we are just going to pause for a few seconds and then load the main menu
-
         startMainMenuView();
         return false;
     }

@@ -43,7 +43,7 @@ public class SaveGameView extends ViewBase {
         String[] inputs = new String[1];
 
         inputs[0] = getUserInput("Please enter the name of your file where you would like to save your game\n" 
-            +"or hit the 'enter' key to return to the Main menu:", true);
+            +"This function is not available yet.. coming soon. You will be directed back to the Game Menu", true);
 
         return inputs;
     }

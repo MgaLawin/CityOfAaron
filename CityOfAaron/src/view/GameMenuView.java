@@ -4,6 +4,9 @@ package view;
  *
  * @author DIDIM
  */
+
+
+
 //The Game Menu View controls the play of the game.
 public class GameMenuView extends ViewBase {
 
@@ -16,7 +19,6 @@ public class GameMenuView extends ViewBase {
 
     }
 
-  
 @Override
     protected String getMessage() {
         return "GameMenu\n"
@@ -24,7 +26,6 @@ public class GameMenuView extends ViewBase {
                 + "V - View the Map\n"
                 + "N - Move to a New Location\n"
                 + "C - Manage the Crops\n"
-                + "L - Live the year\n"
                 + "R - Reports Menu\n"
                 + "S - Save the Game\n"
                 + "M - Return to the Main Menu\n"
@@ -73,14 +74,14 @@ public class GameMenuView extends ViewBase {
                 ReportsMenuView();
                 break;
             case "S":
-                SaveTheMenu();
+                SaveGameView();
                 break;
             case "M":
                 MainMenuView();
                 break;
             case "Q":
-                System.out.println("Thank you for playing. Bye.");
-                return false;
+                EndGameView();
+                break;
         }
         return true;
     }
@@ -98,8 +99,9 @@ public class GameMenuView extends ViewBase {
         view.displayView();
     }
 
-    private void SaveTheMenu() {
-        System.out.println("Save the Menu coming soon.");
+    private void SaveGameView() {
+        SaveGameView view = new SaveGameView();
+        view.displayView();
     }
 
     private void ReportsMenuView() {
@@ -113,12 +115,18 @@ public class GameMenuView extends ViewBase {
     }
 
     private void MoveToNewLocation() {
-        System.out.println("Move to New Location coming soon.");
+        MoveToNewLocation view = new MoveToNewLocation();
+        view.displayView();
     }
 
     private void ViewTheMapView() {
         ViewTheMapView view = new ViewTheMapView();
         view.displayView();
     }
-    
+
+    private void EndGameView() {
+        EndGameView view = new EndGameView();
+        view.displayView();
+    }
+       
 }
