@@ -87,6 +87,25 @@ public abstract class ViewBase implements View {
         return getUserInput(prompt, false);
     }
 
+    //TODO implement string to integer function in Buy and Sell Land views
+    /**
+     * Convert String to Integer.
+     *
+     * @param inputs
+     * @return integer value
+     */
+    protected static int stringToInt(String[] inputs) {
+        boolean inputValid = false;
+        int stringToInt = 0;
+        stringToInt = Integer.parseInt(inputs[0]);
+        if (stringToInt < 0) {
+            System.out.println("Please enter a positive number.");
+        } else {
+            inputValid = true;
+        }
+        return stringToInt;
+    }
+
     // pause the program for 1.5 seconds
     protected static void pause(int miliseconds) {
         try {
@@ -94,6 +113,5 @@ public abstract class ViewBase implements View {
         } catch (InterruptedException exception) {
             //ignore this exception for now
         }
-
     }
 }
