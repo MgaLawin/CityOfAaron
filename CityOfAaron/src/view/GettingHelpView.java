@@ -1,12 +1,10 @@
 package view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author JeremyHawks
  */
-public class GettingHelpView {
+public class GettingHelpView extends ViewBase {
 
     /**
      * The message that will be displayed by this view.
@@ -17,8 +15,13 @@ public class GettingHelpView {
      * Constructor
      */
     public GettingHelpView() {
+        super();
+    }
 
-        message = "Help Menu.\n"
+    @Override
+    protected String getMessage() {
+
+        return "Help Menu.\n"
                 + "-------------\n"
                 + "A - What are the goals of the game?\n"
                 + "B - Where is the City of Aaron?\n"
@@ -27,53 +30,6 @@ public class GettingHelpView {
                 + "E - How do I display a list of animals, provisions and tools in the city storehouse?\n"
                 + "-------------\n"
                 + "Q - Quit back to the Main Menu.\n";
-
-    }
-
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     *
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a
-     * return key)
-     * @return
-     */
-    protected String getUserInput(String prompt, boolean allowEmpty) {
-
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-
-        while (inputReceived == false) {
-
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-
-            // Make sure we avoid a null-pointer error.
-            if (input == null) {
-                input = "";
-            }
-
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-
-            if (input.equals("") == false || allowEmpty == true) {
-                inputReceived = true;
-            }
-        }
-
-        return input;
-    }
-
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we
-     * don't have to type it ourselves.
-     *
-     * @param prompt
-     * @return
-     */
-    protected String getUserInput(String prompt) {
-        return getUserInput(prompt, false);
     }
 
     /**
@@ -81,6 +37,7 @@ public class GettingHelpView {
      *
      * @return
      */
+    @Override
     public String[] getInputs() {
 
         // Declare the array to have the number of elements you intend to get
@@ -100,6 +57,7 @@ public class GettingHelpView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs) {
         // Act on the user's input.
         switch (inputs[0].trim().toUpperCase()) {
@@ -109,7 +67,7 @@ public class GettingHelpView {
                         + "The goal of the game is to be a successful leader.\n"
                         + "To be successful you must:\n"
                         + "-Increase your city's population\n"
-                        + "-Increase the size of your city\n"
+                        + "-Increase the size (acreage) of your city\n"
                         + "-Plant and harvest as many bushels of wheat as possible\n");
                 break;
             case "B":
@@ -149,32 +107,12 @@ public class GettingHelpView {
         return true;
     }
 
-    /**
-     * Control this view's display/prompt/action loop until the user chooses and
-     * action that causes this view to close.
-     */
-    public void displayView() {
-
-        boolean keepGoing = true;
-
-        while (keepGoing == true) {
-
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
-    }
-
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of
     // complex game stuff in our doAction() method. It will get messy very quickly.
     private void startGettingHelpView() {
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException exception) {
-            //ignore this exception for now
-        }
-        GettingHelpView helpMenu = new GettingHelpView();
+        pause(1500);
+        View helpMenu = new GettingHelpView();
         helpMenu.displayView();
     }
 }

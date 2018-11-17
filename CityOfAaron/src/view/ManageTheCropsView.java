@@ -1,12 +1,10 @@
 package view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Jeremy
  */
-public class ManageTheCropsView {
+public class ManageTheCropsView extends ViewBase {
 
     /**
      * The message that will be displayed by this view.
@@ -17,8 +15,13 @@ public class ManageTheCropsView {
      * Constructor
      */
     public ManageTheCropsView() {
+        super();
+    }
 
-        message = "Manage the Crops\n"
+    @Override
+    protected String getMessage() {
+
+        return "Manage the Crops\n"
                 + "--------------------------\n"
                 + "B - Buy Land\n"
                 + "S - Sell Land\n"
@@ -28,59 +31,7 @@ public class ManageTheCropsView {
                 + "Q - Return to the Game Menu\n";
     }
 
-    /////This is not going to change for the rest of the semester
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     *
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a
-     * return key)
-     * @return
-     */
-    protected String getUserInput(String prompt, boolean allowEmpty) {
-
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-
-        while (inputReceived == false) {
-
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-
-            // Make sure we avoid a null-pointer error.
-            if (input == null) {
-                input = "";
-            }
-
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-
-            if (input.equals("") == false || allowEmpty == true) {
-                inputReceived = true;
-            }
-        }
-
-        return input;
-    }
-
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we
-     * don't have to type it ourselves.
-     *
-     * @param prompt
-     * @return
-     */
-    protected String getUserInput(String prompt) {
-        return getUserInput(prompt, false);
-    }
-
-    /////This is not going to change for the rest of the semester end
-    /**
-     * Get the set of inputs from the user.
-     *
-     * @return
-     */
+    @Override
     public String[] getInputs() {
 
         // Declare the array to have the number of elements you intend to get
@@ -100,6 +51,7 @@ public class ManageTheCropsView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs) {
 
         switch (inputs[0].trim().toUpperCase()) {
@@ -125,42 +77,28 @@ public class ManageTheCropsView {
         return true;
     }
 
-    /**
-     * Control this view's display/prompt/action loop until the user chooses and
-     * action that causes this view to close.
-     */
-    public void displayView() {
-
-        boolean keepGoing = true;
-
-        while (keepGoing == true) {
-
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
-    }
-
     private void buyLand() {
-        System.out.println("buyLand coming soon.");
+        View view = new BuyLandView();
+        view.displayView();
     }
 
     private void sellLand() {
-        System.out.println("sellLand coming soon.");
+        View view = new SellLandView();
+        view.displayView();
     }
 
     private void feedThePeople() {
-        FeedPeopleView view = new FeedPeopleView();
+        View view = new FeedPeopleView();
         view.displayView();
     }
 
     private void plantCrops() {
-        PlantCropsView view = new PlantCropsView();
+        View view = new PlantCropsView();
         view.displayView();
     }
 
     private void payTithesAndOfferings() {
-        PayTithingView view = new PayTithingView();
+        View view = new PayTithingView();
         view.displayView();
     }
 
@@ -169,7 +107,7 @@ public class ManageTheCropsView {
     // complex game stuff in our doAction() method. It will get messy very quickly.
     private boolean someActionHandler() {
         // Eventually this will run processes to manage the crops
-
+        System.out.println("Actions to manage your crops will be implemented here soon.");
         return true;
     }
 }
