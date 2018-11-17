@@ -14,7 +14,12 @@ public class GameMenuView extends ViewBase {
      */
     public GameMenuView() {
 
-        message = "GameMenu\n"
+    }
+
+  
+@Override
+    protected String getMessage() {
+        return "GameMenu\n"
                 + "-------------\n"
                 + "V - View the Map\n"
                 + "N - Move to a New Location\n"
@@ -26,24 +31,12 @@ public class GameMenuView extends ViewBase {
                 + "Q - Quit the Game";
     }
 
-  
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we
-     * don't have to type it ourselves.
-     *
-     * @param prompt
-     * @return
-     */
-    @Override
-    protected String getUserInput(String prompt) {
-        return getUserInput(prompt, false);
-    }
-
     /**
      * Get the set of inputs from the user.
      *
      * @return
      */
+    @Override
     public String[] getInputs() {
 
         // Declare the array to have the number of elements you intend to get
@@ -76,9 +69,6 @@ public class GameMenuView extends ViewBase {
             case "C":
                 ManageTheCropsView();
                 break;
-//          case "L":
-//              LiveTheYear();
-//              break;
             case "R":
                 ReportsMenuView();
                 break;
@@ -95,7 +85,15 @@ public class GameMenuView extends ViewBase {
         return true;
     }
 
-       private void MainMenuView() {
+      
+    // Define your action handlers here. These are the methods that your doAction()
+    // method will call based on the user's input. We don't want to do a lot of
+    // complex game stuff in our doAction() method. It will get messy very quickly.
+    private boolean someActionHandler() {
+     
+        return true;
+    }
+ private void MainMenuView() {
         MainMenuView view = new MainMenuView();
         view.displayView();
     }
@@ -114,10 +112,6 @@ public class GameMenuView extends ViewBase {
         view.displayView();
     }
 
-//    private void LiveTheYear() {
-//        LiveTheYear view = new LiveTheYear();
-//        view.displayView();
-//    }
     private void MoveToNewLocation() {
         System.out.println("Move to New Location coming soon.");
     }
@@ -126,24 +120,5 @@ public class GameMenuView extends ViewBase {
         ViewTheMapView view = new ViewTheMapView();
         view.displayView();
     }
-
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input. We don't want to do a lot of
-    // complex game stuff in our doAction() method. It will get messy very quickly.
-    private boolean someActionHandler() {
-        // Define whatever code you need here to accomplish the action.
-        // You can make this a void method if you want. Whatever you need
-        // here, you are free to do.
-        //
-        // Generally, though, this is where you will call into your Control
-        // classes to do the work of the application.
-
-        return true;
-    }
-
-    @Override
-    protected String getMessage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
 }
