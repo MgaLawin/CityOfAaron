@@ -1,13 +1,11 @@
 package view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author DIDIM
  */
 //The Game Menu View controls the play of the game.
-public class GameMenuView {
+public class GameMenuView extends ViewBase {
 
     protected String message;
 
@@ -28,41 +26,7 @@ public class GameMenuView {
                 + "Q - Quit the Game";
     }
 
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     *
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a
-     * return key)
-     * @return
-     */
-    protected String getUserInput(String prompt, boolean allowEmpty) {
-
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-
-        while (inputReceived == false) {
-
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-
-            // Make sure we avoid a null-pointer error.
-            if (input == null) {
-                input = "";
-            }
-
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-
-            if (input.equals("") == false || allowEmpty == true) {
-                inputReceived = true;
-            }
-        }
-
-        return input;
-    }
-
+  
     /**
      * An overloaded version of getUserInput that sets allowEmpty to false so we
      * don't have to type it ourselves.
@@ -70,6 +34,7 @@ public class GameMenuView {
      * @param prompt
      * @return
      */
+    @Override
     protected String getUserInput(String prompt) {
         return getUserInput(prompt, false);
     }
@@ -98,6 +63,7 @@ public class GameMenuView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs) {
 
         switch (inputs[0].trim().toUpperCase()) {
@@ -129,23 +95,7 @@ public class GameMenuView {
         return true;
     }
 
-    /**
-     * Control this view's display/prompt/action loop until the user chooses and
-     * action that causes this view to close.
-     */
-    public void displayView() {
-
-        boolean keepGoing = true;
-
-        while (keepGoing == true) {
-
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
-    }
-
-    private void MainMenuView() {
+       private void MainMenuView() {
         MainMenuView view = new MainMenuView();
         view.displayView();
     }
@@ -189,6 +139,11 @@ public class GameMenuView {
         // classes to do the work of the application.
 
         return true;
+    }
+
+    @Override
+    protected String getMessage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
