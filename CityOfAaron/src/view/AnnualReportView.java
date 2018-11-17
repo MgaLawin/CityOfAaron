@@ -63,7 +63,7 @@ public class AnnualReportView extends ViewBase {
         //Display the number of bushels paid in offerings
         //Display the number of bushels lost to rats
         //Display the number of bushels in the storehouse
-        System.out.println("Code coming soon, for now we are returning you to the Manage the Crops Menu...");
+        System.out.println("Code coming soon, for now we are returning you to the Manage the Crops Menu...\n");
         return false;
     }
 

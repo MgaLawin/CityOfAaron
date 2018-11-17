@@ -58,7 +58,7 @@ public class SellLandView extends ViewBase {
         //Make sure the player has this much land to sell. If not, show a message and ask the user to enter the value again.
         //Subtract the number of acres purchased from the acres owned
         //Add the wheat from the sale to the wheat in storage
-        System.out.println("Code coming soon, for now we are returning you to the Manage the Crops Menu...");
+        System.out.println("Code coming soon, for now we are returning you to the Manage the Crops Menu...\n");
         return false;
     }
 
