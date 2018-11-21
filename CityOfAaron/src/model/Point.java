@@ -15,6 +15,11 @@ public class Point implements Serializable {
         // empty constructor for Javabeans
     }
 
+    public Point(int row, int column){
+       this.row = row;
+       this.column = column;
+    }
+    
     public int getRow() {
         return row;
     }

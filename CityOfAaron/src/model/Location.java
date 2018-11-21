@@ -16,6 +16,14 @@ public class Location extends Map implements Serializable {
     public Location() {
         // empty constructor for Javabeans
     }
+    
+    public Location(String mapSymbol, String name, String description, String[] tips){
+        setMapSymbol (mapSymbol);
+        setName(name);
+        setDescription(description);
+        setGameTips(tips);
+}
+
 
     public String getName() {
         return name;
