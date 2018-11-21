@@ -34,9 +34,9 @@ public class Point implements Serializable {
     @Override
     public String toString() {
         return "Point{"
-                + "row" + row
-                + ", column" + column
-                + "}";
+            + "row" + row
+            + ", column" + column
+            + "}";
     }
 
 }

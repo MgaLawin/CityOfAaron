@@ -34,9 +34,9 @@ public class Author implements Serializable {
     @Override
     public String toString() {
         return "Author{"
-                + "name" + name
-                + "title" + title
-                + "}";
+            + "name" + name
+            + "title" + title
+            + "}";
     }
 
 }

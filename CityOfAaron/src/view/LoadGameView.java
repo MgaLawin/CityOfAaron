@@ -6,23 +6,20 @@ import java.util.Scanner;
  *
  * @author chelseawaite
  */
-public class LoadGameView extends ViewBase{
-
+public class LoadGameView extends ViewBase {
 
     /**
      * Constructor
      */
     public LoadGameView() {
 
-
     }
+
     @Override
-    protected String getMessage(){
+    protected String getMessage() {
         return "Lets find your saved game!\n";
     }
-    
-    
-    
+
     /**
      * Get the set of inputs from the user.
      *
@@ -36,7 +33,7 @@ public class LoadGameView extends ViewBase{
         String[] inputs = new String[1];
 
         inputs[0] = getUserInput("(Sorry this will be working in week 12)\n"
-                + " What is the file name for the saved game? \n ");
+            + " What is the file name for the saved game? \n ");
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
@@ -63,7 +60,6 @@ public class LoadGameView extends ViewBase{
         return false;
 
     }
-
 
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of

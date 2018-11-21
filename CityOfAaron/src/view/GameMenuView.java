@@ -4,9 +4,6 @@ package view;
  *
  * @author DIDIM
  */
-
-
-
 //The Game Menu View controls the play of the game.
 public class GameMenuView extends ViewBase {
 
@@ -19,17 +16,17 @@ public class GameMenuView extends ViewBase {
 
     }
 
-@Override
+    @Override
     protected String getMessage() {
         return "GameMenu\n"
-                + "-------------\n"
-                + "V - View the Map\n"
-                + "N - Move to a New Location\n"
-                + "C - Manage the Crops\n"
-                + "R - Reports Menu\n"
-                + "S - Save the Game\n"
-                + "M - Return to the Main Menu\n"
-                + "Q - Quit the Game";
+            + "-------------\n"
+            + "V - View the Map\n"
+            + "N - Move to a New Location\n"
+            + "C - Manage the Crops\n"
+            + "R - Reports Menu\n"
+            + "S - Save the Game\n"
+            + "M - Return to the Main Menu\n"
+            + "Q - Quit the Game";
     }
 
     /**
@@ -86,15 +83,15 @@ public class GameMenuView extends ViewBase {
         return true;
     }
 
-      
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of
     // complex game stuff in our doAction() method. It will get messy very quickly.
     private boolean someActionHandler() {
-     
+
         return true;
     }
- private void MainMenuView() {
+
+    private void MainMenuView() {
         MainMenuView view = new MainMenuView();
         view.displayView();
     }
@@ -128,5 +125,5 @@ public class GameMenuView extends ViewBase {
         EndGameView view = new EndGameView();
         view.displayView();
     }
-       
+
 }

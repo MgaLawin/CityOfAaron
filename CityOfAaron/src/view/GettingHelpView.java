@@ -22,14 +22,14 @@ public class GettingHelpView extends ViewBase {
     protected String getMessage() {
 
         return "Help Menu.\n"
-                + "-------------\n"
-                + "A - What are the goals of the game?\n"
-                + "B - Where is the City of Aaron?\n"
-                + "C- How do I view the map?\n"
-                + "D - How do I move to another location?\n"
-                + "E - How do I display a list of animals, provisions and tools in the city storehouse?\n"
-                + "-------------\n"
-                + "Q - Quit back to the Main Menu.\n";
+            + "-------------\n"
+            + "A - What are the goals of the game?\n"
+            + "B - Where is the City of Aaron?\n"
+            + "C- How do I view the map?\n"
+            + "D - How do I move to another location?\n"
+            + "E - How do I display a list of animals, provisions and tools in the city storehouse?\n"
+            + "-------------\n"
+            + "Q - Quit back to the Main Menu.\n";
     }
 
     /**
@@ -63,42 +63,42 @@ public class GettingHelpView extends ViewBase {
         switch (inputs[0].trim().toUpperCase()) {
             case "A":
                 System.out.println("What are the goals of the game?\n"
-                        + "---------------------------------------\n"
-                        + "The goal of the game is to be a successful leader.\n"
-                        + "To be successful you must:\n"
-                        + "-Increase your city's population\n"
-                        + "-Increase the size (acreage) of your city\n"
-                        + "-Plant and harvest as many bushels of wheat as possible\n");
+                    + "---------------------------------------\n"
+                    + "The goal of the game is to be a successful leader.\n"
+                    + "To be successful you must:\n"
+                    + "-Increase your city's population\n"
+                    + "-Increase the size (acreage) of your city\n"
+                    + "-Plant and harvest as many bushels of wheat as possible\n");
                 break;
             case "B":
                 System.out.println("Where is Aaron City?\n"
-                        + "---------------------------------------\n"
-                        + "Aaron City is a fictionalized city set in Book of Mormon times.\n"
-                        + "It is located in Column C, Row 3 on the map\n");
+                    + "---------------------------------------\n"
+                    + "Aaron City is a fictionalized city set in Book of Mormon times.\n"
+                    + "It is located in Column C, Row 3 on the map\n");
                 break;
             case "C":
                 System.out.println("How do I view the map?\n"
-                        + "---------------------------------------\n"
-                        + "To view the map, start a game and\n"
-                        + "from the Game Menu select the option of:\n"
-                        + "View the map\n");
+                    + "---------------------------------------\n"
+                    + "To view the map, start a game and\n"
+                    + "from the Game Menu select the option of:\n"
+                    + "View the map\n");
                 break;
             case "D":
                 System.out.println("How do I move to another location?\n"
-                        + "---------------------------------------\n"
-                        + "To move to a new location, start a game and\n"
-                        + "from the Game Menu select the option of:\n"
-                        + "Move to a new location\n"
-                        + "You will be prompted for the coordinates of\n"
-                        + " the location you would like to move to\n");
+                    + "---------------------------------------\n"
+                    + "To move to a new location, start a game and\n"
+                    + "from the Game Menu select the option of:\n"
+                    + "Move to a new location\n"
+                    + "You will be prompted for the coordinates of\n"
+                    + " the location you would like to move to\n");
                 break;
             case "E":
                 System.out.println("How do I display a list of animals, provisions and tools in the city storehouse?\n"
-                        + "---------------------------------------\n"
-                        + "To display a storehouse inventory list, start a game and\n"
-                        + "from the Game Menu select the option of:\n"
-                        + "Reports Menu\n"
-                        + "Select the option for the report you would like to view\n");
+                    + "---------------------------------------\n"
+                    + "To display a storehouse inventory list, start a game and\n"
+                    + "from the Game Menu select the option of:\n"
+                    + "Reports Menu\n"
+                    + "Select the option for the report you would like to view\n");
                 break;
             case "Q":
                 System.out.println("Returning to Main Menu...");

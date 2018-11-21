@@ -21,10 +21,10 @@ public class LiveTheYear {
      * @return The year's Annual Report data
      */
     public static AnnualReport liveTheYear(
-            Game game, int tithingPercent,
-            int bushelsForFood, int acresPlanted) {
+        Game game, int tithingPercent,
+        int bushelsForFood, int acresPlanted) {
         if (game == null || tithingPercent < 0 || tithingPercent > 100
-                || bushelsForFood < 0 || acresPlanted < 0) {
+            || bushelsForFood < 0 || acresPlanted < 0) {
             return null;
         }
 

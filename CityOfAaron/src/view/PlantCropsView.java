@@ -64,7 +64,7 @@ public class PlantCropsView extends ViewBase {
         //
         // Generally, though, this is where you will call into your Control
         // classes to do the work of the application.
-        
+
         System.out.println("WheatControl will be will be used here soon.");
 
         return true;

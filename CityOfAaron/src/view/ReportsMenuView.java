@@ -8,25 +8,23 @@ import java.util.Scanner;
  */
 public class ReportsMenuView extends ViewBase {
 
-
     /**
      * Constructor
      */
     public ReportsMenuView() {
 
-
     }
+
     @Override
-    protected String getMessage(){
+    protected String getMessage() {
         return "Reports Menu\n"
-                + "-------------\n"
-                + "A - View the animals in the storehouse.\n"
-                + "T - View the tools in the storehouse.\n"
-                + "P - View the provisions in the storehouse. \n"
-                + "G - View the authors of this game.\n";
+            + "-------------\n"
+            + "A - View the animals in the storehouse.\n"
+            + "T - View the tools in the storehouse.\n"
+            + "P - View the provisions in the storehouse. \n"
+            + "G - View the authors of this game.\n";
     }
 
-    
     /**
      * Get the set of inputs from the user.
      *
@@ -71,8 +69,6 @@ public class ReportsMenuView extends ViewBase {
         }
         return true;
     }
-
-    
 
     private void animalsInStorehouse() {
         System.out.println("animalsInStorehouse will be coming soon.");

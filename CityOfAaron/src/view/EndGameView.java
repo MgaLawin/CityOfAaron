@@ -20,16 +20,16 @@ public class EndGameView extends ViewBase {
      * Constructor
      */
     public EndGameView() {
-      
+
     }
 
     @Override
     protected String getMessage() {
 
         return "\n\n****************************************************************************************\n"
-                + " Thank you for playing the game today. Your game has ended. \n"
-                + "Would you like to play again? Enter Y- to play again or N- to quit\n"            
-                + "******************************************************************************************\n";
+            + " Thank you for playing the game today. Your game has ended. \n"
+            + "Would you like to play again? Enter Y- to play again or N- to quit\n"
+            + "\n******************************************************************************************\n";
 
     }
 
@@ -40,7 +40,7 @@ public class EndGameView extends ViewBase {
      */
     @Override
     public String[] getInputs() {
- // Declare the array to have the number of elements you intend to get
+        // Declare the array to have the number of elements you intend to get
         // from the user.
         String[] inputs = new String[1];
 
@@ -48,7 +48,7 @@ public class EndGameView extends ViewBase {
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
-        
+
     }
 
     /**
@@ -65,24 +65,21 @@ public class EndGameView extends ViewBase {
             case "Y":
                 MainMenuView();
                 break;
-          
+
             case "N":
                 System.out.println("Thank you for playing. Good-Bye.\n");
-                MainMenuView();
                 break;
         }
         return true;
     }
-    
+
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of
     // complex game stuff in our doAction() method. It will get messy very quickly.
-    
     private void MainMenuView() {
         //Call the gamemenuview
         MainMenuView view = new MainMenuView();
         view.displayView();
     }
-    
-       
+
 }

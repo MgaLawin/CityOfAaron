@@ -60,8 +60,8 @@ public class GameControlTest {
             System.out.printf("%d <= %d <= %d\n", low, random, high);
 
             assertTrue(
-                    String.format("%d should be between %d and %d", random, low, high),
-                    random >= low && random <= high);
+                String.format("%d should be between %d and %d", random, low, high),
+                random >= low && random <= high);
 
         }
     }

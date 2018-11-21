@@ -52,11 +52,11 @@ public class Location extends Map implements Serializable {
     @Override
     public String toString() {
         return "Location{"
-                + "name" + name
-                + ", description" + description
-                + ", mapSymbols" + mapSymbol
-                + ", gameTips" + gameTips
-                + "}";
+            + "name" + name
+            + ", description" + description
+            + ", mapSymbols" + mapSymbol
+            + ", gameTips" + gameTips
+            + "}";
     }
 
 }

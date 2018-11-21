@@ -1,13 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
-
-import cityofaaron.CityOfAaron;
-import model.Game;
-import model.Player;
 
 /**
  *
@@ -19,7 +10,7 @@ public class MoveToNewLocation extends ViewBase {
      * Constructor
      */
     public MoveToNewLocation() {
-        
+
     }
 
     @Override
@@ -61,7 +52,6 @@ public class MoveToNewLocation extends ViewBase {
         }
         // return false if you want this view to exit and return
         // to the view that called it.
-             
 
         //return false so we do not keep looping
         return false;
@@ -71,13 +61,6 @@ public class MoveToNewLocation extends ViewBase {
     private void moveToNewLocation(String[] inputs) {
         //this has not been built yet, when it is this is were we will call it and move the player 
 
-
-        
-
-        
-
-    
     }
 
-    
 }

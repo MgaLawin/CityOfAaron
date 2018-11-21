@@ -52,11 +52,11 @@ public class Storehouse implements Serializable {
     @Override
     public String toString() {
         return "Storehouse{"
-                + "authors" + authors
-                + "animals" + animals
-                + "tools" + tools
-                + "provisions" + provisions
-                + "}";
+            + "authors" + authors
+            + "animals" + animals
+            + "tools" + tools
+            + "provisions" + provisions
+            + "}";
     }
 
 }

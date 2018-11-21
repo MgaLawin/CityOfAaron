@@ -22,16 +22,16 @@ public class AnnualReportView extends ViewBase {
     protected String getMessage() {
 
         return "Annual Report.\n"
-                + "-----------------------\n"
-                + "The current year is: currentYear.\n"
-                + "peopleStarved people starved this year.\n"
-                + "The current population is: currentPopulation.\n"
-                + "Total acres currently owned is: acresOwned.\n"
-                + "bushelsHarvested bushels of wheat were harvested this year.\n"
-                + "bushelsTithed bushels of wheat were paid in offerings this year.\n"
-                + "lossToRats bushels of wheat were lost to rats this year.\n"
-                + "There are wheatInStorehouse bushels of wheat in the storehouse.\n"
-                + "-----------------------\n";
+            + "-----------------------\n"
+            + "The current year is: currentYear.\n"
+            + "peopleStarved people starved this year.\n"
+            + "The current population is: currentPopulation.\n"
+            + "Total acres currently owned is: acresOwned.\n"
+            + "bushelsHarvested bushels of wheat were harvested this year.\n"
+            + "bushelsTithed bushels of wheat were paid in offerings this year.\n"
+            + "lossToRats bushels of wheat were lost to rats this year.\n"
+            + "There are wheatInStorehouse bushels of wheat in the storehouse.\n"
+            + "-----------------------\n";
     }
 
     /**
