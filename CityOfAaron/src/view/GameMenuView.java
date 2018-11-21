@@ -21,11 +21,11 @@ public class GameMenuView extends ViewBase {
         return "GameMenu\n"
             + "-------------\n"
             + "V - View the Map\n"
-            + "N - Move to a New Location\n"
+            + "M - Move to a New Location\n"
+            + "A - View the Annual Report\n"
             + "C - Manage the Crops\n"
             + "R - Reports Menu\n"
             + "S - Save the Game\n"
-            + "M - Return to the Main Menu\n"
             + "Q - Quit the Game";
     }
 
@@ -61,7 +61,10 @@ public class GameMenuView extends ViewBase {
             case "V":
                 ViewTheMapView();
                 break;
-            case "N":
+            case "A":
+                AnnualReportView();
+                break;
+            case "M":
                 MoveToNewLocation();
                 break;
             case "C":
@@ -72,9 +75,6 @@ public class GameMenuView extends ViewBase {
                 break;
             case "S":
                 SaveGameView();
-                break;
-            case "M":
-                MainMenuView();
                 break;
             case "Q":
                 EndGameView();
@@ -91,8 +91,8 @@ public class GameMenuView extends ViewBase {
         return true;
     }
 
-    private void MainMenuView() {
-        MainMenuView view = new MainMenuView();
+      private void AnnualReportView() {
+       AnnualReportView view = new AnnualReportView();
         view.displayView();
     }
 

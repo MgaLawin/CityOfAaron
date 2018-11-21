@@ -63,6 +63,9 @@ public class NewGameView extends ViewBase {
     }
 
     private void createAndStartGame(String playerName) {
+        //Once the gamecontrol is created we will uncomment this and 
+        // delete the player and game sets
+        
         //Game game = GameControl.createNewGame((playerName);
 
         Player player = new Player();

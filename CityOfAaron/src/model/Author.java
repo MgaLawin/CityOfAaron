@@ -11,8 +11,9 @@ public class Author implements Serializable {
     private String name;
     private String title;
 
-    public Author() {
-        // empty constructor for Javabeans
+    public Author(String name, String title) {
+        setName(name);
+        setTitle(title);
     }
 
     public String getName() {

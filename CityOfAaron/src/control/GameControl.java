@@ -1,6 +1,9 @@
 package control;
 
 import java.util.Random;
+import model.Author;
+import model.Game;
+import model.Storehouse;
 
 /**
  *
@@ -39,10 +42,63 @@ public class GameControl {
 
     }
 
+    public static String loadGameFromFile(String filename) {
+        // place holder until created
+        String name = filename;
+
+        return name;
+
+    }
+
+    public static boolean gameShouldEnd(int mortalityRate) {
+        if (mortalityRate > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean gameMatures(int yearNumber) {
+        if (yearNumber > 10) {
+            return true;
+        }
+        return false;
+    }
+
+    public static void saveGameToFile(Game game, String filename) {
+
+    }
+
+    public static void saveReportToFile(String[] filename) {
+
+    }
+
     public static String createNewGame(String playerName) {
         //Returns a new Game object with everything initialized and ready for the first year of play.
 
+//literal arrayfor authors- deon helped
+        Storehouse storehouse = new Storehouse();
+        Author[] author = {
+            new Author("Chelsea", "Super Coder"),
+            new Author("Jeremy", "Amazing Programmer"),
+            new Author("Deon", "Coder Programmer")
+
+        };
+        //undo this when you get the rest done :)
+        //storehouse.setAuthors(author);
+        //game.setTheStorehouse(storehouse);
+
+
         return "Game";
     }
-
+    
+//    public void InventoryItem[] createItems(){
+//        InventoryItem.setItemType(item);
+//        InventoryItem.setQuantity(quantity);
+//        InventoryItem.setCondition(condtion);
+    }
+    
+    
+    
+    
+    
 }

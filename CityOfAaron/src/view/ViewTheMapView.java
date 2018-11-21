@@ -55,13 +55,8 @@ public class ViewTheMapView extends ViewBase {
     @Override
     public boolean doAction(String[] inputs) {
         // There are no inputs for this view  yet we are just going to pause for a few seconds and then load the game menu
-        GameMenuView();
         return false;
     }
 
-    // display the game menu
-    private void GameMenuView() {
-        GameMenuView view = new GameMenuView();
-        view.displayView();
-    }
+//  
 }

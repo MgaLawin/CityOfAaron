@@ -55,10 +55,5 @@ public class SaveGameView extends ViewBase {
         return false;
     }
 
-    // display the game menu
-    private void GameMenuView() {
-        GameMenuView view = new GameMenuView();
-        view.displayView();
-    }
 
 }
