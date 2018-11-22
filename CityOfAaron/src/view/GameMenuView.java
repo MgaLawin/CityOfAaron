@@ -1,4 +1,7 @@
 package view;
+import control.MapControl;
+import model.Map;
+import model.Location;
 
 /**
  *
@@ -59,7 +62,7 @@ public class GameMenuView extends ViewBase {
 
         switch (inputs[0].trim().toUpperCase()) {
             case "V":
-                ViewTheMapView();
+                displayMap();
                 break;
             case "A":
                 AnnualReportView();
@@ -116,9 +119,21 @@ public class GameMenuView extends ViewBase {
         view.displayView();
     }
 
-    private void ViewTheMapView() {
-        ViewTheMapView view = new ViewTheMapView();
-        view.displayView();
+//    private void ViewTheMapView() {
+//        ViewTheMapView view = new ViewTheMapView();
+//        view.displayView();
+//    }
+    
+    public void displayMap() {
+        Map map = MapControl.createMap();
+        Location[][] locations = map.getLocation();
+        
+        for(int i = 0; i < locations.length; i++){
+            for (int j = 0; j < locations[i].length; j++){
+                System.out.println(map.getLocation()[i][j].getMapSymbol());
+            }
+            System.out.println();
+        }
     }
 
     private void EndGameView() {
