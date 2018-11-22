@@ -87,18 +87,11 @@ public class GameControl {
         //storehouse.setAuthors(author);
         //game.setTheStorehouse(storehouse);
 
-
         return "Game";
     }
-    
+
 //    public void InventoryItem[] createItems(){
 //        InventoryItem.setItemType(item);
 //        InventoryItem.setQuantity(quantity);
 //        InventoryItem.setCondition(condtion);
-    }
-    
-    
-    
-    
-    
 }
