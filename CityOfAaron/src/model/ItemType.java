@@ -7,5 +7,5 @@ package model;
 public enum ItemType {
     ANIMAL,
     PROVISION,
-    TOOL,
+    TOOL
 }
