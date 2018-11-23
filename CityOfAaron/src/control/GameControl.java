@@ -1,9 +1,12 @@
 package control;
 
+import cityofaaron.CityOfAaron;
 import java.util.Random;
 import model.Author;
 import model.Game;
 import model.Storehouse;
+import model.Player;
+import model.Map;
 
 /**
  *
@@ -72,22 +75,35 @@ public class GameControl {
 
     }
 
-    public static String createNewGame(String playerName) {
+    public static Game createNewGame(String playerName) {
         //Returns a new Game object with everything initialized and ready for the first year of play.
 
-//literal arrayfor authors- deon helped
+        Player player = new Player();
+        player.setName(playerName);
+
+        Game game = new Game();
+        game.setThePlayer(player);
+
+        game.setCurrentPopulation(1000);
+        game.setAcresOwned(3000);
+        game.setWheatInStorage(2700);
+
+        Map theMap = MapControl.createMap();
+        game.setTheMap(theMap);
+
         Storehouse storehouse = new Storehouse();
+
+        //literal array for authors- deon helped
         Author[] author = {
             new Author("Chelsea", "Super Coder"),
             new Author("Jeremy", "Amazing Programmer"),
             new Author("Deon", "Coder Programmer")
-
         };
-        //undo this when you get the rest done :)
-        //storehouse.setAuthors(author);
-        //game.setTheStorehouse(storehouse);
 
-        return "Game";
+        storehouse.setAuthors(author);
+        game.setTheStorehouse(storehouse);
+
+        return game;
     }
 
 //    public void InventoryItem[] createItems(){

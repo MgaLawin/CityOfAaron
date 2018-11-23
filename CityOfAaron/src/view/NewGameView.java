@@ -3,6 +3,7 @@ package view;
 import cityofaaron.CityOfAaron;
 import model.Player;
 import model.Game;
+import control.GameControl;
 
 /**
  *
@@ -63,16 +64,10 @@ public class NewGameView extends ViewBase {
     }
 
     private void createAndStartGame(String playerName) {
-        //Once the gamecontrol is created we will uncomment this and 
+        //Once the gamecontrol is created we will uncomment this and
         // delete the player and game sets
-        
-        //Game game = GameControl.createNewGame((playerName);
 
-        Player player = new Player();
-        player.setName(playerName);
-
-        Game game = new Game();
-        game.setThePlayer(player);
+        Game game = GameControl.createNewGame(playerName);
 
         CityOfAaron.setCurrentGame(game);
 
