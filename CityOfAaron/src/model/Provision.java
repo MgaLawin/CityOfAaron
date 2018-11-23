@@ -22,5 +22,5 @@ public class Provision extends InventoryItem implements Serializable {
     public String toString() {
         return "Provision{" + "perishable=" + perishable + '}';
     }
-
+    
 }
