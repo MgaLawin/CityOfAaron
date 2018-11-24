@@ -61,19 +61,19 @@ public class WheatControl {
     public static int calculateHarvest(int tithingPercent, int acresPlanted) {
         //    Calculate the amount of wheat harvested, based on the percentage of tithing paid. Assume that the gameControl.getRandomNumber(low,high) is avaliable to be called
 
-//        set variables for the function
+        // set variables for the function
         int low = 0;
         int high = 0;
 
-//if acresPlanted < 0 then return -1
+        //if acresPlanted < 0 then return -1
         if (acresPlanted < 0) {
             return -1;
         }
 
-//if tithingPercentage < 0 or tithingPercentage > 100 return -2
-//if tithing percent <8 then low=1, high = 3
-//if tithingPercent >= 8 and tithingPercent <= 12 then low = 2, high = 4
-//if tithingPercent > 12 then low =2, high =5
+        //if tithingPercentage < 0 or tithingPercentage > 100 return -2
+        //if tithing percent <8 then low=1, high = 3
+        //if tithingPercent >= 8 and tithingPercent <= 12 then low = 2, high = 4
+        //if tithingPercent > 12 then low =2, high =5
         if (tithingPercent < 0 || tithingPercent > 100) {
             return -2;
         } else if (tithingPercent > 12) {
@@ -87,10 +87,10 @@ public class WheatControl {
             high = 3;
         }
 
-//yield= GameControl.getRandomNumber(low, high)
+        //yield= GameControl.getRandomNumber(low, high)
         int yield = GameControl.getRandomNumber(low, high);
 
-// return yield * acresPlanted
+        // return yield * acresPlanted
         return (yield * acresPlanted);
     }
 

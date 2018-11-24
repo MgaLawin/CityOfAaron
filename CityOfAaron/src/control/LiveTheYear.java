@@ -57,7 +57,7 @@ public class LiveTheYear {
         report.setEndingWheatInStorage(game.getWheatInStorage());
         report.setEndingPopulation(game.getCurrentPopulation());
         report.setEndingAcresOwned(game.getAcresOwned());
-// 
+
         return report;
     }
 }

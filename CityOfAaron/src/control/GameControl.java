@@ -21,7 +21,7 @@ public class GameControl {
 
     private static Random randomGenerator = new Random();
 
-// create a a protected random number object for testing
+    // create a a protected random number object for testing
     protected static void setRandomGenerator(Random random) {
         randomGenerator = random;
     }
@@ -45,7 +45,7 @@ public class GameControl {
         // calculate the size of the range and add one so Random() includes highNumber
         int range = (highNumber - lowNumber) + 1;
 
-//return low and random(range size)
+        //return low and random(range size)
         return lowNumber + randomGenerator.nextInt(range);
 
     }
@@ -99,12 +99,11 @@ public class GameControl {
 
         Storehouse storehouse = new Storehouse();
 
-   
         //create the array
         Animal[] animals = createAnimals();
         InventoryItem[] tools = createTools();
         Provision[] provisions = createProvisions();
-        Author[] author= createAuthor(); 
+        Author[] author = createAuthor();
 
         //call the method
         storehouse.setAuthors(author);
@@ -156,16 +155,14 @@ public class GameControl {
         };
         return provisions;
     }
-    
-    
-     //literal array for authors- deon helped
-       public static Author[] createAuthor() {
-               Author[] author = {
+
+    //literal array for authors- deon helped
+    public static Author[] createAuthor() {
+        Author[] author = {
             new Author("Chelsea", "Super Coder"),
             new Author("Jeremy", "Amazing Programmer"),
             new Author("Deon", "Coder Programmer")
         };
-               return author;
-       }
+        return author;
+    }
 }
-
