@@ -58,22 +58,22 @@ public class EndGameView extends ViewBase {
         // If the user hits y- display the main menu, if no display a goodbye message
         switch (inputs[0].trim().toUpperCase()) {
             case "Y":
-                MainMenuView();
+                GameMenuView();
                 break;
 
             case "N":
                 System.out.println("Thank you for playing. Good-Bye.\n");
-                break;
+                return false;
         }
-        return true;
+        return false;
     }
 
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of
     // complex game stuff in our doAction() method. It will get messy very quickly.
-    private void MainMenuView() {
+    private void GameMenuView() {
         //Call the gamemenuview
-        MainMenuView view = new MainMenuView();
+        GameMenuView view = new GameMenuView();
         view.displayView();
     }
 

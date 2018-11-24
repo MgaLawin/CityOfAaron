@@ -16,12 +16,12 @@ public class MainMenuView extends ViewBase {
     @Override
     protected String getMessage() {
         return "Main Menu\n"
-            + "-------------\n"
-            + "N - Start a New Game\n"
-            + "L - Load a Saved Game\n"
-            + "H - Help Menu\n"
-            + "S - Save Game"
-            + "Q - Quit\n";
+                + "-------------\n"
+                + "N - Start a New Game\n"
+                + "L - Load a Saved Game\n"
+                + "H - Help Menu\n"
+                + "S - Save Game\n"
+                + "Q - Quit\n";
     }
 
     /**
@@ -85,8 +85,9 @@ public class MainMenuView extends ViewBase {
     private void loadSavedGame() {
         LoadGameView view = new LoadGameView();
         view.displayView();
-         }
-    private void  saveGameView(){
+    }
+
+    private void saveGameView() {
         SaveGameView view = new SaveGameView();
         view.displayView();
     }

@@ -22,16 +22,16 @@ public class AnnualReportView extends ViewBase {
     protected String getMessage() {
 
         return "Annual Report.\n"
-            + "-----------------------\n"
-            + "The current year is: currentYear.\n"
-            + "peopleStarved people starved this year.\n"
-            + "The current population is: currentPopulation.\n"
-            + "Total acres currently owned is: acresOwned.\n"
-            + "bushelsHarvested bushels of wheat were harvested this year.\n"
-            + "bushelsTithed bushels of wheat were paid in offerings this year.\n"
-            + "lossToRats bushels of wheat were lost to rats this year.\n"
-            + "There are wheatInStorehouse bushels of wheat in the storehouse.\n"
-            + "-----------------------\n";
+                + "-----------------------\n"
+                + "The current year is: currentYear.\n"
+                + "peopleStarved people starved this year.\n"
+                + "The current population is: currentPopulation.\n"
+                + "Total acres currently owned is: acresOwned.\n"
+                + "bushelsHarvested bushels of wheat were harvested this year.\n"
+                + "bushelsTithed bushels of wheat were paid in offerings this year.\n"
+                + "lossToRats bushels of wheat were lost to rats this year.\n"
+                + "There are wheatInStorehouse bushels of wheat in the storehouse.\n"
+                + "-----------------------\n";
     }
 
     /**
@@ -63,7 +63,7 @@ public class AnnualReportView extends ViewBase {
         //Display the number of bushels paid in offerings
         //Display the number of bushels lost to rats
         //Display the number of bushels in the storehouse
-        System.out.println("Code coming soon, for now we are returning you to the Manage the Crops Menu...\n");
+        System.out.println("Code coming soon, for now we are returning you to the Game Menu...\n");
         return false;
     }
 

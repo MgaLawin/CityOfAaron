@@ -30,7 +30,7 @@ public class GameMenuView extends ViewBase {
                 + "C - Manage the Crops\n"
                 + "R - Reports Menu\n"
                 + "S - Save the Game\n"
-                + "Q - Quit the Game";
+                + "Q - Quit the Game\n";
     }
 
     /**
