@@ -8,22 +8,21 @@ import java.io.Serializable;
  */
 public class Location extends Map implements Serializable {
 
+    private String mapSymbol;
     private String name;
     private String description;
-    private String mapSymbol;
     private String[] gameTips;
 
     public Location() {
         // empty constructor for Javabeans
     }
-    
-    public Location(String mapSymbol, String name, String description, String[] tips){
-        setMapSymbol (mapSymbol);
+
+    public Location(String mapSymbol, String name, String description, String[] tips) {
+        setMapSymbol(mapSymbol);
         setName(name);
         setDescription(description);
         setGameTips(tips);
-}
-
+    }
 
     public String getName() {
         return name;
@@ -45,8 +44,8 @@ public class Location extends Map implements Serializable {
         return mapSymbol;
     }
 
-    public void setMapSymbol(String symbol) {
-        this.description = description;
+    public void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
     }
 
     public String[] getGameTips() {
@@ -60,11 +59,11 @@ public class Location extends Map implements Serializable {
     @Override
     public String toString() {
         return "Location{"
-            + "name" + name
-            + ", description" + description
-            + ", mapSymbols" + mapSymbol
-            + ", gameTips" + gameTips
-            + "}";
+                + "name" + name
+                + ", description" + description
+                + ", mapSymbols" + mapSymbol
+                + ", gameTips" + gameTips
+                + "}";
     }
 
 }
