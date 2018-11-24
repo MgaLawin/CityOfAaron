@@ -61,6 +61,7 @@ public class ViewTheMapView extends ViewBase {
         System.out.println("D - Village of Deon");
         System.out.println("F - Wheat field");
         System.out.println("J - Village of Jeremy");
+        System.out.println("R - River");
         System.out.println("S - Storehouse");
         System.out.println("T - Temple");
         System.out.println("U - Undeveloped land");

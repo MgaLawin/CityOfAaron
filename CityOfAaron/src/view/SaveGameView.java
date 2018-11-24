@@ -36,7 +36,7 @@ public class SaveGameView extends ViewBase {
         String[] inputs = new String[1];
 
         inputs[0] = getUserInput("Please enter the name of your file where you would like to save your game\n"
-            + "This function is not available yet.. coming soon. You will be directed back to the Game Menu", true);
+                + "This function is not available yet.. coming soon. You will be directed back to the Game Menu", true);
 
         return inputs;
     }
@@ -54,6 +54,5 @@ public class SaveGameView extends ViewBase {
         //return false so we do not keep looping
         return false;
     }
-
 
 }

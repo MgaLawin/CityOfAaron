@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 /**
@@ -27,9 +22,9 @@ public class EndGameView extends ViewBase {
     protected String getMessage() {
 
         return "\n\n****************************************************************************************\n"
-            + " Thank you for playing the game today. Your game has ended. \n"
-            + "Would you like to play again? Enter Y- to play again or N- to quit\n"
-            + "\n******************************************************************************************\n";
+                + " Thank you for playing the game today. Your game has ended. \n"
+                + "Would you like to play again? Enter Y- to play again or N- to quit\n"
+                + "\n******************************************************************************************\n";
 
     }
 

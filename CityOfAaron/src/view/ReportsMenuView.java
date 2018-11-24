@@ -20,11 +20,11 @@ public class ReportsMenuView extends ViewBase {
     @Override
     protected String getMessage() {
         return "Reports Menu\n"
-            + "-------------\n"
-            + "A - View the animals in the storehouse.\n"
-            + "T - View the tools in the storehouse.\n"
-            + "P - View the provisions in the storehouse. \n"
-            + "G - View the authors of this game.\n";
+                + "-------------\n"
+                + "A - View the animals in the storehouse.\n"
+                + "T - View the tools in the storehouse.\n"
+                + "P - View the provisions in the storehouse. \n"
+                + "G - View the authors of this game.\n";
     }
 
     /**
@@ -80,74 +80,50 @@ public class ReportsMenuView extends ViewBase {
         System.out.println("toolsInStorehouse will be coming soon.");
     }
 
-//    private void provisionsInStorehouse() {
-//        System.out.println("provisionsInStorehouse will be coming soon.");
-//        
-//   }
-    
-    private void provisionsInStorehouse(){
+    private void provisionsInStorehouse() {
     }
-            private static class Item {
-                private String description;
 
-                public Item(String description){
-                this.description = description;
-                }
+    private static class Item {
 
-                public String getDescription(){
-                return description;
-                }
-            }
+        private String description;
 
-
-            public static void main(String[] args){
-                Item[] items = new Item[4];
-                items[0] = new Item("Water");
-                items[1] = new Item("Bedding");
-                items[2] = new Item("Clothes");
-                items[3] = new Item("Shoes");
-
-
-            for (int i=0; i < items.length-1; i++){
-
-                for(int j=i+1; j < items.length; j++){
-
-                    if(items[i].getDescription().compareTo(items[j].getDescription()) > 0){
-                        Item temp = items[i];
-                        items[i] = items[j];
-                        items[j] = temp;
-                    }
-
-                }
+        public Item(String description) {
+            this.description = description;
         }
-            
-            for (Item item : items){
-                System.out.println(item.getDescription());
+
+        public String getDescription() {
+            return description;
+        }
+    }
+
+    public static void main(String[] args) {
+        Item[] items = new Item[4];
+        items[0] = new Item("Water");
+        items[1] = new Item("Bedding");
+        items[2] = new Item("Clothes");
+        items[3] = new Item("Shoes");
+
+        for (int i = 0; i < items.length - 1; i++) {
+
+            for (int j = i + 1; j < items.length; j++) {
+
+                if (items[i].getDescription().compareTo(items[j].getDescription()) > 0) {
+                    Item temp = items[i];
+                    items[i] = items[j];
+                    items[j] = temp;
                 }
 
-                }   
-            
+            }
+        }
 
-    
+        for (Item item : items) {
+            System.out.println(item.getDescription());
+        }
+
+    }
 
     private void authorsView() {
         System.out.println("authorsView will be coming soon.");
-    } 
+    }
 
-
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input. We don't want to do a lot of
-    // complex game stuff in our doAction() method. It will get messy very quickly.
-   
-//    private boolean someActionHandler() {
-//        // Define whatever code you need here to accomplish the action.
-//        // You can make this a void method if you want. Whatever you need
-//        // here, you are free to do.
-//        //
-//        // Generally, though, this is where you will call into your Control
-//        // classes to do the work of the application.
-//
-//        return true;
-//    }
 }
-
