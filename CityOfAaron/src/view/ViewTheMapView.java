@@ -68,7 +68,7 @@ public class ViewTheMapView extends ViewBase {
         System.out.println("U - Undeveloped land");
         System.out.println("V - Village");
         System.out.println("W - Watchtower");
-        System.out.println("Y - Village of Chelsey");
+        System.out.println("Y - Village of Chelsea");
         System.out.println("------------------------------");
         pause(1500);
         return false;
