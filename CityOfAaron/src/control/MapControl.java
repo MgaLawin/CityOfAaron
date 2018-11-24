@@ -1,7 +1,6 @@
 package control;
 
 import model.Map;
-import model.Game;
 import model.Point;
 import model.Location;
 
@@ -53,7 +52,9 @@ public class MapControl {
         locations[4][3] = new Location("U", "Undeveloped Land", "You are standing on undeveloped land.", new String[]{});
         locations[4][4] = new Location("B", "Border", "You are standing at the boarder of the Lamanite’s land. Be careful to not trespass!", new String[]{});
 
-        //       map.setLocations(locations);
+        //set the map
+        map.setLocations(locations);
+       
         Point point = new Point(2, 3);
         map.setCurrentLocation(point);
 

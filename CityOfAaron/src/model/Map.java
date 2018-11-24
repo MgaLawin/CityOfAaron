@@ -15,6 +15,10 @@ public class Map implements Serializable {
         // empty constructor for Javabeans
     }
 
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
+
     public Location[][] getLocation() {
         return locations;
     }

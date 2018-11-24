@@ -6,6 +6,10 @@ import java.io.Serializable;
  *
  * @author DIDIM
  */
+
+import model.Condition;
+import model.ItemType;
+
 public class InventoryItem implements Serializable {
 
     private ItemType ItemType;
@@ -13,6 +17,21 @@ public class InventoryItem implements Serializable {
     private Condition condition;
     private String name;
 
+    
+    public InventoryItem(){
+//        constructor
+    }
+    // do I need the item type because the inventory items are tools?
+    public InventoryItem(String name, ItemType itemType, int quantity, Condition condition ){
+        setname(name);
+        setItemType(itemType);
+        setquantity(quantity);
+        setcondition(condition);
+    }
+    
+    public void setItemType(ItemType itemType){
+        this.ItemType = itemType;
+    }
     public ItemType getItemType() {
         return ItemType;
     }
@@ -25,6 +44,10 @@ public class InventoryItem implements Serializable {
         this.quantity = quantity;
     }
 
+    public void setcondition( Condition condition){
+        this.condition = condition;
+        }
+    
     public Condition getcondition() {
         return condition;
     }
@@ -37,6 +60,8 @@ public class InventoryItem implements Serializable {
         this.name = name;
     }
 
+    
+     
     @Override
     public String toString() {
         return "InventoryItem{"
@@ -47,5 +72,7 @@ public class InventoryItem implements Serializable {
             + '}';
 
     }
+
+   
 
 }

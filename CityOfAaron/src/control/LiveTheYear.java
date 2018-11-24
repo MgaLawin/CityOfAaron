@@ -40,6 +40,9 @@ public class LiveTheYear {
 
         int peopleStarved = PeopleControl.calculateMortality(bushelsForFood, game.getCurrentPopulation());
 
+        // TODO calculate mortatility rate if greater than 50%- send to end of game
+        //TODO create an array of the years lived if 10 end the game view
+        
         //int peopleMovedIn = PeopleControl.calculateNewMoveIns(game.getCurrentPopulation());
         //totalWheat = totalWheat + harvested - tithingAmount - lostToRats;
         game.setWheatInStorage(totalWheat);
@@ -54,7 +57,7 @@ public class LiveTheYear {
         report.setEndingWheatInStorage(game.getWheatInStorage());
         report.setEndingPopulation(game.getCurrentPopulation());
         report.setEndingAcresOwned(game.getAcresOwned());
-
+// 
         return report;
     }
 }

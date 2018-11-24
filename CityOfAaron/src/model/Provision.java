@@ -9,12 +9,18 @@ import java.io.Serializable;
 public class Provision extends InventoryItem implements Serializable {
 
     private boolean perishable;
+    
+     public Provision(String name, int quantity, Condition condition, boolean perishable) {
+        super(name, ItemType.PROVISION, quantity, condition);
+         setPerishable(perishable);
+     }
 
-    public boolean getperishable() {
+        
+     public boolean getperishable() {
         return perishable;
     }
 
-    public void setperishable(boolean perishable) {
+    public void setPerishable(boolean perishable) {
         this.perishable = perishable;
     }
 

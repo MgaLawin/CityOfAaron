@@ -1,5 +1,8 @@
 package view;
 
+import cityofaaron.CityOfAaron;
+import model.Location;
+
 /**
  *
  * @author DIDIM
@@ -19,26 +22,7 @@ public class ViewTheMapView extends ViewBase {
      */
     @Override
     protected String getMessage() {
-        return "The official map will be created in the coming weeks, Here is an example of what it may look like:\n"
-            + "------------------------------------------------------------------------------------------------------------\n"
-            + "-__________________________________________________________________________________________________________-\n"
-            + "-_____________________|_____________________|_____________________|____________________|___________________| -\n"
-            + "-                           |                           |                          |                         |                      | -\n"
-            + "- [ G ] grainery 1    |  [V] village 1        |  [T] The Temple  |  [W] Wheat       | [U] Undefined | -\n"
-            + "-_____________________|_____________________|_____________________|____________________|__________________| -\n"
-            + "-                           |                           |                          |                         |                      | -\n"
-            + "- [U] Undefined     |  [U] Undefined    |   [U] Undefined   |  [W] Wheat2    |  [W] Wheat3   | -\n"
-            + "-____________________|___________ __________|_____________________|____________________|__________________|-\n"
-            + "-                           |                           |                          |                         |                      | -\n"
-            + "- [U] Undefined     |  [U] Undefined    |   [U] Undefined   |  [W] Wheat 4    | [U] Undefined|-\n"
-            + "-_____________________|_____________________|_____________________|____________________|_________________| -\n"
-            + "-                           |                           |                          |                         |                      | -\n"
-            + "- [U] Undefined     |  [U] Undefined    |  [U] Undefined    |  [W] Wheat 5    |[U] Undefined | -\n"
-            + "-_____________________|_____________________|_____________________|____________________|__________________| -\n"
-            + "-                           |                           |                          |                         |                      | -\n"
-            + "- [U] Undefined     |  [V] village 2        |  [G] Grainery 2   |  [W] Wheat 6    |[U] Undefined  | -\n"
-            + "-_____________________|_____________________|_____________________|____________________|__________________| -\n"
-            + "------------------------------------------------------------------------------------------------------------\n";
+        return null;
 
     }
 
@@ -54,9 +38,22 @@ public class ViewTheMapView extends ViewBase {
 
     @Override
     public boolean doAction(String[] inputs) {
-        // There are no inputs for this view  yet we are just going to pause for a few seconds and then load the game menu
+
+        displayMap();
         return false;
     }
 
-//  
+    public void displayMap() {
+        // print out the map
+        Location[][] locations = CityOfAaron.getCurrentGame().getTheMap().getLocation();
+
+        for (int row = 0; row < locations.length; row++) {
+            for (int column = 0; column < locations[row].length; column++) {
+                System.out.print(locations[row][column].getMapSymbol() + " ");
+            }
+            System.out.println();
+
+        }
+
+    }
 }

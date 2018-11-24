@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import control.GameControl;
 
 /**
  *
@@ -16,15 +17,20 @@ public class Storehouse implements Serializable {
     public Storehouse() {
         // empty constructor for Javabeans
     }
-
-    public Author[] getAuthors() {
+ public Storehouse( Animal[] animals, InventoryItem[] tools, Provision[] provisions, Author[] author){
+     setAuthors(author);
+     setAnimals(animals);  
+     setTools(tools);
+     setProvisions(provisions);
+          
+    }
+   public Author[] getAuthors() {
         return authors;
     }
 
-    public void setAuthors(Author[] authors) {
-        this.authors = authors;
+    public void setAuthors(Author[] author) {
+        this.authors = author;
     }
-
     public Animal[] getAnimals() {
         return animals;
     }
@@ -45,14 +51,13 @@ public class Storehouse implements Serializable {
         return provisions;
     }
 
-    public void getProvisions(Provision[] provisions) {
+    public void setProvisions(Provision[] provisions) {
         this.provisions = provisions;
     }
 
     @Override
     public String toString() {
         return "Storehouse{"
-            + "authors" + authors
             + "animals" + animals
             + "tools" + tools
             + "provisions" + provisions
