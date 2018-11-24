@@ -7,6 +7,7 @@ import model.Game;
 import model.Storehouse;
 import model.Player;
 import model.Map;
+import model.Animal;
 
 /**
  *
@@ -98,6 +99,14 @@ public class GameControl {
             new Author("Chelsea", "Super Coder"),
             new Author("Jeremy", "Amazing Programmer"),
             new Author("Deon", "Coder Programmer")
+        };
+
+        //literal array for age of animals
+        Animal[] animals = {
+            new Animal(5),
+            new Animal(15),
+            new Animal(2),
+            new Animal(6)
         };
 
         storehouse.setAuthors(author);

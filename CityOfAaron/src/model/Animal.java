@@ -10,6 +10,10 @@ public class Animal extends InventoryItem {
 
     private int age;
 
+    public Animal(int age) {
+        setAge(age);
+    }
+
     public int getAge() {
         return age;
     }
