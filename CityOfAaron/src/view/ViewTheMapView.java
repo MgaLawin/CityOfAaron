@@ -19,7 +19,8 @@ public class ViewTheMapView extends ViewBase {
      * The view the map displays the map and immediately returns to the game
      * menu. It will have be a 2 dimensional array of locations It will be at
      * least 5 x 5 Each location will have a symbol, a name and what can be
-     * seen. After the map is displayed the program will return to the Game Menu
+     * seen. After the map is displayed the program will return to the Game
+     * Menu.
      *
      */
     @Override
