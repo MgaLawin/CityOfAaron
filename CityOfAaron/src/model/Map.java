@@ -30,9 +30,9 @@ public class Map implements Serializable {
     @Override
     public String toString() {
         return "Map{"
-            + "locations" + locations
-            + ", currentLocation" + currentLocation
-            + "}";
+                + "locations" + locations
+                + ", currentLocation" + currentLocation
+                + "}";
     }
 
 }
