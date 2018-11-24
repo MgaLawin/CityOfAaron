@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  *
@@ -8,7 +9,7 @@ import java.io.Serializable;
  */
 public class Map implements Serializable {
 
-    private Location[][] locations;
+    private Location[][] locations = new Location[5][5];
     private Point currentLocation;
 
     public Map() {
@@ -33,8 +34,8 @@ public class Map implements Serializable {
 
     @Override
     public String toString() {
-        return "Map{"
-                + "locations" + locations
+        return "Map {"
+                + "locations" + Arrays.toString(locations)
                 + ", currentLocation" + currentLocation
                 + "}";
     }

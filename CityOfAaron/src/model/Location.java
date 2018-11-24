@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  *
@@ -52,7 +53,7 @@ public class Location extends Map implements Serializable {
         return gameTips;
     }
 
-    public void setGameTips(String[] tips) {
+    public void setGameTips(String[] gameTips) {
         this.gameTips = gameTips;
     }
 
@@ -62,7 +63,7 @@ public class Location extends Map implements Serializable {
                 + "name" + name
                 + ", description" + description
                 + ", mapSymbols" + mapSymbol
-                + ", gameTips" + gameTips
+                + ", gameTips" + Arrays.toString(gameTips)
                 + "}";
     }
 

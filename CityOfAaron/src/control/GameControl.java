@@ -90,8 +90,8 @@ public class GameControl {
         Game game = new Game();
         game.setThePlayer(player);
 
-        game.setCurrentPopulation(1000);
-        game.setAcresOwned(3000);
+        game.setCurrentPopulation(100);
+        game.setAcresOwned(1000);
         game.setWheatInStorage(2700);
 
         Map theMap = MapControl.createMap();

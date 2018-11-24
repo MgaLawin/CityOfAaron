@@ -38,60 +38,37 @@ public class ViewTheMapView extends ViewBase {
         return null;
     }
 
-//    @Override
-//    public boolean doAction(String[] inputs) {
-//
-//        Map map = MapControl.createMap();
-//       
-////    public void displayMap() {
-//        // print out the map
-//        Location[][] locations = CityOfAaron.getCurrentGame().getTheMap().getLocation();
-//
-//        for (int row = 0; row < locations.length; row++) {
-//            for (int column = 0; column < locations[row].length; column++) {
-//                System.out.printf("%3s", locations[row][column].getMapSymbol() + " ");
-//            }
-//            System.out.println();
-//
-//        }
-//        return false;
-//
-//    }
-      @Override
+    @Override
     public boolean doAction(String[] inputs) {
-       
-        // return false if you want this view to exit and return
-        // to the view that called it.
 
-        displayMap();
-        return false;
-    }
-    
-    public void displayMap() {
-        System.out.println("As the ruler of the City of Aaron,");
-        System.out.println("you have access to the city map and its secrets.");
-        System.out.println("------------------------------");
-        
-        Map map = MapControl.createMap();    
-        Location[][] locations = map.getLocation();
+        Map map = MapControl.createMap();
 
-        for (int i = 0; i < locations.length; i++) {
+        // public void displayMap() {
+        // print out the map
+        Location[][] locations = CityOfAaron.getCurrentGame().getTheMap().getLocation();
+        System.out.println();
 
-            for (int j = 0; j < locations[i].length; j++) {
-                System.out.printf("%3s", map.getLocation()[i][j].getMapSymbol());
+        for (int row = 0; row < locations.length; row++) {
+            for (int column = 0; column < locations[row].length; column++) {
+                System.out.print(locations[row][column].getMapSymbol() + " ");
             }
             System.out.println();
+
         }
         System.out.println("------------------------------");
+        System.out.println("B- Border");
         System.out.println("C - Ruler's Court");
-        System.out.println("S - City Granary and Storehouse");
+        System.out.println("D - Village of Deon");
         System.out.println("F - Wheat field");
+        System.out.println("J - Village of Jeremy");
+        System.out.println("S - Storehouse");
+        System.out.println("T - Temple");
         System.out.println("U - Undeveloped land");
         System.out.println("V - Village");
-        System.out.println("R - River"); 
-        System.out.println("B - Border of the Lamanite lands");
-        System.out.println("T - Temple");
-        System.out.println("W - Watchtower\n"); 
+        System.out.println("W - Watchtower");
+        System.out.println("Y - Village of Chelsey");
+        System.out.println("------------------------------");
         pause(1500);
+        return false;
     }
 }

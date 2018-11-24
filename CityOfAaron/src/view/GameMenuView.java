@@ -1,4 +1,5 @@
 package view;
+
 import control.MapControl;
 import model.Map;
 import model.Location;
@@ -22,14 +23,14 @@ public class GameMenuView extends ViewBase {
     @Override
     protected String getMessage() {
         return "GameMenu\n"
-            + "-------------\n"
-            + "V - View the Map\n"
-            + "M - Move to a New Location\n"
-            + "A - View the Annual Report\n"
-            + "C - Manage the Crops\n"
-            + "R - Reports Menu\n"
-            + "S - Save the Game\n"
-            + "Q - Quit the Game";
+                + "-------------\n"
+                + "V - View the Map\n"
+                + "M - Move to a New Location\n"
+                + "A - View the Annual Report\n"
+                + "C - Manage the Crops\n"
+                + "R - Reports Menu\n"
+                + "S - Save the Game\n"
+                + "Q - Quit the Game";
     }
 
     /**
@@ -62,7 +63,7 @@ public class GameMenuView extends ViewBase {
 
         switch (inputs[0].trim().toUpperCase()) {
             case "V":
-                displayMap();
+                ViewTheMapView();
                 break;
             case "A":
                 AnnualReportView();
@@ -94,8 +95,8 @@ public class GameMenuView extends ViewBase {
         return true;
     }
 
-      private void AnnualReportView() {
-       AnnualReportView view = new AnnualReportView();
+    private void AnnualReportView() {
+        AnnualReportView view = new AnnualReportView();
         view.displayView();
     }
 
@@ -119,21 +120,9 @@ public class GameMenuView extends ViewBase {
         view.displayView();
     }
 
-//    private void ViewTheMapView() {
-//        ViewTheMapView view = new ViewTheMapView();
-//        view.displayView();
-//    }
-    
-    public void displayMap() {
-        Map map = MapControl.createMap();
-        Location[][] locations = map.getLocation();
-        
-        for(int i = 0; i < locations.length; i++){
-            for (int j = 0; j < locations[i].length; j++){
-                System.out.println(map.getLocation()[i][j].getMapSymbol());
-            }
-            System.out.println();
-        }
+    private void ViewTheMapView() {
+        ViewTheMapView view = new ViewTheMapView();
+        view.displayView();
     }
 
     private void EndGameView() {
