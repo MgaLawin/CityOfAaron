@@ -22,8 +22,10 @@ public class EndGameView extends ViewBase {
     protected String getMessage() {
 
         return "\n\n****************************************************************************************\n"
-                + " Thank you for playing the game today. Your game has ended. \n"
-                + "Would you like to play again? Enter Y- to play again or N- to quit\n"
+                + "Thank you for playing the game today. Your game has ended.\n"
+                + "Would you like to play again?\n"
+                + "Y - to play again\n"
+                + "N - to quit\n"
                 + "\n******************************************************************************************\n";
 
     }

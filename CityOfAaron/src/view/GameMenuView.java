@@ -82,7 +82,7 @@ public class GameMenuView extends ViewBase {
                 break;
             case "Q":
                 EndGameView();
-                break;
+                return false;
         }
         return true;
     }
