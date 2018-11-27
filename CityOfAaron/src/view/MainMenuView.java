@@ -36,7 +36,7 @@ public class MainMenuView extends ViewBase {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("What would you like to do?.");
+        inputs[0] = getUserInput("What would you like to do?");
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;

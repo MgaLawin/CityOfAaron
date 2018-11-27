@@ -24,10 +24,14 @@ public class AverageAnimalAgeView extends ViewBase {
     @Override
     protected String getMessage() {
 
+        String animals2 = AnimalControl.averageAgeOfAnimals();
+
         return "Average Animal Age\n"
                 + "-----------------------\n"
                 + "Calculating the average age of the animals in the storehouse...\n"
-                + "-----------------------\n";
+                + "-----------------------\n"
+                + animals2;
+
     }
 
     /**
@@ -38,7 +42,7 @@ public class AverageAnimalAgeView extends ViewBase {
     @Override
     public String[] getInputs() {
 
-        // This view is not interactive. It just shows the game description.
+        // This view is not interactive. It just shows the average age of the animals.
         return null;
     }
 
@@ -53,15 +57,6 @@ public class AverageAnimalAgeView extends ViewBase {
     public boolean doAction(String[] inputs) {
         //Display the average age of the animals in the storehouse.
 
-//        Animal animal = AnimalControl.averageAgeOfAnimals();
-//
-//        System.out.println();
-//        for (int row = 0; row < locations.length; row++) {
-//            for (int column = 0; column < locations[row].length; column++) {
-//                System.out.print(locations[row][column].getMapSymbol() + " ");
-//            }
-//            System.out.println();
-//        }
         return false;
     }
 
