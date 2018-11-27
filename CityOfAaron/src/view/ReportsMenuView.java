@@ -2,7 +2,6 @@ package view;
 
 import cityofaaron.CityOfAaron;
 import java.util.Scanner;
-import control.ProvisionsControl;
 import model.Game;
 import model.InventoryItem;
 import model.Provision;
@@ -111,47 +110,33 @@ public class ReportsMenuView extends ViewBase {
           }
     
 
-private void provisionsInStorehouse() {
-}
-    private static class Item {
+  private void provisionsInStorehouse() {
+        System.out.println("Provisions in Storehouse: \n");
+        InventoryItem[] tools = CityOfAaron.getCurrentGame().getTheStorehouse().getProvisions();
 
-        private String description;
+        if (tools == null) {
+            
+            System.out.println("You currently have zero provisions in the storehouse, please add some.");
+             } 
+        else {
+            String toolName;
+            int numberTools;
 
-        public Item(String description) {
-            this.description = description;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-    }
-
-    public static void main(String[] args) {
-        Item[] items = new Item[4];
-        items[0] = new Item("Water");
-        items[1] = new Item("Bedding");
-        items[2] = new Item("Clothes");
-        items[3] = new Item("Shoes");
-
-        for (int i = 0; i < items.length - 1; i++) {
-
-            for (int j = i + 1; j < items.length; j++) {
-
-                if (items[i].getDescription().compareTo(items[j].getDescription()) > 0) {
-                    Item temp = items[i];
-                    items[i] = items[j];
-                    items[j] = temp;
-                }
-
+            for (int i = 0; i < tools.length; i++) {
+                toolName = tools[i].getname();
+                numberTools = tools[i].getquantity();
+                System.out.println(toolName  + "-- " + numberTools);
             }
-        }
-
-        for (Item item : items) {
-            System.out.println(item.getDescription());
-        }
-
-    }
-
+            long total = 0;
+            for (int i=0; i<tools.length ; i++) {
+                numberTools = tools[i].getquantity();
+                total += numberTools ;
+            }
+            System.out.println("There are:  " + total + " provisions in the Storehouse.");
+             }
+          }       
+        
+       
     private void authorsView() {
         System.out.println("authorsView will be coming soon.");
     }
