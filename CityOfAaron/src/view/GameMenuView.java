@@ -31,6 +31,7 @@ public class GameMenuView extends ViewBase {
                 + "R - Reports Menu\n"
                 + "S - Save the Game\n"
                 + "Q - Quit the Game\n"
+                + "-------------\n"
                 + "X - Calculate the average age of animals in the storehouse\n";
     }
 
