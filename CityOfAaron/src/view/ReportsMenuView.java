@@ -111,32 +111,35 @@ public class ReportsMenuView extends ViewBase {
     
 
   private void provisionsInStorehouse() {
-        System.out.println("Provisions in Storehouse: \n");
-        InventoryItem[] tools = CityOfAaron.getCurrentGame().getTheStorehouse().getProvisions();
+        System.out.println("--------------------------------------------\n" +
+                                    "-      Provisions in Storehouse                 -\n" +
+                                    "--------------------------------------------\n");
+        InventoryItem[] provisions = CityOfAaron.getCurrentGame().getTheStorehouse().getProvisions();
 
-        if (tools == null) {
+        if (provisions == null) {
             
-            System.out.println("You currently have zero provisions in the storehouse, please add some.");
+            System.out.println("You have no provisions in the storehouse.");
              } 
         else {
-            String toolName;
-            int numberTools;
+            String nameOfProvision;
+            int numberOfProvisions = 0;
 
-            for (int i = 0; i < tools.length; i++) {
-                toolName = tools[i].getname();
-                numberTools = tools[i].getquantity();
-                System.out.println(toolName  + "-- " + numberTools);
+            for (int i = 0; i < provisions.length; i++) {
+                nameOfProvision = provisions[i].getname();
+                numberOfProvisions = provisions[i].getquantity();
+                System.out.println(nameOfProvision  + "-- " + numberOfProvisions);
             }
-            long total = 0;
-            for (int i=0; i<tools.length ; i++) {
-                numberTools = tools[i].getquantity();
-                total += numberTools ;
+            
+             long total = 0;
+            for (int i=0; i<provisions.length ; i++) {
+                numberOfProvisions = provisions[i].getquantity();
+                total += numberOfProvisions ;
             }
             System.out.println("There are:  " + total + " provisions in the Storehouse.");
              }
           }       
-        
-       
+  
+   
     private void authorsView() {
         System.out.println("authorsView will be coming soon.");
     }
