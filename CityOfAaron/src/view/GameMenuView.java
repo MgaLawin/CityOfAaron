@@ -30,7 +30,8 @@ public class GameMenuView extends ViewBase {
                 + "C - Manage the Crops\n"
                 + "R - Reports Menu\n"
                 + "S - Save the Game\n"
-                + "Q - Quit the Game\n";
+                + "Q - Quit the Game\n"
+                + "X - Calculate the average age of animals in the storehouse\n";
     }
 
     /**
@@ -83,6 +84,9 @@ public class GameMenuView extends ViewBase {
             case "Q":
                 EndGameView();
                 return false;
+            case "X":
+                averageAnimalAgeView();
+                break;
         }
         return true;
     }
@@ -127,6 +131,11 @@ public class GameMenuView extends ViewBase {
 
     private void EndGameView() {
         EndGameView view = new EndGameView();
+        view.displayView();
+    }
+
+    private void averageAnimalAgeView() {
+        AverageAnimalAgeView view = new AverageAnimalAgeView();
         view.displayView();
     }
 

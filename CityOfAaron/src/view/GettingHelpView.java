@@ -1,5 +1,7 @@
 package view;
 
+import control.AnimalControl;
+
 /**
  *
  * @author JeremyHawks
@@ -105,9 +107,6 @@ public class GettingHelpView extends ViewBase {
             case "Q":
                 System.out.println("Returning to Main Menu...");
                 return false;
-            case "X":
-                averageAnimalAgeView();
-                break;
         }
         return true;
     }
@@ -119,11 +118,6 @@ public class GettingHelpView extends ViewBase {
         pause(1500);
         View helpMenu = new GettingHelpView();
         helpMenu.displayView();
-    }
-
-    private void averageAnimalAgeView() {
-        AverageAnimalAgeView view = new AverageAnimalAgeView();
-        view.displayView();
     }
 
 }
