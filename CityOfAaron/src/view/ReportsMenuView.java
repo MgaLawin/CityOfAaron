@@ -1,8 +1,12 @@
 package view;
 
+import cityofaaron.CityOfAaron;
 import java.util.Scanner;
 import control.ProvisionsControl;
+import model.Game;
+import model.InventoryItem;
 import model.Provision;
+import model.Storehouse;
 
 /**
  *
@@ -75,14 +79,40 @@ public class ReportsMenuView extends ViewBase {
     private void animalsInStorehouse() {
         System.out.println("animalsInStorehouse will be coming soon.");
     }
+ 
+        private void toolsInStorehouse() {
+        System.out.println("--------------------------------------------\n" +
+                                    "-      Tools in Storehouse                 -\n" +
+                                    "--------------------------------------------\n");
+        
+        //get the list of tools to sort by name and number
+        InventoryItem[] tools = CityOfAaron.getCurrentGame().getTheStorehouse().getTools();
 
-    private void toolsInStorehouse() {
-        System.out.println("toolsInStorehouse will be coming soon.");
-    }
+        if (tools == null) {
+            
+            System.out.println("You currently have zero tools in the storehouse, please add some.");
+             } 
+        else {
+            String toolName;
+            int numberTools;
+            //loop through the tools array get name and number of tools
+            for (int i = 0; i < tools.length; i++) {
+                toolName = tools[i].getname();
+                numberTools = tools[i].getquantity();
+                System.out.println(toolName  + "-- " + numberTools);
+            }
+            long total = 0;
+            for (int i=0; i<tools.length ; i++) {
+                numberTools = tools[i].getquantity();
+                total += numberTools ;
+            }
+            System.out.println("There are:  " + total + " tools in the Storehouse.");
+             }
+          }
+    
 
-    private void provisionsInStorehouse() {
-    }
-
+private void provisionsInStorehouse() {
+}
     private static class Item {
 
         private String description;
