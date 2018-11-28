@@ -27,7 +27,8 @@ public class ReportsMenuView extends ViewBase {
                 + "A - View the animals in the storehouse.\n"
                 + "T - View the tools in the storehouse.\n"
                 + "P - View the provisions in the storehouse. \n"
-                + "G - View the authors of this game.\n";
+                + "G - View the authors of this game.\n"
+                + "Q - Return to the Game Menu.\n";
     }
 
     /**
@@ -71,6 +72,8 @@ public class ReportsMenuView extends ViewBase {
             case "G":
                 authorsView();
                 break;
+              case "Q":
+               return false;
         }
         return true;
     }
