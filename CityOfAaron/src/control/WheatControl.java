@@ -8,7 +8,7 @@ import Exceptions.WheatControlException;
  */
 public class WheatControl {
 
-    public static void calculateLossToRats(double tithingPercent, int wheatInStorage) 
+    public static int calculateLossToRats(double tithingPercent, int wheatInStorage) 
         throws WheatControlException {
         int high;
         int low;
@@ -52,7 +52,7 @@ public class WheatControl {
 
         //return wheatInStorage * percentLost --will need to be turned back into an int
        
-        // TODO return (int) (wheatInStorage * percentLost);
+         return (int) (wheatInStorage * percentLost);
     }
     
 
@@ -64,7 +64,7 @@ public class WheatControl {
      * @return
      */
     public static int calculateHarvest(int tithingPercent, int acresPlanted) 
-            throws WheatControlException{
+            throws WheatControlException {
         //    Calculate the amount of wheat harvested, based on the percentage of tithing paid. Assume that the gameControl.getRandomNumber(low,high) is avaliable to be called
 
         // set variables for the function
