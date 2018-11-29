@@ -6,6 +6,7 @@ import model.Game;
 import model.InventoryItem;
 import model.Provision;
 import model.Storehouse;
+import control.GameControl;
 
 /**
  *
@@ -83,33 +84,8 @@ public class ReportsMenuView extends ViewBase {
     }
  
         private void toolsInStorehouse() {
-        System.out.println("--------------------------------------------\n" +
-                                    "-      Tools in Storehouse                 -\n" +
-                                    "--------------------------------------------\n");
-        
-        //get the list of tools to sort by name and number
-        InventoryItem[] tools = CityOfAaron.getCurrentGame().getTheStorehouse().getTools();
-
-        if (tools == null) {
-            
-            System.out.println("You currently have zero tools in the storehouse, please add some.");
-             } 
-        else {
-            String toolName;
-            int numberTools;
-            //loop through the tools array get name and number of tools
-            for (int i = 0; i < tools.length; i++) {
-                toolName = tools[i].getname();
-                numberTools = tools[i].getquantity();
-                System.out.println(toolName  + "-- " + numberTools);
-            }
-            long total = 0;
-            for (int i=0; i<tools.length ; i++) {
-                numberTools = tools[i].getquantity();
-                total += numberTools ;
-            }
-            System.out.println("There are:  " + total + " tools in the Storehouse.");
-             }
+        String list = GameControl.sumTools();
+        System.out.println(list);
           }
     
 

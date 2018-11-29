@@ -102,12 +102,4 @@ public class ManageTheCropsView extends ViewBase {
         view.displayView();
     }
 
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input. We don't want to do a lot of
-    // complex game stuff in our doAction() method. It will get messy very quickly.
-    private boolean someActionHandler() {
-        // Eventually this will run processes to manage the crops
-        System.out.println("Actions to manage your crops will be implemented here soon.");
-        return true;
-    }
-}
+   }

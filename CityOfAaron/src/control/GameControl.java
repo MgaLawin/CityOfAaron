@@ -131,6 +131,38 @@ public class GameControl {
         return inventory;
     }
 
+    public static String sumTools() {
+        long total = 0;
+        InventoryItem[] tools = createTools();
+        
+        String endingString = "";
+        endingString += ("--------------------------------------------\n"
+                + "-      Tools in Storehouse                 -\n"
+                + "--------------------------------------------\n");
+
+        if (tools == null) {
+            endingString += ("You currently have zero tools in the storehouse, please add some.");
+        } 
+        else 
+        {
+            String toolName;
+            int numberTools;
+            //loop through the tools array get name and number of tools
+
+            for (int i = 0; i < tools.length; i++) {
+                toolName = tools[i].getname();
+                numberTools = tools[i].getquantity();
+                endingString += (toolName + "-- " + numberTools + "\n");
+                total += numberTools;
+            }
+        }
+
+        endingString += ("There are:  " + total + " tools in the Storehouse. \n");
+
+        return endingString;
+
+    }
+
     public static Animal[] createAnimals() {
 
         //literal array for animals with name quantity condition age
