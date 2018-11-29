@@ -134,7 +134,7 @@ public class GameControl {
     public static String sumTools() {
         long total = 0;
         InventoryItem[] tools = createTools();
-        
+
         String endingString = "";
         endingString += ("--------------------------------------------\n"
                 + "-      Tools in Storehouse                 -\n"
@@ -142,9 +142,7 @@ public class GameControl {
 
         if (tools == null) {
             endingString += ("You currently have zero tools in the storehouse, please add some.");
-        } 
-        else 
-        {
+        } else {
             String toolName;
             int numberTools;
             //loop through the tools array get name and number of tools

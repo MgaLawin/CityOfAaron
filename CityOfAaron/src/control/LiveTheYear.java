@@ -1,5 +1,8 @@
 package control;
 
+import Exceptions.WheatControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.AnnualReport;
 import model.Game;
 
@@ -34,9 +37,19 @@ public class LiveTheYear {
         //report.setLandPrice(LandControl.getCurrentLandPrice());
         int totalWheat = game.getWheatInStorage();
 
-        int harvested = WheatControl.calculateHarvest(tithingPercent, acresPlanted);
+        int harvested = 0;
+        try {
+            harvested = WheatControl.calculateHarvest(tithingPercent, acresPlanted);
+        } catch (WheatControlException ex) {
+            Logger.getLogger(LiveTheYear.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //int tithingPercent = (int) (double) ((tithingPercentagePaid / 100.0) * harvested);
-        int lostToRats = WheatControl.calculateLossToRats(tithingPercent, totalWheat);
+        int lostToRats = 0;
+        try {
+            lostToRats = WheatControl.calculateLossToRats(tithingPercent, totalWheat);
+        } catch (WheatControlException ex) {
+            Logger.getLogger(LiveTheYear.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         int peopleStarved = PeopleControl.calculateMortality(bushelsForFood, game.getCurrentPopulation());
 
