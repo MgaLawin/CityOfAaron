@@ -64,12 +64,13 @@ public class MapControl {
         return map;
 
     }
-    public static Location movePlayer(player, newRow, newColumn) {
-        currentRow = 
+    //need help here toooooooooo
+//    public static Location movePlayer(player, newRow, newColumn) {
+//        currentRow = 
+//        
+//        if {
+//            player === "null";
         
-        if {
-            player === "null";
-        
-    }
+   //}
     
 }
