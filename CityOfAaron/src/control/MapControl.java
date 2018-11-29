@@ -3,6 +3,9 @@ package control;
 import model.Map;
 import model.Point;
 import model.Location;
+import control.GameControl;
+
+        
 
 /**
  *
@@ -61,4 +64,12 @@ public class MapControl {
         return map;
 
     }
+    public static Location movePlayer(player, newRow, newColumn) {
+        currentRow = 
+        
+        if {
+            player === "null";
+        
+    }
+    
 }

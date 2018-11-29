@@ -33,17 +33,15 @@ public class CityOfAaron {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Game theGame = new Game();
-        theGame.setThePlayer(new Player());
-        theGame.setTheMap(new Map());
-        theGame.setTheStorehouse(new Storehouse());
-        theGame.setCurrentPopulation(105);
-        theGame.setAcresOwned(2000);
-        theGame.setWheatInStorage(15000);
-        System.out.println(theGame.toString());
 
-        View startProgramView = new StartProgramView();
-        startProgramView.displayView();
+        try {
+            View startProgramView = new StartProgramView();
+            startProgramView.displayView();
+        } catch (Throwable te) {
+            System.out.println("This game is not loading, sorry. Have a great day!");
+            System.out.println(te.getMessage());
+
+        }
 
     }
 

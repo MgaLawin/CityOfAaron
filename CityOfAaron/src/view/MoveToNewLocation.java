@@ -47,19 +47,20 @@ public class MoveToNewLocation extends ViewBase {
 
         // If the user hits enter go back to game menu by returning false
         if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("This feature is not currently available. Returning to the game menu. . . ");
-            return false;
+            System.out.println("You entered an invalid number. Please enter a number between 0-4 for each prompt \n");
+            return true;
         }
         // return false if you want this view to exit and return
         // to the view that called it.
-
         //return false so we do not keep looping
         return false;
 
     }
-
-    private void moveToNewLocation(String[] inputs) {
-        //this has not been built yet, when it is this is were we will call it and move the player 
+       // neeed heelllp hereeee
+    private void moveToNewLocation(String [] inputs) {
+        //get the new points from the user inputs
+     // Point point = new Point( inputs[0], inputs[1]);
+        
 
     }
 
