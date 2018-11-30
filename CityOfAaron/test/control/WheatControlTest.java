@@ -21,7 +21,7 @@ public class WheatControlTest {
     @Test
     //boundary testing wheat in storage is 0  return 0
 
-    public void testCalculateLossToRats() throws WheatControlException {
+    public void testCalculateLossToRats() throws WheatControlException, GameControlException {
         System.out.println("calculateLossToRats");
         int tithingPercent = 8;
         int wheatInStorage = 0;
@@ -33,21 +33,21 @@ public class WheatControlTest {
 
     @Test
     // invalid testing negative wheatInStorage
-    public void testCalculateLossToRats0() throws WheatControlException {
+    public void testCalculateLossToRats0() throws WheatControlException, GameControlException {
         int result = WheatControl.calculateLossToRats(10, -1);
         assertEquals(-1, result);
     }
 
     @Test
     // invalid percentage of negative tithing
-    public void testCalculateLossToRats1() throws WheatControlException {
+    public void testCalculateLossToRats1() throws WheatControlException, GameControlException {
         int result = WheatControl.calculateLossToRats(-.0001, 1);
         assertEquals(-2, result);
     }
 
     @Test
     // invalid percentage of tithing over 100%
-    public void testCalculateLossToRats2() throws WheatControlException {
+    public void testCalculateLossToRats2() throws WheatControlException, GameControlException {
         int result = WheatControl.calculateLossToRats(101, 1100);
         assertEquals(-2, result);
 
@@ -55,7 +55,7 @@ public class WheatControlTest {
 
     @Test
     // invalid percentage of tithing over 100%
-    public void testCalculateLossToRats3() throws WheatControlException {
+    public void testCalculateLossToRats3() throws WheatControlException, GameControlException {
         int result = WheatControl.calculateLossToRats(101, 1100);
         assertEquals(-2, result);
 
@@ -143,7 +143,7 @@ public class WheatControlTest {
      */
     //valid test for tithingPercent > 12 Random num=5
     @Test
-    public void testCalculateHarvest1() throws WheatControlException {
+    public void testCalculateHarvest1() throws WheatControlException, GameControlException {
         //create fake number
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandomGenerator(fakeRandom);
@@ -159,7 +159,7 @@ public class WheatControlTest {
 
     //valid test for tithingPercent > 8 && <= 12 Random num=4
     @Test
-    public void testCalculateHarvest2() throws WheatControlException {
+    public void testCalculateHarvest2() throws WheatControlException, GameControlException {
         //create fake number
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandomGenerator(fakeRandom);
@@ -171,7 +171,7 @@ public class WheatControlTest {
 
     //valid test for tithingPercent > 0 && <= 8 Random num=3
     @Test
-    public void testCalculateHarvest3() throws WheatControlException {
+    public void testCalculateHarvest3() throws WheatControlException, GameControlException {
         //create fake number
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandomGenerator(fakeRandom);
@@ -183,28 +183,28 @@ public class WheatControlTest {
 
     //invalid test for acresPlanted < 0 return -1
     @Test
-    public void testCalculateHarvest4() throws WheatControlException {
+    public void testCalculateHarvest4() throws WheatControlException, GameControlException {
         int result = WheatControl.calculateHarvest(10, -10);
         assertEquals(-1, result);
     }
 
     //invalid test for tithingPercent < 0 return -2
     @Test
-    public void testCalculateHarvest5() throws WheatControlException {
+    public void testCalculateHarvest5() throws WheatControlException, GameControlException {
         int result = WheatControl.calculateHarvest(-10, 10);
         assertEquals(-2, result);
     }
 
     //invalid test for tithingPercent > 100 return -2
     @Test
-    public void testCalculateHarvest6() throws WheatControlException {
+    public void testCalculateHarvest6() throws WheatControlException, GameControlException {
         int result = WheatControl.calculateHarvest(115, 10);
         assertEquals(-2, result);
     }
 
     //boundary test for tithingPercent = 0 Random num = 1
     @Test
-    public void testCalculateHarvest7() throws WheatControlException {
+    public void testCalculateHarvest7() throws WheatControlException, GameControlException {
         //create fake number
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandomGenerator(fakeRandom);
@@ -216,7 +216,7 @@ public class WheatControlTest {
 
     //boundary test for acresPlanted = 0 Random num = 4
     @Test
-    public void testCalculateHarvest8() throws WheatControlException {
+    public void testCalculateHarvest8() throws WheatControlException, GameControlException {
         //create fake number
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandomGenerator(fakeRandom);
