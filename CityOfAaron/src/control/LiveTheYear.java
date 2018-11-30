@@ -1,5 +1,6 @@
 package control;
 
+import Exceptions.PeopleControlException;
 import Exceptions.WheatControlException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,10 +25,10 @@ public class LiveTheYear {
      * @return The year's Annual Report data
      */
     public static AnnualReport liveTheYear(
-        Game game, int tithingPercent,
-        int bushelsForFood, int acresPlanted) {
+            Game game, int tithingPercent,
+            int bushelsForFood, int acresPlanted) {
         if (game == null || tithingPercent < 0 || tithingPercent > 100
-            || bushelsForFood < 0 || acresPlanted < 0) {
+                || bushelsForFood < 0 || acresPlanted < 0) {
             return null;
         }
 
@@ -50,27 +51,31 @@ public class LiveTheYear {
         } catch (WheatControlException ex) {
             Logger.getLogger(LiveTheYear.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try {
+            int peopleStarved = PeopleControl.calculateMortality(bushelsForFood, game.getCurrentPopulation());
 
-        int peopleStarved = PeopleControl.calculateMortality(bushelsForFood, game.getCurrentPopulation());
+            // TODO calculate mortatility rate if greater than 50%- send to end of game
+            //TODO create an array of the years lived if 10 end the game view
+            //int peopleMovedIn = PeopleControl.calculateNewMoveIns(game.getCurrentPopulation());
+            //totalWheat = totalWheat + harvested - tithingAmount - lostToRats;
+            game.setWheatInStorage(totalWheat);
+            //report.setCurrentPopulation(game.getCurrentPopulation() - peopleStarved + peopleMovedIn);
 
-        // TODO calculate mortatility rate if greater than 50%- send to end of game
-        //TODO create an array of the years lived if 10 end the game view
-        
-        //int peopleMovedIn = PeopleControl.calculateNewMoveIns(game.getCurrentPopulation());
-        //totalWheat = totalWheat + harvested - tithingAmount - lostToRats;
-        game.setWheatInStorage(totalWheat);
-        //report.setCurrentPopulation(game.getCurrentPopulation() - peopleStarved + peopleMovedIn);
+            report.setBushelsHarvested(harvested);
+            //report.setTithingAmount(tithingAmount);
+            report.setLostToRats(lostToRats);
+            report.setPeopleStarved(peopleStarved);
+            //report.setPeopleMovedIn(peopleMovedIn);
 
-        report.setBushelsHarvested(harvested);
-        //report.setTithingAmount(tithingAmount);
-        report.setLostToRats(lostToRats);
-        report.setPeopleStarved(peopleStarved);
-        //report.setPeopleMovedIn(peopleMovedIn);
+            report.setEndingWheatInStorage(game.getWheatInStorage());
+            report.setEndingPopulation(game.getCurrentPopulation());
+            report.setEndingAcresOwned(game.getAcresOwned());
 
-        report.setEndingWheatInStorage(game.getWheatInStorage());
-        report.setEndingPopulation(game.getCurrentPopulation());
-        report.setEndingAcresOwned(game.getAcresOwned());
+            return report;
+        } catch (PeopleControlException ex) {
+            System.out.println(ex.getMessage());
+        }
 
-        return report;
+        return null;
     }
 }

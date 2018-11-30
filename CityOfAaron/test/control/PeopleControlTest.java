@@ -1,5 +1,6 @@
 package control;
 
+import Exceptions.PeopleControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,7 +18,7 @@ public class PeopleControlTest {
      */
     //test valid
     @Test
-    public void testCalculateMortality() {
+    public void testCalculateMortality() throws PeopleControlException {
         System.out.println("calculateMortality");
         int bushelsForFood = 1500;
         int currentPopulation = 100;
@@ -28,7 +29,7 @@ public class PeopleControlTest {
 
     //test valid
     @Test
-    public void testCalculateMortality2() {
+    public void testCalculateMortality2() throws PeopleControlException {
         System.out.println("calculateMortality");
         int bushelsForFood = 20000;
         int currentPopulation = 1200;
@@ -39,7 +40,7 @@ public class PeopleControlTest {
 
     //test valid
     @Test
-    public void testCalculateMortality3() {
+    public void testCalculateMortality3() throws PeopleControlException {
         System.out.println("calculateMortality");
         int bushelsForFood = 300000;
         int currentPopulation = 15000;
@@ -50,7 +51,7 @@ public class PeopleControlTest {
 
     //test invalid negative bushelsForFood
     @Test
-    public void testCalculateMortality4() {
+    public void testCalculateMortality4() throws PeopleControlException {
         System.out.println("calculateMortality");
         int bushelsForFood = -200;
         int currentPopulation = 1000;
@@ -61,7 +62,7 @@ public class PeopleControlTest {
 
     //test invalid currentPopulation
     @Test
-    public void testCalculateMortality5() {
+    public void testCalculateMortality5() throws PeopleControlException {
         System.out.println("calculateMortality");
         int bushelsForFood = 5000;
         int currentPopulation = -60;

@@ -1,5 +1,7 @@
 package control;
 
+import Exceptions.GameControlException;
+import Exceptions.WheatControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,7 +21,7 @@ public class WheatControlTest {
     @Test
     //boundary testing wheat in storage is 0  return 0
 
-    public void testCalculateLossToRats() {
+    public void testCalculateLossToRats() throws WheatControlException {
         System.out.println("calculateLossToRats");
         int tithingPercent = 8;
         int wheatInStorage = 0;
@@ -31,21 +33,21 @@ public class WheatControlTest {
 
     @Test
     // invalid testing negative wheatInStorage
-    public void testCalculateLossToRats0() {
+    public void testCalculateLossToRats0() throws WheatControlException {
         int result = WheatControl.calculateLossToRats(10, -1);
         assertEquals(-1, result);
     }
 
     @Test
     // invalid percentage of negative tithing
-    public void testCalculateLossToRats1() {
+    public void testCalculateLossToRats1() throws WheatControlException {
         int result = WheatControl.calculateLossToRats(-.0001, 1);
         assertEquals(-2, result);
     }
 
     @Test
     // invalid percentage of tithing over 100%
-    public void testCalculateLossToRats2() {
+    public void testCalculateLossToRats2() throws WheatControlException {
         int result = WheatControl.calculateLossToRats(101, 1100);
         assertEquals(-2, result);
 
@@ -53,7 +55,7 @@ public class WheatControlTest {
 
     @Test
     // invalid percentage of tithing over 100%
-    public void testCalculateLossToRats3() {
+    public void testCalculateLossToRats3() throws WheatControlException {
         int result = WheatControl.calculateLossToRats(101, 1100);
         assertEquals(-2, result);
 
@@ -61,7 +63,7 @@ public class WheatControlTest {
 
     @Test
     // insert fake random to test above 30
-    public void testCalculateLossToRats4() {
+    public void testCalculateLossToRats4() throws GameControlException {
         //create fake number
         FakeRandom fakeRandom = new FakeRandom();
         fakeRandom.add(62);
@@ -73,7 +75,7 @@ public class WheatControlTest {
 
     @Test
     // test for number below 30 and tithing above 12
-    public void testCalculateLossToRats5() {
+    public void testCalculateLossToRats5() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         fakeRandom.add(22);
         fakeRandom.add(4);
@@ -89,7 +91,7 @@ public class WheatControlTest {
 
     @Test
     // test for number below 30 and tithing between 8-12
-    public void testCalculateLossToRats6() {
+    public void testCalculateLossToRats6() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         fakeRandom.add(22);
         fakeRandom.add(6);
@@ -105,7 +107,7 @@ public class WheatControlTest {
 
     @Test
     // test for number below 30 and tithing between 8 and below
-    public void testCalculateLossToRats7() {
+    public void testCalculateLossToRats7() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         fakeRandom.add(22);
         fakeRandom.add(7);
@@ -122,7 +124,7 @@ public class WheatControlTest {
     @Test
     // boundary for number below 30 and tithing equal to 0
 
-    public void testCalculateLossToRats8() {
+    public void testCalculateLossToRats8() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         fakeRandom.add(22);
         fakeRandom.add(8);
@@ -141,7 +143,7 @@ public class WheatControlTest {
      */
     //valid test for tithingPercent > 12 Random num=5
     @Test
-    public void testCalculateHarvest1() {
+    public void testCalculateHarvest1() throws WheatControlException {
         //create fake number
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandomGenerator(fakeRandom);
@@ -157,7 +159,7 @@ public class WheatControlTest {
 
     //valid test for tithingPercent > 8 && <= 12 Random num=4
     @Test
-    public void testCalculateHarvest2() {
+    public void testCalculateHarvest2() throws WheatControlException {
         //create fake number
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandomGenerator(fakeRandom);
@@ -169,7 +171,7 @@ public class WheatControlTest {
 
     //valid test for tithingPercent > 0 && <= 8 Random num=3
     @Test
-    public void testCalculateHarvest3() {
+    public void testCalculateHarvest3() throws WheatControlException {
         //create fake number
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandomGenerator(fakeRandom);
@@ -181,28 +183,28 @@ public class WheatControlTest {
 
     //invalid test for acresPlanted < 0 return -1
     @Test
-    public void testCalculateHarvest4() {
+    public void testCalculateHarvest4() throws WheatControlException {
         int result = WheatControl.calculateHarvest(10, -10);
         assertEquals(-1, result);
     }
 
     //invalid test for tithingPercent < 0 return -2
     @Test
-    public void testCalculateHarvest5() {
+    public void testCalculateHarvest5() throws WheatControlException {
         int result = WheatControl.calculateHarvest(-10, 10);
         assertEquals(-2, result);
     }
 
     //invalid test for tithingPercent > 100 return -2
     @Test
-    public void testCalculateHarvest6() {
+    public void testCalculateHarvest6() throws WheatControlException {
         int result = WheatControl.calculateHarvest(115, 10);
         assertEquals(-2, result);
     }
 
     //boundary test for tithingPercent = 0 Random num = 1
     @Test
-    public void testCalculateHarvest7() {
+    public void testCalculateHarvest7() throws WheatControlException {
         //create fake number
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandomGenerator(fakeRandom);
@@ -214,7 +216,7 @@ public class WheatControlTest {
 
     //boundary test for acresPlanted = 0 Random num = 4
     @Test
-    public void testCalculateHarvest8() {
+    public void testCalculateHarvest8() throws WheatControlException {
         //create fake number
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandomGenerator(fakeRandom);

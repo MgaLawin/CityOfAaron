@@ -7,26 +7,26 @@ package Exceptions;
 
 /**
  *
- * @author DIDIM
+ * @author Jeremy
  */
-public class PeopleControlException extends Exception {
+public class LandControlException extends Exception {
 
-    public PeopleControlException() {
+    public LandControlException() {
     }
 
-    public PeopleControlException(String message) {
+    public LandControlException(String message) {
         super(message);
     }
 
-    public PeopleControlException(String message, Throwable cause) {
+    public LandControlException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public PeopleControlException(Throwable cause) {
+    public LandControlException(Throwable cause) {
         super(cause);
     }
 
-    public PeopleControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public LandControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 

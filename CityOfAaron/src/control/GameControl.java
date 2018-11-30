@@ -1,5 +1,6 @@
 package control;
 
+import Exceptions.GameControlException;
 import cityofaaron.CityOfAaron;
 import java.util.Random;
 import model.Author;
@@ -26,21 +27,20 @@ public class GameControl {
         randomGenerator = random;
     }
 
-    public static int getRandomNumber(int lowNumber, int highNumber) {
-
+    public static int getRandomNumber(int lowNumber, int highNumber) throws GameControlException {
         //if low < 0 or high< 0 then return -1
         if (lowNumber < 0 || highNumber < 0) {
-            return -1;
+            throw new GameControlException("\nLow and high numbers cannot be less than 0.\n");
         }
 
         //if high <= low return -2
         if (highNumber <= lowNumber) {
-            return -2;
+            throw new GameControlException("\nThe high number cannot be less than or equal to the low number.\n");
         }
 
         //if high is the max value for the integers return -3
         if (highNumber == Integer.MAX_VALUE) {
-            return -3;
+            throw new GameControlException("\nThe high number must be at least one less than the max value.\n");
         }
         // calculate the size of the range and add one so Random() includes highNumber
         int range = (highNumber - lowNumber) + 1;
