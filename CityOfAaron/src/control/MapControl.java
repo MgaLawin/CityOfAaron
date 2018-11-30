@@ -1,5 +1,7 @@
 package control;
 
+import Exceptions.MapControlException;
+import cityofaaron.CityOfAaron;
 import model.Map;
 import model.Point;
 import model.Location;
@@ -64,13 +66,19 @@ public class MapControl {
         return map;
 
     }
-    //need help here toooooooooo
-//    public static Location movePlayer(player, newRow, newColumn) {
-//        currentRow = 
-//        
-//        if {
-//            player === "null";
+   
+    public static void checkNewLocation(int row, int column) throws MapControlException {
+
+        Map map = CityOfAaron.getCurrentGame().getTheMap();
+        Location[][] locations = map.getLocation();
+
+        if (row < 0 || column < 0) {
+            throw new MapControlException("\nPlease enter a valid number between 0 and 4.\n");
+            
+        } else if (row >= locations[0].length || column >= locations[1].length) {
+            throw new MapControlException("\nPlease enter numbers that are not greater than 4.\n");
+        }
+    }
         
-   //}
-    
+       
 }

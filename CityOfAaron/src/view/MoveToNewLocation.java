@@ -1,5 +1,9 @@
 package view;
 
+import Exceptions.MapControlException;
+import control.MapControl;
+import model.Point;
+
 /**
  *
  * @author DIDIM
@@ -38,30 +42,44 @@ public class MoveToNewLocation extends ViewBase {
      *
      * @param inputs
      * @return true if the view should repeat itself, and false if the view
-     * should exit and return to the previous view.
+     * should exit and return to the previous view. add an exception to this
+     * view for group project
      */
     @Override
     public boolean doAction(String[] inputs) {
-        // only one action- initialize the game
-        // and then set it in the main cityofaaron class
+        // define the variables set to zero
+        int row = 0;
+        int column = 0;
+        boolean inputInt = false;
 
-        // If the user hits enter go back to game menu by returning false
-        if (inputs[0] == null || inputs[0].equals("")) {
+        try {
+            // change the user entered string into an int -parseInt
+            row = Integer.parseInt(inputs[0]);
+            column = Integer.parseInt(inputs[1]);
+            MapControl.checkNewLocation(row, column);
+            // created a variable so that we could continue the try
+            inputInt = true;
+            MoveToNewLocation(row, column);
+        } catch (NumberFormatException ex) {
             System.out.println("You entered an invalid number. Please enter a number between 0-4 for each prompt \n");
-            return true;
+
+        } catch (MapControlException mce) {
+            System.out.println(mce.getMessage());
         }
-        // return false if you want this view to exit and return
-        // to the view that called it.
-        //return false so we do not keep looping
-        return false;
 
-    }
-       // neeed heelllp hereeee
-    private void moveToNewLocation(String [] inputs) {
-        //get the new points from the user inputs
-     // Point point = new Point( inputs[0], inputs[1]);
-        
-
+        return true;
     }
 
+    private void MoveToNewLocation(int row, int column) {
+        Point point = new Point();
+        point.setRow(row);
+        point.setColumn(column);
+
+        // stub because this is not done yet
+        System.out.println("This is not currently working- may be working soon. Will send you back to the game menu for now.\n");
+        // TODO send back to the game menu- so we do not have a loop   
+
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayView();
+    }
 }
