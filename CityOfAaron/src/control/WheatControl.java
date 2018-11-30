@@ -1,5 +1,6 @@
 package control;
 
+import Exceptions.GameControlException;
 import Exceptions.WheatControlException;
 
 /**
@@ -8,8 +9,8 @@ import Exceptions.WheatControlException;
  */
 public class WheatControl {
 
-    public static int calculateLossToRats(double tithingPercent, int wheatInStorage) 
-        throws WheatControlException {
+    public static int calculateLossToRats(double tithingPercent, int wheatInStorage)
+            throws WheatControlException, GameControlException {
         int high;
         int low;
         double percentLost;
@@ -24,7 +25,7 @@ public class WheatControl {
         if (tithingPercent < 0 || tithingPercent > 100) {
             throw new WheatControlException("Tithing percent must be between 0-100.");
         }
-    
+
         //chanceOfRats= GameControl.getRandomNumber(1,100)
         int chanceOfRats = GameControl.getRandomNumber(1, 100);
 
@@ -51,10 +52,8 @@ public class WheatControl {
         percentLost = (GameControl.getRandomNumber(low, high) * .01);
 
         //return wheatInStorage * percentLost --will need to be turned back into an int
-       
-         return (int) (wheatInStorage * percentLost);
+        return (int) (wheatInStorage * percentLost);
     }
-    
 
     /**
      *
@@ -63,8 +62,8 @@ public class WheatControl {
      * @param acresPlanted
      * @return
      */
-    public static int calculateHarvest(int tithingPercent, int acresPlanted) 
-            throws WheatControlException {
+    public static int calculateHarvest(int tithingPercent, int acresPlanted)
+            throws WheatControlException, GameControlException {
         //    Calculate the amount of wheat harvested, based on the percentage of tithing paid. Assume that the gameControl.getRandomNumber(low,high) is avaliable to be called
 
         // set variables for the function
@@ -99,5 +98,4 @@ public class WheatControl {
         // return yield * acresPlanted
         return (yield * acresPlanted);
     }
-    }
-
+}
