@@ -1,5 +1,6 @@
 package control;
 
+import Exceptions.GameControlException;
 import Exceptions.PeopleControlException;
 import Exceptions.WheatControlException;
 import java.util.logging.Level;
@@ -26,7 +27,7 @@ public class LiveTheYear {
      */
     public static AnnualReport liveTheYear(
             Game game, int tithingPercent,
-            int bushelsForFood, int acresPlanted) {
+            int bushelsForFood, int acresPlanted) throws GameControlException {
         if (game == null || tithingPercent < 0 || tithingPercent > 100
                 || bushelsForFood < 0 || acresPlanted < 0) {
             return null;
