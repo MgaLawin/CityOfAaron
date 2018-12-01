@@ -76,10 +76,11 @@ public class MoveToNewLocation extends ViewBase {
         point.setColumn(column);
 
         // stub because this is not done yet
-        System.out.println("This is not currently working- may be working soon. Will send you back to the game menu for now.\n");
-        // TODO send back to the game menu- so we do not have a loop   
+        System.out.println("This is not currently working- may be working soon. We will send you back to the game menu for now.\n");
+        // TODO send back to the game menu- so we do not have a loop
 
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayView();
+
     }
 }
