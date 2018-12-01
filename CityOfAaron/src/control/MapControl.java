@@ -6,8 +6,8 @@ import model.Map;
 import model.Point;
 import model.Location;
 import control.GameControl;
-
-        
+import model.Game;
+import model.Player;
 
 /**
  *
@@ -66,7 +66,7 @@ public class MapControl {
         return map;
 
     }
-   
+
     public static void checkNewLocation(int row, int column) throws MapControlException {
 
         Map map = CityOfAaron.getCurrentGame().getTheMap();
@@ -74,11 +74,24 @@ public class MapControl {
 
         if (row < 0 || column < 0) {
             throw new MapControlException("\nPlease enter a valid number between 0 and 4.\n");
-            
+
         } else if (row >= locations[0].length || column >= locations[1].length) {
             throw new MapControlException("\nPlease enter numbers that are not greater than 4.\n");
         }
     }
-        
-       
+
+    public static void MoveToNewLocation(int row, int column) {
+        Point point = new Point();
+        point.setRow(row);
+        point.setColumn(column);
+
+        // set the new location by getting the current location and not creating a new map replace portion
+        Game game = CityOfAaron.getCurrentGame();
+        Map map = game.getTheMap();
+        map.setCurrentLocation(point);
+        game.setTheMap(map);
+        CityOfAaron.setCurrentGame(game);
+      
+        }
+
 }
