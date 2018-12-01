@@ -24,6 +24,7 @@ public class LiveTheYear {
      * @param acresPlanted The number of acres to be used for planting
      *
      * @return The year's Annual Report data
+     * @throws Exceptions.GameControlException
      */
     public static AnnualReport liveTheYear(
             Game game, int tithingPercent,

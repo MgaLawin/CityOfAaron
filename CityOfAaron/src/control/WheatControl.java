@@ -61,6 +61,8 @@ public class WheatControl {
      * @param tithingPercent
      * @param acresPlanted
      * @return
+     * @throws Exceptions.WheatControlException
+     * @throws Exceptions.GameControlException
      */
     public static int calculateHarvest(int tithingPercent, int acresPlanted)
             throws WheatControlException, GameControlException {
