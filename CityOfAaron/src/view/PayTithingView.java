@@ -1,6 +1,8 @@
 package view;
 
+import control.WheatControl;
 import java.util.Scanner;
+import Exceptions.WheatControlException;
 
 /**
  *
@@ -48,16 +50,32 @@ public class PayTithingView extends ViewBase {
     @Override
     public boolean doAction(String[] inputs) {
 
-        someActionHandler();
-        System.out.println("This will be coming soon. Sending you back to the Manage Crops Menu...");
+        //someActionHandler();
+        //System.out.println("This will be coming soon. Sending you back to the Manage Crops Menu...");
         //coming soon. This will be changed back to true
-        return false;
+        //return false;
+        int tithes = 0;
+        boolean inputValid = false;
+        
+         try {
+            tithes = Integer.parseInt(inputs[0]);
+            WheatControl.checkTithing(tithes);
+                inputValid = true;
+                theTithing(tithes);
+        } catch (NumberFormatException ex) {
+            System.out.println("Please enter a number.");
+        } catch (WheatControlException wce) {
+            System.out.println(wce.getMessage());
+        }
+
+        return inputValid;
+
     }
 
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of
     // complex game stuff in our doAction() method. It will get messy very quickly.
-    private boolean someActionHandler() {
+    //private boolean someActionHandler() {
         // Define whatever code you need here to accomplish the action.
         // You can make this a void method if you want. Whatever you need
         // here, you are free to do.
@@ -65,8 +83,13 @@ public class PayTithingView extends ViewBase {
         // Generally, though, this is where you will call into your Control
         // classes to do the work of the application.
 
-        System.out.println("WheatControl will be will be used here soon.");
+        //System.out.println("WheatControl will be will be used here soon.");
 
-        return true;
+        //return true;
+    //}
+    
+    private void theTithing(int tithingPercent) {
+        //TODO stub function, to be completed after AnnualReport is implemented 
+        System.out.println("Tithing percent");
     }
 }
