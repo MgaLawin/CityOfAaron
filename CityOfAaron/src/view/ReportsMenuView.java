@@ -89,7 +89,7 @@ public class ReportsMenuView extends ViewBase {
           }
     
 
-  private void provisionsInStorehouse() {
+    private void provisionsInStorehouse() {
         System.out.println("--------------------------------------------\n" +
                                     "-      Provisions in Storehouse                 -\n" +
                                     "--------------------------------------------\n");
