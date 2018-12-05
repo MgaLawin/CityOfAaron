@@ -1,6 +1,8 @@
 package control;
 
 import Exceptions.GameControlException;
+import Exceptions.PeopleControlException;
+import Exceptions.WheatControlException;
 import cityofaaron.CityOfAaron;
 import java.util.Random;
 import model.Author;
@@ -12,7 +14,9 @@ import model.Storehouse;
 import model.Player;
 import model.Map;
 import model.Animal;
+import model.AnnualReport;
 import model.Provision;
+import view.ErrorView;
 
 /**
  *
@@ -194,5 +198,59 @@ public class GameControl {
             new Author("Deon", "Coder Programmer")
         };
         return author;
+    }
+
+    public static AnnualReport calcLiveTheYear(
+            Game game, int tithingPercent,
+            int bushelsForFood, int acresPlanted
+    ) throws GameControlException, WheatControlException, PeopleControlException {
+        if (game == null || tithingPercent < 0 || tithingPercent > 100 || bushelsForFood < 0 || acresPlanted < 0) {
+            throw new GameControlException("Tithing percent, bushels for food, or acres to plant is invalid.");
+        }
+
+        AnnualReport report = new AnnualReport();
+        report.setLandPrice(LandControl.getCurrentLandPrice());
+
+        int totalWheat = game.getWheatInStorage();
+
+        int harvested = 0;
+        int lostToRats = 0;
+        int peopleStarved = 0;
+        int peopleMovedIn = 0;
+
+        try {
+            harvested = WheatControl.calculateHarvest(tithingPercent, acresPlanted);
+        } catch (WheatControlException ie) {
+            ErrorView.display("GameControl",
+                    "Error calculating harvest" + ie.getMessage());
+            throw new GameControlException("Cannot calculate harvest.");
+        }
+        int tithingAmount = (int) (double) ((tithingPercent / 100.0) * harvested);
+
+        try {
+            lostToRats = WheatControl.calculateLossToRats(tithingPercent, totalWheat);
+        } catch (WheatControlException ie) {
+            ErrorView.display("GameControl", ie.getMessage());
+            throw new GameControlException("Cannot calculate the amount of wheat lost to rats.");
+        }
+
+        peopleStarved = PeopleControl.calculateMortality(bushelsForFood, game.getCurrentPopulation());
+        peopleMovedIn = PeopleControl.calculateNewMoveIns(game.getCurrentPopulation());
+
+        totalWheat = totalWheat + harvested - tithingAmount - lostToRats;
+        game.setWheatInStorage(totalWheat);
+        game.setCurrentPopulation(game.getCurrentPopulation() - peopleStarved + peopleMovedIn);
+
+        report.setBushelsHarvested(harvested);
+        report.setTithingAmount(tithingAmount);
+        report.setLostToRats(lostToRats);
+        report.setPeopleStarved(peopleStarved);
+        report.setPeopleMovedIn(peopleMovedIn);
+
+        report.setEndingWheatInStorage(game.getWheatInStorage());
+        report.setEndingPopulation(game.getCurrentPopulation());
+        report.setEndingAcresOwned(game.getAcresOwned());
+
+        return report;
     }
 }

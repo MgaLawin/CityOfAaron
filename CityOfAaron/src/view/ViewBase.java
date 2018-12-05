@@ -56,14 +56,13 @@ public abstract class ViewBase implements View {
      */
     protected String getUserInput(String prompt, boolean allowEmpty) {
 
-        Scanner keyboard = new Scanner(System.in);
         String input = "";
         boolean inputReceived = false;
-       
+        try {
             while (inputReceived == false) {
 
                 this.console.println(prompt);
-                input = keyboard.nextLine();
+                input = this.keyboard.readLine();
 
                 // Make sure we avoid a null-pointer error.
                 if (input == null) {
@@ -76,11 +75,15 @@ public abstract class ViewBase implements View {
                 if (input.equals("") == false || allowEmpty == true) {
                     inputReceived = true;
                 }
-            }
 
-            return input;
+                break;
+
+            }
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "Error reading input:  " + e.getMessage());
         }
-    
+        return input;
+    }
 
     /**
      * An overloaded version of getUserInput that sets allowEmpty to false so we

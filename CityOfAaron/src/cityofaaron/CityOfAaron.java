@@ -52,6 +52,16 @@ public class CityOfAaron {
         currentGame = game;
     }
 
+    private static PrintWriter logFile = null;
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        CityOfAaron.logFile = logFile;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -63,6 +73,9 @@ public class CityOfAaron {
                     = new BufferedReader(new InputStreamReader(System.in));
 
             CityOfAaron.outFile = new PrintWriter(System.out, true);
+
+            logFile = new PrintWriter("logFile.txt");
+
             View startProgramView = new StartProgramView();
             startProgramView.displayView();
         } catch (Throwable te) {
@@ -75,15 +88,17 @@ public class CityOfAaron {
 
         } finally {
             try {
-                if (CityOfAaron.inFile != null)
+                if (CityOfAaron.inFile != null) {
                     CityOfAaron.inFile.close();
-                if (CityOfAaron.outFile != null)
+                }
+                if (CityOfAaron.outFile != null) {
                     CityOfAaron.outFile.close();
-                
+                }
+
             } catch (IOException ex) {
-            //   Logger.getLogger(CityOfAaron.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Error closing the input/output files..sorry!");
-            return;
+                //   Logger.getLogger(CityOfAaron.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("Error closing the input/output files..sorry!");
+                return;
             }
         }
     }

@@ -1,5 +1,9 @@
 package view;
 
+import cityofaaron.CityOfAaron;
+import model.Game;
+import view.View;
+
 /**
  *
  * @author Jeremy
@@ -58,7 +62,29 @@ public class SellLandView extends ViewBase {
         //Make sure the player has this much land to sell. If not, show a message and ask the user to enter the value again.
         //Subtract the number of acres purchased from the acres owned
         //Add the wheat from the sale to the wheat in storage
-        System.out.println("Code coming soon, for now we are returning you to the Manage the Crops Menu...\n");
+        int harvest = 0;
+
+        harvest = CityOfAaron.getCurrentGame().getWheatInStorage();
+
+        int input = 0;
+        try {
+            input = Integer.parseInt(inputs[0]);
+        } catch (NumberFormatException nfe) {
+            ErrorView.display(this.getClass().getName(), "The number provided is invalid." + nfe.getMessage());
+        }
+
+        if ((inputs[0] == null) || (inputs[0].equals(""))) {
+            ErrorView.display(this.getClass().getName(), "No input was provided, please clarify.\n");
+            return true;
+        }
+
+        if (input > 100 || input < 0) {
+            ErrorView.display(this.getClass().getName(), "Please enter a valid percentage between 0 and 100.\n");
+            return true;
+        } else {
+            //This updates the wheatInStorage.
+            //SomeActionhandler();
+        }
         return false;
     }
 

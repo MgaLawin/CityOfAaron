@@ -6,7 +6,7 @@ import java.io.Serializable;
  *
  * @author Jeremy
  */
-public class AnnualReport {
+public class AnnualReport implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

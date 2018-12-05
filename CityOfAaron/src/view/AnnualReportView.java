@@ -1,5 +1,13 @@
 package view;
 
+import model.AnnualReport;
+import cityofaaron.CityOfAaron;
+import control.GameControl;
+import model.Game;
+import Exceptions.GameControlException;
+import Exceptions.PeopleControlException;
+import Exceptions.WheatControlException;
+
 /**
  *
  * @author Jeremy
@@ -15,22 +23,13 @@ public class AnnualReportView extends ViewBase {
      * Constructor
      */
     public AnnualReportView() {
-        super();
+        //super();
     }
 
     @Override
     protected String getMessage() {
 
         return "Annual Report.\n"
-                + "-----------------------\n"
-                + "The current year is: currentYear.\n"
-                + "peopleStarved people starved this year.\n"
-                + "The current population is: currentPopulation.\n"
-                + "Total acres currently owned is: acresOwned.\n"
-                + "bushelsHarvested bushels of wheat were harvested this year.\n"
-                + "bushelsTithed bushels of wheat were paid in offerings this year.\n"
-                + "lossToRats bushels of wheat were lost to rats this year.\n"
-                + "There are wheatInStorehouse bushels of wheat in the storehouse.\n"
                 + "-----------------------\n";
     }
 
@@ -63,13 +62,48 @@ public class AnnualReportView extends ViewBase {
         //Display the number of bushels paid in offerings
         //Display the number of bushels lost to rats
         //Display the number of bushels in the storehouse
-        System.out.println("Code coming soon, for now we are returning you to the Game Menu...\n");
+        //------------------------------------------
+//        AnnualReport calcLiveTheYear = calculateLiveTheYear();
+//        int peopleStarved = calcLiveTheYear.getPeopleStarved();
+//        int peopleMovedIn = calcLiveTheYear.getPeopleMovedIn();
+//        int endingPopulation = calcLiveTheYear.getEndingPopulation();
+//        int endingAcresOwned = calcLiveTheYear.getEndingAcresOwned();
+//        int bushelsHarvested = calcLiveTheYear.getBushelsHarvested();
+//        int tithingAmount = calcLiveTheYear.getTithingAmount();
+//        int lostToRats = calcLiveTheYear.getLostToRats();
+//        int endingWheatInStorage = calcLiveTheYear.getEndingWheatInStorage();
+//        int landPrice = calcLiveTheYear.getLandPrice();
+//
+//        this.console.println("Annual Report!\n"
+//                + " = Year Number\n"
+//                + peopleStarved + " = Number of people that starved\n"
+//                + peopleMovedIn + " = People who moved in to the city\n"
+//                + endingPopulation + " = Current population\n"
+//                + endingAcresOwned + " = Acres of land owned by the city\n"
+//                + bushelsHarvested + " = Bushels harvested\n"
+//                + tithingAmount + " = Bushels of wheat paid in offerings\n"
+//                + lostToRats + " = Bushels of wheat lost to rats\n"
+//                + endingWheatInStorage + " = Bushels of Wheat in Storage\n"
+//                + landPrice + " = Land price this year\n"
+//        );
         return false;
     }
 
-    private void startAnnualReportView() {
-        pause(1500);
-        View annualReportMenu = new AnnualReportView();
-        annualReportMenu.displayView();
+//    private void startAnnualReportView() {
+//        pause(1500);
+//        View annualReportMenu = new AnnualReportView();
+//        annualReportMenu.displayView();
+//    }
+    public static AnnualReport calculateLiveTheYear() throws WheatControlException, PeopleControlException {
+
+        Game currentGame = CityOfAaron.getCurrentGame();
+        AnnualReport calcLiveTheYear = null;
+        try {
+            calcLiveTheYear = GameControl.calcLiveTheYear(currentGame, -10, 1000, 1000);
+            return calcLiveTheYear;
+        } catch (GameControlException ie) {
+            ErrorView.display("AnnualReportView", ie.getMessage());
+            return null;
+        }
     }
 }

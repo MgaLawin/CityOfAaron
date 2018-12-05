@@ -2,6 +2,7 @@ package control;
 
 import Exceptions.GameControlException;
 import Exceptions.WheatControlException;
+import view.ErrorView;
 
 /**
  *
@@ -11,9 +12,9 @@ public class WheatControl {
 
     public static int calculateLossToRats(double tithingPercent, int wheatInStorage)
             throws WheatControlException, GameControlException {
-        int high;
-        int low;
-        double percentLost;
+        int high = 0;
+        int low = 0;
+        double percentLost = 0;
         //calculate the amount of wheat in storage lost to rats, based on the percentage of tithing paid.
 
         //if wheatinStorage <0 then return -1
@@ -27,11 +28,17 @@ public class WheatControl {
         }
 
         //chanceOfRats= GameControl.getRandomNumber(1,100)
-        int chanceOfRats = GameControl.getRandomNumber(1, 100);
+        int chanceOfRats = 0;
+
+        try {
+            chanceOfRats = GameControl.getRandomNumber(1, 100);
+        } catch (GameControlException gce) {
+            ErrorView.display("WheatControl", gce.getMessage());
+        }
 
         //if chanceOfRats >= 30 then return 0
         if (chanceOfRats >= 30) {
-            //  return 0;
+            return 0;
         }
 
         //if tithingPercent <= 8 then low =6, high = 10
@@ -49,10 +56,16 @@ public class WheatControl {
         }
 
         // percentLost = getRandomNumber(low, high) * .01--turn this into a fraction
-        percentLost = (GameControl.getRandomNumber(low, high) * .01);
-
+        try {
+            percentLost = (GameControl.getRandomNumber(low, high) * .01);
+        } catch (GameControlException gce) {
+            ErrorView.display("WheatContrl", gce.getMessage());
+        }
         //return wheatInStorage * percentLost --will need to be turned back into an int
-        return (int) (wheatInStorage * percentLost);
+        double totalLossToRats = wheatInStorage * percentLost;
+        double roundedValue = Math.round(totalLossToRats);
+        int intValue = (int) roundedValue;
+        return intValue;
     }
 
     /**
@@ -95,17 +108,23 @@ public class WheatControl {
         }
 
         //yield= GameControl.getRandomNumber(low, high)
-        int yield = GameControl.getRandomNumber(low, high);
+        int yield = 0;
+
+        try {
+            yield = GameControl.getRandomNumber(low, high);
+        } catch (GameControlException gce) {
+            ErrorView.display("WheatContrl", gce.getMessage());
+        }
 
         // return yield * acresPlanted
         return (yield * acresPlanted);
     }
-    
-     public static void checkTithing(int tithes) throws WheatControlException {
+
+    public static void checkTithing(int tithes) throws WheatControlException {
         if (tithes < 0) {
             throw new WheatControlException("Please enter a positive number.");
         } else if (tithes > 100) {
             throw new WheatControlException("Please enter a number that is not greater than 100.");
         }
-     }
+    }
 }
