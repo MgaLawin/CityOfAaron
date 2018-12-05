@@ -49,7 +49,7 @@ public class NewGameView extends ViewBase {
 
         // If the user hits enter go back to main menu by returning false
         if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("You did not enter a valid name. Returning to the Main menu. . . ");
+            ErrorView.display(this.getClass().getName(), "You did not enter a valid name. Returning to the Main menu. . . ");
             return false;
         }
         // return false if you want this view to exit and return
@@ -70,8 +70,8 @@ public class NewGameView extends ViewBase {
 
         CityOfAaron.setCurrentGame(game);
 
-        System.out.println();
-        System.out.println("Welcome to the game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n");
+        this.console.println();
+        this.console.println("Welcome to the game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n");
 
         //when GameMenuView is created we will call it here.
         GameMenuView gameMenu = new GameMenuView();

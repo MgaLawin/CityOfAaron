@@ -33,7 +33,7 @@ public class MapControl {
         locations[0][4] = new Location("U", "Undeveloped Land", "You are standing on undeveloped land.", new String[]{});
 
         locations[1][0] = new Location("U", "Undeveloped Land", "You are standing on undeveloped land.", new String[]{});
-        locations[1][1] = new Location("V", "Village of Aaron", "This is the main village of Aaron. This is where you live and all of the major leaders. Make sure to feed your people well or you might not get to live here anymore. ", new String[]{});
+        locations[1][1] = new Location("A", "City of Aaron", "This is the main City of Aaron. This is where you live along with all of the major leaders. Make sure to feed your people well or you might not get to live here anymore. ", new String[]{});
         locations[1][2] = new Location("J", "Village of Jeremy", "You are walking through the Village of Jeremy. Rumor has it, Jeremy is planning to be the next ruler if you get kicked out of office. ", new String[]{});
         locations[1][3] = new Location("D", "Village of Deon", "The Village of Deon is the most beautiful village in all the land. They have never had a rat invasion before, but anything can happen. ", new String[]{});
         locations[1][4] = new Location("Y", "Village of Chelsea", "You are in the Village of Chelsea. This village is next to the river and has some of the biggest wheat fields around! Wheat is your people’s main source of food. ", new String[]{});
@@ -65,6 +65,7 @@ public class MapControl {
         return map;
 
     }
+
     // make sure the new location is valid
     public static void checkNewLocation(int row, int column) throws MapControlException {
 
@@ -78,6 +79,7 @@ public class MapControl {
             throw new MapControlException("\nPlease enter numbers that are not greater than 4.\n");
         }
     }
+
     //move to the new point on the map as set by the user input
     public static void MoveToNewLocation(int row, int column) {
         Point point = new Point();

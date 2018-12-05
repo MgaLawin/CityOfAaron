@@ -58,8 +58,34 @@ public class BuyLandView extends ViewBase {
         //Add the number of acres purchased to the acres owned
         //Subtract the wheat used to purchase the land from the wheat in storage
 
-        System.out.println("Code coming soon, for now we are returning you to the Manage the Crops Menu...\n");
+//        System.out.println("Code coming soon, for now we are returning you to the Manage the Crops Menu...\n");
+//        return false;
+        if (inputs[0] == null || inputs[0].equals("")) {
+            ErrorView.display(this.getClass().getName(), "No acres entered. Returning to the Main Menu...");
+            return false;
+        }
+        int acreInput = 0;
+        try {
+            acreInput = Integer.parseInt(inputs[0]);
+        } catch (NumberFormatException nfe) {
+            ErrorView.display("BuyLandView", nfe.getMessage());
+        }
+
+        if (acreInput < 0) {
+            ErrorView.display("BuyLandView", "Acre value must be positive. Please try again.");
+            getInputs();
+        }
+
+        buyLand(acreInput);
+
         return false;
+
+    }
+
+    private boolean buyLand(int acreInput) {
+        //TODO replace this message
+        this.console.println("LandControl class coming soon!");
+        return true;
     }
 
     // Define your action handlers here. These are the methods that your doAction()

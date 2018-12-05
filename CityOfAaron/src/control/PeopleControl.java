@@ -16,7 +16,9 @@ otherwise return currentPopulation - numberOfPeopleFed
  */
 package control;
 
+import Exceptions.GameControlException;
 import Exceptions.PeopleControlException;
+import view.ErrorView;
 
 /**
  *
@@ -47,7 +49,24 @@ public class PeopleControl {
 
     }
 
-    static int calculateNewMoveIns(int currentPopulation) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    static int calculateNewMoveIns(int currentPopulation) throws PeopleControlException {
+        if (currentPopulation < 0) {
+            throw new PeopleControlException("\nYou cannot have a negative amount of population.\n");
+        }
+
+        int low = 1;
+        int high = 5;
+
+        double percentGrowth = 0;
+        try {
+            percentGrowth = GameControl.getRandomNumber(low, high) * 0.01; //Returns the number as a fraction
+        } catch (GameControlException gce) {
+            ErrorView.display("PeopleControl", gce.getMessage());
+        }
+        double numberOfNewPeople = currentPopulation * percentGrowth;
+        double roundedValue = Math.round(numberOfNewPeople);
+        int intValue = (int) roundedValue;
+
+        return intValue;
     }
 }

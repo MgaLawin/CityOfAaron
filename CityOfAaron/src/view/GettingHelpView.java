@@ -63,10 +63,15 @@ public class GettingHelpView extends ViewBase {
      */
     @Override
     public boolean doAction(String[] inputs) {
+        if (inputs[0] == null || inputs[0].equals("")) {
+            ErrorView.display(this.getClass().getName(), "No menu item selected. Returning to the Main Menu...");
+            return false;
+        }
+
         // Act on the user's input.
         switch (inputs[0].trim().toUpperCase()) {
             case "A":
-                System.out.println("What are the goals of the game?\n"
+                this.console.println("What are the goals of the game?\n"
                         + "---------------------------------------\n"
                         + "The goal of the game is to be a successful leader.\n"
                         + "To be successful you must:\n"
@@ -75,20 +80,20 @@ public class GettingHelpView extends ViewBase {
                         + "-Plant and harvest as many bushels of wheat as possible\n");
                 break;
             case "B":
-                System.out.println("Where is Aaron City?\n"
+                this.console.println("Where is the City of Aaron?\n"
                         + "---------------------------------------\n"
-                        + "Aaron City is a fictionalized city set in Book of Mormon times.\n"
-                        + "It is located in Column C, Row 3 on the map\n");
+                        + "The City of Aaron is a fictionalized city set in Book of Mormon times.\n"
+                        + "It is located in Row 1, Column 1 on the map\n");
                 break;
             case "C":
-                System.out.println("How do I view the map?\n"
+                this.console.println("How do I view the map?\n"
                         + "---------------------------------------\n"
                         + "To view the map, start a game and\n"
                         + "from the Game Menu select the option of:\n"
                         + "View the map\n");
                 break;
             case "D":
-                System.out.println("How do I move to another location?\n"
+                this.console.println("How do I move to another location?\n"
                         + "---------------------------------------\n"
                         + "To move to a new location, start a game and\n"
                         + "from the Game Menu select the option of:\n"
@@ -97,7 +102,7 @@ public class GettingHelpView extends ViewBase {
                         + " the location you would like to move to\n");
                 break;
             case "E":
-                System.out.println("How do I display a list of animals, provisions and tools in the city storehouse?\n"
+                this.console.println("How do I display a list of animals, provisions and tools in the city storehouse?\n"
                         + "---------------------------------------\n"
                         + "To display a storehouse inventory list, start a game and\n"
                         + "from the Game Menu select the option of:\n"
@@ -105,7 +110,7 @@ public class GettingHelpView extends ViewBase {
                         + "Select the option for the report you would like to view\n");
                 break;
             case "Q":
-                System.out.println("Returning to Main Menu...");
+                this.console.println("Returning to Main Menu...");
                 return false;
         }
         return true;

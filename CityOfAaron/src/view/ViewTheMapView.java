@@ -47,29 +47,29 @@ public class ViewTheMapView extends ViewBase {
         // public void displayMap() {
         // print out the map
         Location[][] locations = CityOfAaron.getCurrentGame().getTheMap().getLocation();
-        System.out.println();
+        this.console.println();
 
         for (int row = 0; row < locations.length; row++) {
             for (int column = 0; column < locations[row].length; column++) {
-                System.out.print(locations[row][column].getMapSymbol() + " ");
+                this.console.print(locations[row][column].getMapSymbol() + " ");
             }
-            System.out.println();
+            this.console.println();
 
         }
-        System.out.println("------------------------------");
-        System.out.println("B- Border");
-        System.out.println("C - Ruler's Court");
-        System.out.println("D - Village of Deon");
-        System.out.println("F - Wheat field");
-        System.out.println("J - Village of Jeremy");
-        System.out.println("R - River");
-        System.out.println("S - Storehouse");
-        System.out.println("T - Temple");
-        System.out.println("U - Undeveloped land");
-        System.out.println("V - Village");
-        System.out.println("W - Watchtower");
-        System.out.println("Y - Village of Chelsea");
-        System.out.println("------------------------------");
+        this.console.println("------------------------------");
+        this.console.println("A - City of Aaron");
+        this.console.println("B- Border");
+        this.console.println("C - Ruler's Court");
+        this.console.println("D - Village of Deon");
+        this.console.println("F - Wheat field");
+        this.console.println("J - Village of Jeremy");
+        this.console.println("R - River");
+        this.console.println("S - Storehouse");
+        this.console.println("T - Temple");
+        this.console.println("U - Undeveloped land");
+        this.console.println("W - Watchtower");
+        this.console.println("Y - Village of Chelsea");
+        this.console.println("------------------------------");
         pause(1500);
         return false;
     }

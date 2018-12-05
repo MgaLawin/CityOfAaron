@@ -1,5 +1,6 @@
 package view;
 
+import cityofaaron.CityOfAaron;
 import java.util.Scanner;
 import view.GettingHelpView;
 
@@ -33,7 +34,7 @@ public class FeedPeopleView extends ViewBase {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("How many bushels of grain do you want to give to the people?");
+        inputs[0] = getUserInput("How many bushels of wheat do you want to feed to the people?");
 
         // Repeats
         return inputs;
@@ -48,26 +49,48 @@ public class FeedPeopleView extends ViewBase {
      */
     @Override
     public boolean doAction(String[] inputs) {
+        int storedWheat;
 
-        someActionHandler();
-        System.out.println("This will be coming soon. Sending you back to the Manage Crops Menu...");
-        //coming soon. This will be changed back to true
+        //Because a game hasn't technically started yet, testing this
+        //returns a null value for the wheat in storage.
+        storedWheat = CityOfAaron.getCurrentGame().getWheatInStorage();
+
+        int input = 0;
+        try {
+            input = Integer.parseInt(inputs[0]);
+        } catch (NumberFormatException nfe) {
+            ErrorView.display(this.getClass().getName(), "The number entered is not valid." + nfe.getMessage());
+        }
+
+        if ((inputs[0] == null) || (inputs[0].equals(""))) {
+            ErrorView.display(this.getClass().getName(), "Wow, it is too cruel to starve your people. Please feed them something.");
+            return true;
+        }
+
+        if (storedWheat < input || input < 0) {
+            ErrorView.display(this.getClass().getName(), "Sorry, you do not have that much wheat to give.\n"
+                    + "Please enter a positive value equal to or less than "
+                    + "the amount of wheat currently in your storehouse.");
+            return true;
+        } else {
+            //This updates the wheat stored.
+            updateWheat(storedWheat, input);
+        }
+
         return false;
     }
 
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input. We don't want to do a lot of
-    // complex game stuff in our doAction() method. It will get messy very quickly.
-    private boolean someActionHandler() {
-        // Define whatever code you need here to accomplish the action.
-        // You can make this a void method if you want. Whatever you need
-        // here, you are free to do.
-        //
-        // Generally, though, this is where you will call into your Control
-        // classes to do the work of the application.
+    private boolean updateWheat(int wheatStored, int wheatFed) {
 
-        System.out.println("PeopleControl will be will be used here soon.");
+        int wheatFinal = wheatStored - wheatFed;
+        CityOfAaron.getCurrentGame().setWheatInStorage(wheatFinal);
+        ErrorView.display(this.getClass().getName(), "You have " + wheatFinal + " units of"
+                + "wheat remaining in your storehouse.");
+
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayView();
 
         return true;
+
     }
 }

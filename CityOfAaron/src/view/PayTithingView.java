@@ -34,7 +34,7 @@ public class PayTithingView extends ViewBase {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("What percentage of their harvest they want to pay in tithes and offerings?");
+        inputs[0] = getUserInput("What percentage of your harvest will you pay as tithes and offerings?");
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
@@ -56,16 +56,16 @@ public class PayTithingView extends ViewBase {
         //return false;
         int tithes = 0;
         boolean inputValid = false;
-        
-         try {
+
+        try {
             tithes = Integer.parseInt(inputs[0]);
             WheatControl.checkTithing(tithes);
-                inputValid = true;
-                theTithing(tithes);
+            inputValid = true;
+            theTithing(tithes);
         } catch (NumberFormatException ex) {
-            System.out.println("Please enter a number.");
+            ErrorView.display(this.getClass().getName(), "Please enter a number.");
         } catch (WheatControlException wce) {
-            System.out.println(wce.getMessage());
+            ErrorView.display(this.getClass().getName(), wce.getMessage());
         }
 
         return inputValid;
@@ -76,20 +76,17 @@ public class PayTithingView extends ViewBase {
     // method will call based on the user's input. We don't want to do a lot of
     // complex game stuff in our doAction() method. It will get messy very quickly.
     //private boolean someActionHandler() {
-        // Define whatever code you need here to accomplish the action.
-        // You can make this a void method if you want. Whatever you need
-        // here, you are free to do.
-        //
-        // Generally, though, this is where you will call into your Control
-        // classes to do the work of the application.
-
-        //System.out.println("WheatControl will be will be used here soon.");
-
-        //return true;
+    // Define whatever code you need here to accomplish the action.
+    // You can make this a void method if you want. Whatever you need
+    // here, you are free to do.
+    //
+    // Generally, though, this is where you will call into your Control
+    // classes to do the work of the application.
+    //System.out.println("WheatControl will be will be used here soon.");
+    //return true;
     //}
-    
     private void theTithing(int tithingPercent) {
-        //TODO stub function, to be completed after AnnualReport is implemented 
-        System.out.println("Tithing percent");
+        //TODO stub function, to be completed after AnnualReport is implemented
+        this.console.println("Tithing percent");
     }
 }
