@@ -2,6 +2,8 @@ package control;
 
 import Exceptions.GameControlException;
 import Exceptions.LandControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,7 +20,7 @@ public class LandControl {
         try {
             priceOfLand = GameControl.getRandomNumber(low, high);
         } catch (GameControlException gce) {
-            System.out.println(gce.getMessage());
+            Logger.getLogger(LandControl.class.getName()).log(Level.SEVERE, null, gce);
         }
         return priceOfLand;
     }

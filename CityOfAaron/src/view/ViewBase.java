@@ -1,6 +1,9 @@
 package view;
 
 import java.util.Scanner;
+import java.io.BufferedReader;
+import cityofaaron.CityOfAaron;
+import java.io.PrintWriter;
 
 /**
  *
@@ -21,6 +24,8 @@ public abstract class ViewBase implements View {
 
     //Perform the action indicated by the user's input
     public abstract boolean doAction(String[] inputs);
+    protected final BufferedReader keyboard = CityOfAaron.getInFile();
+    protected final PrintWriter console = CityOfAaron.getOutFile();
 
     //Controls this view's display/prompt/action loop until
     //the user chooses an action that causes this view to close
@@ -54,27 +59,28 @@ public abstract class ViewBase implements View {
         Scanner keyboard = new Scanner(System.in);
         String input = "";
         boolean inputReceived = false;
+       
+            while (inputReceived == false) {
 
-        while (inputReceived == false) {
+                this.console.println(prompt);
+                input = keyboard.nextLine();
 
-            System.out.println(prompt);
-            input = keyboard.nextLine();
+                // Make sure we avoid a null-pointer error.
+                if (input == null) {
+                    input = "";
+                }
 
-            // Make sure we avoid a null-pointer error.
-            if (input == null) {
-                input = "";
+                // Trim any trailing whitespace, including the carriage return.
+                input = input.trim();
+
+                if (input.equals("") == false || allowEmpty == true) {
+                    inputReceived = true;
+                }
             }
 
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-
-            if (input.equals("") == false || allowEmpty == true) {
-                inputReceived = true;
-            }
+            return input;
         }
-
-        return input;
-    }
+    
 
     /**
      * An overloaded version of getUserInput that sets allowEmpty to false so we
