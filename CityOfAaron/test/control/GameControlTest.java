@@ -1,5 +1,6 @@
 package control;
 
+import Exceptions.GameControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -14,7 +15,7 @@ public class GameControlTest {
      */
     //Test invalid min and invalid max
     @Test
-    public void testGetRandomNumber1() {
+    public void testGetRandomNumber1() throws GameControlException {
         int result = GameControl.getRandomNumber(-1, 10);
         assertEquals(-1, result);
 
@@ -25,7 +26,7 @@ public class GameControlTest {
 
 //Test high for low and same values
     @Test
-    public void testGetRandomNumber2() {
+    public void testGetRandomNumber2() throws GameControlException {
         int result = GameControl.getRandomNumber(100, 10);
         assertEquals(-2, result);
 
@@ -36,7 +37,7 @@ public class GameControlTest {
 //    test max limit
 
     @Test
-    public void testGetRandomNumber3() {
+    public void testGetRandomNumber3() throws GameControlException {
         int result = GameControl.getRandomNumber(0, Integer.MAX_VALUE);
         assertEquals(-3, result);
 
@@ -44,7 +45,7 @@ public class GameControlTest {
 
     // test all valid using multi-dimensional array and for loop
     @Test
-    public void testGetRandomNumberValid() {
+    public void testGetRandomNumberValid() throws GameControlException {
         int[][] testRanges = new int[][]{
             {1, 10},
             {15, 100},
@@ -60,8 +61,8 @@ public class GameControlTest {
             System.out.printf("%d <= %d <= %d\n", low, random, high);
 
             assertTrue(
-                String.format("%d should be between %d and %d", random, low, high),
-                random >= low && random <= high);
+                    String.format("%d should be between %d and %d", random, low, high),
+                    random >= low && random <= high);
 
         }
     }
