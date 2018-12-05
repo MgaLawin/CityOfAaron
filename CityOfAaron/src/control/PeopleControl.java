@@ -38,7 +38,7 @@ public class PeopleControl {
         int numberOfPeopleFed = bushelsForFood / 20;
         //if numberOfPeopleFed > currentPopulation then return 0 // everyone got fed
         if (numberOfPeopleFed > currentPopulation) {
-            throw new PeopleControlException("\nEveryone was fed, but you are overfeeding your population, so be wary of health concerns.\n");
+            return 0;
         }
         //otherwise return currentPopulation - numberOfPeopleFed
         int calculateMortality = currentPopulation - numberOfPeopleFed;
