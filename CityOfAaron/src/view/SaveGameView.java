@@ -4,6 +4,8 @@ import cityofaaron.CityOfAaron;
 import control.GameControl;
 import model.Game;
 import Exceptions.GameControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -37,10 +39,10 @@ public class SaveGameView extends ViewBase {
      * @return
      */
     @Override
-    protected String[] getInputs() {
+    public String[] getInputs() {
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("Please enter the name of your file where you would like to save your game\n");
+        inputs[0] = getUserInput("Please enter the file path and name of your file. example 'C:\\temp\\filename.txt' \n");
 
         return inputs;
     }
@@ -48,22 +50,16 @@ public class SaveGameView extends ViewBase {
     @Override
     public boolean doAction(String[] inputs) {
         // If the user hits enter go back to main menu by returning false
-        if (inputs[0] == null || inputs[0].equals("")) {
-            this.console.println("You did not enter a valid file name. Returning to the Main menu. . . ");
-            return false;
-        }
-        // return false because the function is not built yet.
-        String fileName = inputs[0];
-        // add a call to the file save method//which will be created soon
+  
         Game game = CityOfAaron.getCurrentGame();
+        String fileName = inputs[0];
         try {
+            // add a call to the file save method
             GameControl.saveGameToFile(game, fileName);
+        } catch (GameControlException ex) {
+            Logger.getLogger(SaveGameView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        catch (GameControlException gce){
-            ErrorView.display(this.getClass().getName(), "No file path provided" + gce.getMessage());
-        }
-        //return false so we do not keep looping
-        return false;
+         return true;
     }
 
 }

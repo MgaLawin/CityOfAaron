@@ -77,8 +77,22 @@ public class GameControl {
         return false;
     }
 
-    public static void saveGameToFile(Game game, String filename) {
+    public static boolean saveGameToFile(Game game, String fileName) throws GameControlException {
+        game = CityOfAaron.getCurrentGame();
+        String name = fileName;
 
+        if ( fileName == null || fileName.equals("")) {  
+            throw new GameControlException("\nYou cannot have a blank filename.\n");
+           
+        }
+        try {
+            GameControl.saveGameToFile(game, fileName);
+        } catch (GameControlException gce) {
+            ErrorView.display("No file path provided", gce.getMessage());
+            return false;
+        }
+        System.out.println("Your file was saved successfully! ");
+        return true;
     }
 
     public static void saveReportToFile(String[] filename) {
