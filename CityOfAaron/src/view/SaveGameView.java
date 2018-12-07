@@ -4,8 +4,6 @@ import cityofaaron.CityOfAaron;
 import control.GameControl;
 import model.Game;
 import Exceptions.GameControlException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -42,7 +40,7 @@ public class SaveGameView extends ViewBase {
     public String[] getInputs() {
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("Please enter the file path and name of your file. example 'C:\\temp\\filename.txt' \n");
+        inputs[0] = getUserInput("Please enter the file name of your file. Example 'filename.dat' \n");
 
         return inputs;
     }
@@ -50,16 +48,19 @@ public class SaveGameView extends ViewBase {
     @Override
     public boolean doAction(String[] inputs) {
         // If the user hits enter go back to main menu by returning false
-  
+
         Game game = CityOfAaron.getCurrentGame();
         String fileName = inputs[0];
         try {
             // add a call to the file save method
-            GameControl.saveGameToFile(game, fileName);
+            if (true == GameControl.saveGameToFile(game, fileName)) {
+                console.println("Your file was saved successfully! ");
+                return false;
+            }
         } catch (GameControlException ex) {
-            Logger.getLogger(SaveGameView.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorView.display("Game Control Exception:", ex.getMessage());
         }
-         return true;
+        return true;
     }
 
 }

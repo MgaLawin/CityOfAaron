@@ -4,6 +4,10 @@ import Exceptions.GameControlException;
 import Exceptions.PeopleControlException;
 import Exceptions.WheatControlException;
 import cityofaaron.CityOfAaron;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.Random;
 import model.Author;
 import model.Condition;
@@ -17,6 +21,8 @@ import model.Animal;
 import model.AnnualReport;
 import model.Provision;
 import view.ErrorView;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  *
@@ -54,12 +60,20 @@ public class GameControl {
 
     }
 
-    public static String loadGameFromFile(String filename) {
+    public static Game loadGameFromFile(String fileName) throws GameControlException {
         // place holder until created
-        String name = filename;
+        Game game = null;
+        String name = fileName;
 
-        return name;
+        try (ObjectInputStream objectStream = new ObjectInputStream(new FileInputStream(fileName))) {
+            //open file read object 
+            game = (Game) objectStream.readObject();
 
+        } catch (IOException | ClassNotFoundException exception) {
+            ErrorView.display("IO Exception:", exception.getMessage());
+
+        }
+        return game;
     }
 
     public static boolean gameShouldEnd(int mortalityRate) {
@@ -81,17 +95,19 @@ public class GameControl {
         game = CityOfAaron.getCurrentGame();
         String name = fileName;
 
-        if ( fileName == null || fileName.equals("")) {  
+        if (fileName == null || fileName.equals("")) {
             throw new GameControlException("\nYou cannot have a blank filename.\n");
-           
+
         }
-        try {
-            GameControl.saveGameToFile(game, fileName);
-        } catch (GameControlException gce) {
-            ErrorView.display("No file path provided", gce.getMessage());
+        try (ObjectOutputStream objectStream = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            //open file write object 
+            objectStream.writeObject(game);
+
+        } catch (IOException exception) {
+            ErrorView.display("IO Exception:", exception.getMessage());
             return false;
         }
-        System.out.println("Your file was saved successfully! ");
+
         return true;
     }
 

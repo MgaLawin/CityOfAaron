@@ -20,7 +20,6 @@ public class MainMenuView extends ViewBase {
                 + "N - Start a New Game\n"
                 + "L - Load a Saved Game\n"
                 + "H - Help Menu\n"
-                + "S - Save Game\n"
                 + "Q - Quit\n";
     }
 
@@ -62,9 +61,6 @@ public class MainMenuView extends ViewBase {
             case "H":
                 helpMenu();
                 break;
-            case "S":
-                saveGameView();
-                break;
             case "Q":
                 System.out.println("Thank you for playing. Bye.");
                 return false;
@@ -84,11 +80,6 @@ public class MainMenuView extends ViewBase {
 
     private void loadSavedGame() {
         LoadGameView view = new LoadGameView();
-        view.displayView();
-    }
-
-    private void saveGameView() {
-        SaveGameView view = new SaveGameView();
         view.displayView();
     }
 

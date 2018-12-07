@@ -9,12 +9,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.Game;
-import model.Player;
-import model.Storehouse;
-import model.Map;
 import view.View;
 import view.StartProgramView;
 
@@ -96,7 +91,6 @@ public class CityOfAaron {
                 }
 
             } catch (IOException ex) {
-                //   Logger.getLogger(CityOfAaron.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("Error closing the input/output files..sorry!");
                 return;
             }

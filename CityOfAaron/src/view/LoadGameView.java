@@ -1,6 +1,8 @@
 package view;
 
-import java.util.Scanner;
+import Exceptions.GameControlException;
+import control.GameControl;
+import model.Game;
 
 /**
  *
@@ -27,15 +29,10 @@ public class LoadGameView extends ViewBase {
      */
     @Override
     public String[] getInputs() {
-
-        // Declare the array to have the number of elements you intend to get
-        // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("(Sorry this will be working in week 12)\n"
-            + " What is the file name for the saved game? \n ");
+        inputs[0] = getUserInput("Please enter the file name of your file. Example 'filename.dat' \n");
 
-        // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
     }
 
@@ -46,32 +43,28 @@ public class LoadGameView extends ViewBase {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
-    @Override
     public boolean doAction(String[] inputs) {
-        // only one action- initialize the game
-        // and then set it in the main cityofaaron class
         // If the user hits enter go back to main menu by returning false
-        if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("You did not enter a valid name. Returning to the Main menu. . . ");
-            return false;
+        String fileName = inputs[0];
+        Game game = null;
+        try {
+            // add a call to the file load method
+            // TODO we realize this is not working properly and passing the success, but we ran out of time. 
+            //            if (true == GameControl.loadGameFromFile(game)) {
+            GameControl.loadGameFromFile(fileName);
+            console.println("Your file was loaded successfully! ");
+            View gameMenu = new GameMenuView();
+            gameMenu.displayView();
         }
+    
+    catch (GameControlException ex
 
-        //return false so we do not keep looping
-        return false;
-
+    
+        ) {
+            ErrorView.display("Game Control Exception:", ex.getMessage());
     }
 
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input. We don't want to do a lot of
-    // complex game stuff in our doAction() method. It will get messy very quickly.
-    private boolean findSavedGame() {
-        // Define whatever code you need here to accomplish the action.
-        // You can make this a void method if you want. Whatever you need
-        // here, you are free to do.
-        //
-        // Generally, though, this is where you will call into your Control
-        // classes to do the work of the application.
 
-        return true;
+return false;
     }
 }
