@@ -4,12 +4,13 @@ import Exceptions.GameControlException;
 import Exceptions.WheatControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import view.ViewBase;
 
 /**
  *
  * @author DIDIM
  */
-public class WheatControlTest {
+public abstract class WheatControlTest extends ViewBase {
 
     public WheatControlTest() {
     }
@@ -22,7 +23,7 @@ public class WheatControlTest {
     //boundary testing wheat in storage is 0  return 0
 
     public void testCalculateLossToRats() throws WheatControlException, GameControlException {
-        System.out.println("calculateLossToRats");
+        this.console.println("calculateLossToRats");
         int tithingPercent = 8;
         int wheatInStorage = 0;
         int expResult = 0;
@@ -149,7 +150,7 @@ public class WheatControlTest {
         GameControl.setRandomGenerator(fakeRandom);
         fakeRandom.add(5);
 
-        System.out.println("calculateHarvest");
+        this.console.println("calculateHarvest");
         int tithingPercent = 13;
         int acresPlanted = 10;
         int expResult = 70;

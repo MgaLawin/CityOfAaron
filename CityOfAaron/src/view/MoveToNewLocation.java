@@ -52,7 +52,7 @@ public class MoveToNewLocation extends ViewBase {
         // define the variables set to zero
         int row;
         int column;
-       // System.out.println("Before: " + CityOfAaron.getCurrentGame().getTheMap().getCurrentLocation().toString());
+
         try {
             // change the user entered string into an int -parseInt
             row = Integer.parseInt(inputs[0]);
@@ -61,16 +61,14 @@ public class MoveToNewLocation extends ViewBase {
             // created a variable so that we could continue the try
             MapControl.MoveToNewLocation(row, column);
         } catch (NumberFormatException ex) {
-            System.out.println("You entered an invalid number. Please enter a number between 0-4 for each prompt \n");
+            this.console.println("You entered an invalid number. Please enter a number between 0-4 for each prompt \n");
             return true;
         } catch (MapControlException mce) {
-            System.out.println(mce.getMessage());
+            this.console.println(mce.getMessage());
             return true;
         }
-        // this call is not working correctly, need to see the 
-       // System.out.println("After: " + CityOfAaron.getCurrentGame().getTheMap().getCurrentLocation().toString());
+
         return false;
     }
 
 }
-

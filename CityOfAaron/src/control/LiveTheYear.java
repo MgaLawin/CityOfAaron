@@ -24,10 +24,11 @@ public class LiveTheYear {
      *
      * @return The year's Annual Report data
      * @throws Exceptions.GameControlException
+     * @throws Exceptions.PeopleControlException
      */
     public static AnnualReport liveTheYear(
             Game game, int tithingPercent,
-            int bushelsForFood, int acresPlanted) throws GameControlException {
+            int bushelsForFood, int acresPlanted) throws GameControlException, PeopleControlException {
         if (game == null || tithingPercent < 0 || tithingPercent > 100
                 || bushelsForFood < 0 || acresPlanted < 0) {
             return null;
@@ -74,7 +75,7 @@ public class LiveTheYear {
 
             return report;
         } catch (PeopleControlException ex) {
-            System.out.println(ex.getMessage());
+            ErrorView.display("People Control Exception:", ex.getMessage());
         }
 
         return null;

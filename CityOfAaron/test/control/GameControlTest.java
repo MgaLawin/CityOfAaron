@@ -3,12 +3,13 @@ package control;
 import Exceptions.GameControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import view.ViewBase;
 
 /**
  *
  * @author DIDIM
  */
-public class GameControlTest {
+public abstract class GameControlTest extends ViewBase {
 
     /**
      * Test of getRandomNumber method, of class GameControl.
@@ -58,7 +59,7 @@ public class GameControlTest {
             int high = testRanges[i][1];
 
             int random = GameControl.getRandomNumber(low, high);
-            System.out.printf("%d <= %d <= %d\n", low, random, high);
+            this.console.printf("%d <= %d <= %d\n", low, random, high);
 
             assertTrue(
                     String.format("%d should be between %d and %d", random, low, high),

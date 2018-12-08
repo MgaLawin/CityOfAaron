@@ -64,7 +64,7 @@ public class EndGameView extends ViewBase {
                 break;
 
             case "N":
-                System.out.println("Thank you for playing. Good-Bye.\n");
+                this.console.println("Thank you for playing. Good-Bye.\n");
                 return false;
         }
         return false;

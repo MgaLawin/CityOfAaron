@@ -58,7 +58,6 @@ public class BuyLandView extends ViewBase {
         //Add the number of acres purchased to the acres owned
         //Subtract the wheat used to purchase the land from the wheat in storage
 
-//        System.out.println("Code coming soon, for now we are returning you to the Manage the Crops Menu...\n");
 //        return false;
         if (inputs[0] == null || inputs[0].equals("")) {
             ErrorView.display(this.getClass().getName(), "No acres entered. Returning to the Main Menu...");

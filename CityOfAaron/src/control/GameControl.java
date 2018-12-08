@@ -66,7 +66,7 @@ public class GameControl {
         String name = fileName;
 
         try (ObjectInputStream objectStream = new ObjectInputStream(new FileInputStream(fileName))) {
-            //open file read object 
+            //open file read object
             game = (Game) objectStream.readObject();
 
         } catch (IOException | ClassNotFoundException exception) {
@@ -100,7 +100,7 @@ public class GameControl {
 
         }
         try (ObjectOutputStream objectStream = new ObjectOutputStream(new FileOutputStream(fileName))) {
-            //open file write object 
+            //open file write object
             objectStream.writeObject(game);
 
         } catch (IOException exception) {
