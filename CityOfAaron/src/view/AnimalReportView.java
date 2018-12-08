@@ -52,10 +52,11 @@ public class AnimalReportView extends ViewBase {
 
     @Override
     public boolean doAction(String[] inputs) {
+
         try {
             GameControl.testInputs(inputs);
             String fileName = inputs[0];
-            writeReport(fileName);
+            animalReport(fileName);
             this.console.println("---------------------------------------------\n"
                     + "This Animal Report is saved as: " + fileName + "\n"
                     + "---------------------------------------------\n"
@@ -69,22 +70,22 @@ public class AnimalReportView extends ViewBase {
         return false;
     }
 
-    private void writeReport(String fileName) {
+    private void animalReport(String fileName) {
         Animal[] animals = CityOfAaron.getCurrentGame().getTheStorehouse().getAnimals();
 
         try (PrintWriter animalReport = new PrintWriter(new FileWriter(fileName))) {
             animalReport.println("Animal Report");
             animalReport.println();
 
-            String format = "%-20s %-10s %10s";
-            animalReport.println(String.format(format, "Quntity", "Type", "Age"));
+            String format = "%-15s %-8s %8s";
+            animalReport.println(String.format(format, "Name", "Age", "Quantity"));
             animalReport.println("-----------------------------------");
 
             for (int i = 0; i < animals.length; i++) {
-                animalReport.println(String.format(format, animals[i].getQuantity(), animals[i].getName(), animals[i].getAge()));
+                animalReport.println(String.format(format, animals[i].getname(), animals[i].getAge(), animals[i].getquantity()));
             }
             animalReport.println();
-            animalReport.println("End of Animla Report");
+            animalReport.println("End of Animal Report");
 
             animalReport.flush();
         } catch (IOException ex) {
