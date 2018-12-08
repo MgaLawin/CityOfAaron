@@ -29,11 +29,12 @@ public class AnimalReportView extends ViewBase {
 
     @Override
     protected String getMessage() {
-        return "Animal Report Menu\n"
-                + "-------------\n"
+        return "------------------------\n"
+                + "\nAnimal Report Menu\n"
+                + "------------------------\n"
                 + "P - Print the animals in the storehouse.\n"
                 + "Q - Return to the previous menu.\n"
-                + "-------------\n";
+                + "------------------------\n";
     }
 
     /**
@@ -59,8 +60,9 @@ public class AnimalReportView extends ViewBase {
             animalReport(fileName);
             this.console.println("---------------------------------------------\n"
                     + "This Animal Report is saved as: " + fileName + "\n"
-                    + "---------------------------------------------\n"
-                    + "Returning to Reports Menu\n\n");
+                    + "----------------------------------------------\n"
+                    + "Returning to Reports Menu\n"
+                    + "----------------------------------------------\n\n");
 
         } catch (GameControlException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
@@ -77,14 +79,15 @@ public class AnimalReportView extends ViewBase {
             animalReport.println("Animal Report");
             animalReport.println();
 
-            String format = "%-15s %-8s %8s";
-            animalReport.println(String.format(format, "Name", "Age", "Quantity"));
-            animalReport.println("-----------------------------------");
+            String format = "%-10s %-6s %-6s";
+            animalReport.println(String.format(format, "Type", "Age", "Quantity"));
+            animalReport.println("---------------------------");
 
             for (int i = 0; i < animals.length; i++) {
                 animalReport.println(String.format(format, animals[i].getname(), animals[i].getAge(), animals[i].getquantity()));
             }
             animalReport.println();
+            animalReport.println("---------------------------");
             animalReport.println("End of Animal Report");
 
             animalReport.flush();

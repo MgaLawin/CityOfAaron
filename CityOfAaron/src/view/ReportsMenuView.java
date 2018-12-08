@@ -23,15 +23,17 @@ public class ReportsMenuView extends ViewBase {
 
     @Override
     protected String getMessage() {
-        return "Reports Menu\n"
-                + "-------------\n"
+        return "--------------------------\n"
+                + "Reports Menu\n"
+                + "--------------------------\n"
                 + "A - Print the animals in the storehouse.\n"
                 + "T - View the tools in the storehouse.\n"
                 + "I - Print the inventory report\n"
                 + "P - View the provisions in the storehouse. \n"
                 + "R - Print provision report\n"
                 + "G - View the authors of this game.\n"
-                + "Q - Return to the Game Menu.\n";
+                + "Q - Return to the Game Menu.\n"
+                + "--------------------------\n";
     }
 
     /**
