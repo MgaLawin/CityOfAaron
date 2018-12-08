@@ -130,13 +130,13 @@ public class ReportsMenuView extends ViewBase {
     }
 
     private void itemsInInventory() {
-         ItemsInInventory view = new ItemsInInventory();
-                view.displayView();
+        ItemsInInventory view = new ItemsInInventory();
+        view.displayView();
     }
 
     private void printProvisionsReport() {
-       ProvisionReportView view = new ProvisionReportView();
-                view.displayView();
+        ProvisionReportView view = new ProvisionReportView();
+        view.displayView();
     }
 
 }

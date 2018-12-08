@@ -9,22 +9,22 @@ package view;
  *
  * @author DIDIM
  */
-
 import Exceptions.GameControlException;
 import cityofaaron.CityOfAaron;
 import java.io.*;
 import model.InventoryItem;
 import control.GameControl;
 
-public class ItemsInInventory extends ViewBase{
-      public ItemsInInventory() {
+public class ItemsInInventory extends ViewBase {
+
+    public ItemsInInventory() {
     }
 
     @Override
     protected String getMessage() {
         return "Send the inventory items report to file.\n";
     }
-        
+
     @Override
     public String[] getInputs() {
 
@@ -35,7 +35,6 @@ public class ItemsInInventory extends ViewBase{
         return inputs;
     }
 
-    
     @Override
     public boolean doAction(String[] inputs) {
 
@@ -63,11 +62,11 @@ public class ItemsInInventory extends ViewBase{
             report.println();
 
             String formatString = "%-10s %-25s %10s";
-            report.println(String.format(formatString,  "Provision Name", "Quantity", "Condition"));
+            report.println(String.format(formatString, "Provision Name", "Quantity", "Condition"));
             report.println("_______________________________________________\n");
 
             for (InventoryItem item : tools) {
-                report.println(String.format(formatString, item.getname(), item.getquantity(), 
+                report.println(String.format(formatString, item.getname(), item.getquantity(),
                         item.getcondition()));
             }
             report.println("______________________________________\n\n");
