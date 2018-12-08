@@ -25,7 +25,7 @@ public class ReportsMenuView extends ViewBase {
     protected String getMessage() {
         return "Reports Menu\n"
                 + "-------------\n"
-                + "A - View the animals in the storehouse.\n"
+                + "A - Print the animals in the storehouse.\n"
                 + "T - View the tools in the storehouse.\n"
                 + "P - View the provisions in the storehouse. \n"
                 + "R - Print provision report\n"
@@ -78,52 +78,50 @@ public class ReportsMenuView extends ViewBase {
             case "G":
                 authorsView();
                 break;
-              case "Q":
-               return false;
+            case "Q":
+                return false;
         }
         return true;
     }
 
     private void animalsInStorehouse() {
-        System.out.println("animalsInStorehouse will be coming soon.");
+        AnimalReportView view = new AnimalReportView();
+        view.displayView();
     }
- 
-        private void toolsInStorehouse() {
+
+    private void toolsInStorehouse() {
         String list = GameControl.sumTools();
         System.out.println(list);
-          }
-    
+    }
 
     private void provisionsInStorehouse() {
-        System.out.println("--------------------------------------------\n" +
-                                    "-      Provisions in Storehouse                 -\n" +
-                                    "--------------------------------------------\n");
+        System.out.println("--------------------------------------------\n"
+                + "-      Provisions in Storehouse                 -\n"
+                + "--------------------------------------------\n");
         InventoryItem[] provisions = CityOfAaron.getCurrentGame().getTheStorehouse().getProvisions();
 
         if (provisions == null) {
-            
+
             System.out.println("You have no provisions in the storehouse.");
-             } 
-        else {
+        } else {
             String nameOfProvision;
             int numberOfProvisions = 0;
 
             for (int i = 0; i < provisions.length; i++) {
                 nameOfProvision = provisions[i].getname();
                 numberOfProvisions = provisions[i].getquantity();
-                System.out.println(nameOfProvision  + "-- " + numberOfProvisions);
+                System.out.println(nameOfProvision + "-- " + numberOfProvisions);
             }
-            
-             long total = 0;
-            for (int i=0; i<provisions.length ; i++) {
+
+            long total = 0;
+            for (int i = 0; i < provisions.length; i++) {
                 numberOfProvisions = provisions[i].getquantity();
-                total += numberOfProvisions ;
+                total += numberOfProvisions;
             }
             System.out.println("There are:  " + total + " provisions in the Storehouse.");
-             }
-          }       
-  
-   
+        }
+    }
+
     private void authorsView() {
         System.out.println("authorsView will be coming soon.");
     }

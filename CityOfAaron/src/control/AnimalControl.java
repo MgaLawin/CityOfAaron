@@ -35,7 +35,6 @@ public class AnimalControl {
                 animalName = animal.getname();
                 animalQuantity = animal.getquantity();
                 animalAge = animal.getAge();
-                System.out.println("You have " + animalQuantity + " " + animalName + "s that are " + animalAge + " years old in the storehouse.\n");
                 animalTotalQty += animalQuantity;
                 animalTotalAge = (animalQuantity * animalAge) + animalTotalAge;
             }
@@ -47,4 +46,30 @@ public class AnimalControl {
         return "-----------------------\n"
                 + animalsAgeAvg3 + "\n";
     }
+
+    public static String animalsInStorehouse() {
+        String animalReport = null;
+        Game game = CityOfAaron.getCurrentGame();
+        Storehouse storehouse = game.getTheStorehouse();
+        Animal[] animals = storehouse.getAnimals();
+        if (animals == null) {
+            animalReport = ("There are no animals in the Storehouse. Please add some.");
+        } else {
+            String animalName;
+            int animalQuantity;
+            int animalAge;
+
+            for (Animal animal : animals) {
+                animalName = animal.getname();
+                animalQuantity = animal.getquantity();
+                animalAge = animal.getAge();
+                animalReport = ("You have " + animalQuantity + " " + animalName + "s that are " + animalAge + " years old in the storehouse.\n");
+
+            }
+
+        }
+        return "-----------------------\n"
+                + animalReport + "\n";
+    }
+
 }
