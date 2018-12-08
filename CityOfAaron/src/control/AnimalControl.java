@@ -4,15 +4,12 @@ import Exceptions.AnimalControlException;
 import Exceptions.GameControlException;
 import cityofaaron.CityOfAaron;
 import model.Animal;
-import control.GameControl;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import model.Game;
 import model.Storehouse;
-import view.ErrorView;
-import java.io.InputStream;
 
 /**
  *

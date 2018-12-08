@@ -1,8 +1,6 @@
 package view;
 
 import cityofaaron.CityOfAaron;
-import model.Game;
-import view.View;
 
 /**
  *

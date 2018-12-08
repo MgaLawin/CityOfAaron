@@ -48,23 +48,15 @@ public class LoadGameView extends ViewBase {
         String fileName = inputs[0];
         Game game = null;
         try {
-            // add a call to the file load method
-            // TODO we realize this is not working properly and passing the success, but we ran out of time. 
-            //            if (true == GameControl.loadGameFromFile(game)) {
+
             GameControl.loadGameFromFile(fileName);
             console.println("Your file was loaded successfully! ");
             View gameMenu = new GameMenuView();
             gameMenu.displayView();
-        }
-    
-    catch (GameControlException ex
-
-    
-        ) {
+        } catch (GameControlException ex) {
             ErrorView.display("Game Control Exception:", ex.getMessage());
-    }
+        }
 
-
-return false;
+        return false;
     }
 }

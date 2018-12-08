@@ -1,19 +1,3 @@
-/*
- *
-Pseudocode:
-+ PeopleControl.calculateMortality(int bushelsForFood, int currentPopulation): int
-
-// Calculate the number of people who are not fed the amount required to
-// sustain life (20 bushels per person). They die. It is very sad. If 50% die, game over.
-
-if bushelsForFood < 0 then return -1
-if currentPopulation < 0 then return -1
-
-numberOfPeopleFed = bushelsForFood / 20
-
-if numberOfPeopleFed > currentPopulation then return 0 // everyone got fed
-otherwise return currentPopulation - numberOfPeopleFed
- */
 package control;
 
 import Exceptions.GameControlException;
