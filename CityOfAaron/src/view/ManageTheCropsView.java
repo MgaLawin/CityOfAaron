@@ -22,13 +22,13 @@ public class ManageTheCropsView extends ViewBase {
     protected String getMessage() {
 
         return "Manage the Crops\n"
-            + "--------------------------\n"
-            + "B - Buy Land\n"
-            + "S - Sell Land\n"
-            + "F - Feed the People\n"
-            + "P - Plant Crops\n"
-            + "T - Pay Tithes and Offerings\n"
-            + "Q - Return to the Game Menu\n";
+                + "--------------------------\n"
+                + "B - Buy Land\n"
+                + "S - Sell Land\n"
+                + "F - Feed the People\n"
+                + "P - Plant Crops\n"
+                + "T - Pay Tithes and Offerings\n"
+                + "Q - Return to the Game Menu\n";
     }
 
     @Override
@@ -71,7 +71,7 @@ public class ManageTheCropsView extends ViewBase {
                 payTithesAndOfferings();
                 break;
             case "Q":
-                System.out.println("Returning to Game Menu...");
+                this.console.println("Returning to Game Menu...");
                 return false;
         }
         return true;
@@ -102,4 +102,4 @@ public class ManageTheCropsView extends ViewBase {
         view.displayView();
     }
 
-   }
+}

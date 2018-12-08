@@ -52,7 +52,7 @@ public class PlantCropsView extends ViewBase {
     public boolean doAction(String[] inputs) {
 
         someActionHandler();
-        System.out.println("This will be coming soon. Sending you back to the Manage Crops Menu...");
+        this.console.println("This will be coming soon. Sending you back to the Manage Crops Menu...");
         //coming soon. This will be changed back to true
         return false;
     }
@@ -68,7 +68,7 @@ public class PlantCropsView extends ViewBase {
         // Generally, though, this is where you will call into your Control
         // classes to do the work of the application.
 
-        System.out.println("WheatControl will be will be used here soon.");
+        this.console.println("WheatControl will be will be used here soon.");
 
         return true;
     }

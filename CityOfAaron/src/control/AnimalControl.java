@@ -72,7 +72,6 @@ public class AnimalControl {
                 animalQuantity = animal.getquantity();
                 animalAge = animal.getAge();
                 animalReport = (animalReport + "\nYou have " + animalQuantity + " " + animalName + "s that are " + animalAge + " years old in the storehouse.\n");
-                return animalReport;
             }
             if (fileName == null || fileName.equals("")) {
                 throw new GameControlException("\nYou cannot have a blank filename.\n");

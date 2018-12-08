@@ -91,18 +91,18 @@ public class ReportsMenuView extends ViewBase {
 
     private void toolsInStorehouse() {
         String list = GameControl.sumTools();
-        System.out.println(list);
+        this.console.println(list);
     }
 
     private void provisionsInStorehouse() {
-        System.out.println("--------------------------------------------\n"
+        this.console.println("--------------------------------------------\n"
                 + "-      Provisions in Storehouse                 -\n"
                 + "--------------------------------------------\n");
         InventoryItem[] provisions = CityOfAaron.getCurrentGame().getTheStorehouse().getProvisions();
 
         if (provisions == null) {
 
-            System.out.println("You have no provisions in the storehouse.");
+            this.console.println("You have no provisions in the storehouse.");
         } else {
             String nameOfProvision;
             int numberOfProvisions = 0;
@@ -110,7 +110,7 @@ public class ReportsMenuView extends ViewBase {
             for (int i = 0; i < provisions.length; i++) {
                 nameOfProvision = provisions[i].getname();
                 numberOfProvisions = provisions[i].getquantity();
-                System.out.println(nameOfProvision + "-- " + numberOfProvisions);
+                this.console.println(nameOfProvision + "-- " + numberOfProvisions);
             }
 
             long total = 0;
@@ -118,12 +118,12 @@ public class ReportsMenuView extends ViewBase {
                 numberOfProvisions = provisions[i].getquantity();
                 total += numberOfProvisions;
             }
-            System.out.println("There are:  " + total + " provisions in the Storehouse.");
+            this.console.println("There are:  " + total + " provisions in the Storehouse.");
         }
     }
 
     private void authorsView() {
-        System.out.println("authorsView will be coming soon.");
+        this.console.println("authorsView will be coming soon.");
     }
 
 }
