@@ -283,4 +283,11 @@ public class GameControl {
 
         return report;
     }
+
+    public static void testInputs(String[] inputs) throws GameControlException {
+
+        if (inputs[0] == null || inputs[0].equals("")) {
+            throw new GameControlException("Inputs invalid. Please try again. Returning to the previous menu.");
+        }
+    }
 }

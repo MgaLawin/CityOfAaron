@@ -1,6 +1,13 @@
 package view;
 
+import Exceptions.GameControlException;
+import cityofaaron.CityOfAaron;
 import control.AnimalControl;
+import control.GameControl;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import model.Animal;
 
 /**
  *
@@ -45,31 +52,43 @@ public class AnimalReportView extends ViewBase {
 
     @Override
     public boolean doAction(String[] inputs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            GameControl.testInputs(inputs);
+            String fileName = inputs[0];
+            writeReport(fileName);
+            this.console.println("---------------------------------------------\n"
+                    + "This Animal Report is saved as: " + fileName + "\n"
+                    + "---------------------------------------------\n"
+                    + "Returning to Reports Menu\n\n");
+
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+            return false;
+        }
+        // to end the loop
+        return false;
     }
 
-    /**
-     * Perform the action indicated by the user's input.
-     *
-     * @param inputs
-     * @return true if the view should repeat itself, and false if the view
-     * should exit and return to the previous view.
-     */
-//    @Override
-//    public boolean doAction(String[] inputs) {
-//        //Display the report of the animals in the storehouse.
-//        String animalReport = AnimalControl.animalsInStorehouse();
-//        String fileName = inputs[0];
-//
-//        try {
-//            // add a call to the file save method
-//            if (true == AnimalControl.animalsInStorehouse(animalReport, fileName)) {
-//                console.println("Your report was saved successfully! ");
-//                return false;
-//            }
-//        } catch (AnimalControlException ex) {
-//            ErrorView.display("Animal Control Exception:", ex.getMessage());
-//        }
-//        return true;
-//  }
+    private void writeReport(String fileName) {
+        Animal[] animals = CityOfAaron.getCurrentGame().getTheStorehouse().getAnimals();
+
+        try (PrintWriter animalReport = new PrintWriter(new FileWriter(fileName))) {
+            animalReport.println("Animal Report");
+            animalReport.println();
+
+            String format = "%-20s %-10s %10s";
+            animalReport.println(String.format(format, "Quntity", "Type", "Age"));
+            animalReport.println("-----------------------------------");
+
+            for (int i = 0; i < animals.length; i++) {
+                animalReport.println(String.format(format, animals[i].getQuantity(), animals[i].getName(), animals[i].getAge()));
+            }
+            animalReport.println();
+            animalReport.println("End of Animla Report");
+
+            animalReport.flush();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
