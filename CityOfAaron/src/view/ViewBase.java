@@ -1,6 +1,5 @@
 package view;
 
-import java.util.Scanner;
 import java.io.BufferedReader;
 import cityofaaron.CityOfAaron;
 import java.io.PrintWriter;
