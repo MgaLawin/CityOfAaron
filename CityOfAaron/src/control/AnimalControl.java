@@ -1,10 +1,18 @@
 package control;
 
+import Exceptions.AnimalControlException;
+import Exceptions.GameControlException;
 import cityofaaron.CityOfAaron;
 import model.Animal;
 import control.GameControl;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import model.Game;
 import model.Storehouse;
+import view.ErrorView;
+import java.io.InputStream;
 
 /**
  *
@@ -47,13 +55,13 @@ public class AnimalControl {
                 + animalsAgeAvg3 + "\n";
     }
 
-    public static String animalsInStorehouse() {
-        String animalReport = null;
+    public static String animalsInStorehouse(String animalReport, String fileName) throws GameControlException, AnimalControlException, FileNotFoundException, IOException {
+        animalReport = null;
         Game game = CityOfAaron.getCurrentGame();
         Storehouse storehouse = game.getTheStorehouse();
         Animal[] animals = storehouse.getAnimals();
         if (animals == null) {
-            animalReport = ("There are no animals in the Storehouse. Please add some.");
+            throw new AnimalControlException("\nThere are no animals in the Storehouse. Please add some.\n");
         } else {
             String animalName;
             int animalQuantity;
@@ -63,13 +71,24 @@ public class AnimalControl {
                 animalName = animal.getname();
                 animalQuantity = animal.getquantity();
                 animalAge = animal.getAge();
-                animalReport = ("You have " + animalQuantity + " " + animalName + "s that are " + animalAge + " years old in the storehouse.\n");
+                animalReport = (animalReport + "\nYou have " + animalQuantity + " " + animalName + "s that are " + animalAge + " years old in the storehouse.\n");
+                return animalReport;
+            }
+            if (fileName == null || fileName.equals("")) {
+                throw new GameControlException("\nYou cannot have a blank filename.\n");
 
             }
+            try (ObjectOutputStream objectStream = new ObjectOutputStream(new FileOutputStream(fileName))) {
+                //open file write object
+                objectStream.writeObject(game);
 
+            } catch (IOException exception) {
+//                ErrorView.display("IO Exception:", exception.getMessage());
+                return animalReport;
+            }
+
+            return animalReport;
         }
-        return "-----------------------\n"
-                + animalReport + "\n";
     }
 
 }

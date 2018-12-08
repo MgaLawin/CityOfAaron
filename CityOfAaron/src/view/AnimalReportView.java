@@ -22,15 +22,11 @@ public class AnimalReportView extends ViewBase {
 
     @Override
     protected String getMessage() {
-
-        String animals2 = AnimalControl.animalsInStorehouse();
-
-        return "Animals in Storehouse\n"
-                + "-----------------------\n"
-                + "Here is a report listing of the animals...\n"
-                + "-----------------------\n"
-                + animals2;
-
+        return "Animal Report Menu\n"
+                + "-------------\n"
+                + "P - Print the animals in the storehouse.\n"
+                + "Q - Return to the previous menu.\n"
+                + "-------------\n";
     }
 
     /**
@@ -40,9 +36,16 @@ public class AnimalReportView extends ViewBase {
      */
     @Override
     public String[] getInputs() {
+        String[] inputs = new String[1];
 
-        // This view is not interactive. It just shows the average age of the animals.
-        return null;
+        inputs[0] = getUserInput("Please enter the file path and name of your file. Example 'C:\\temp\\filename.dat' \n");
+
+        return inputs;
+    }
+
+    @Override
+    public boolean doAction(String[] inputs) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -52,16 +55,21 @@ public class AnimalReportView extends ViewBase {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
-    @Override
-    public boolean doAction(String[] inputs) {
-        //Display the average age of the animals in the storehouse.
-
-        return false;
-    }
-
-    private void AnimalReportView() {
-        pause(1500);
-        AnimalReportView view = new AnimalReportView();
-        view.displayView();
-    }
+//    @Override
+//    public boolean doAction(String[] inputs) {
+//        //Display the report of the animals in the storehouse.
+//        String animalReport = AnimalControl.animalsInStorehouse();
+//        String fileName = inputs[0];
+//
+//        try {
+//            // add a call to the file save method
+//            if (true == AnimalControl.animalsInStorehouse(animalReport, fileName)) {
+//                console.println("Your report was saved successfully! ");
+//                return false;
+//            }
+//        } catch (AnimalControlException ex) {
+//            ErrorView.display("Animal Control Exception:", ex.getMessage());
+//        }
+//        return true;
+//  }
 }
