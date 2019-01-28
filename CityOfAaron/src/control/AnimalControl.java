@@ -13,7 +13,7 @@ import model.Storehouse;
 
 /**
  *
- * @author Jeremy
+ * @author Jeremy Hawks
  */
 public class AnimalControl {
 
