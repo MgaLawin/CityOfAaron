@@ -11,7 +11,7 @@ import model.Animal;
 
 /**
  *
- * @author Jeremy
+ * @author Jeremy Hawks
  */
 public class AnimalReportView extends ViewBase {
 

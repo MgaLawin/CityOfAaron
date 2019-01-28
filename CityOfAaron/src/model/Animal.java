@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Deon
+ * @author Jeremy Hawks
  */
 public class Animal extends InventoryItem {
 
